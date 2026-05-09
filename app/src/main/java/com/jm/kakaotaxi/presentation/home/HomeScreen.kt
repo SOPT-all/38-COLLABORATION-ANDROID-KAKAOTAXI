@@ -4,7 +4,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
-import com.jm.kakaotaxi.presentation.main.Greeting
 
 @Composable
 fun HomeRoute(
@@ -16,7 +15,7 @@ fun HomeRoute(
 }
 
 @Composable
-fun HomeScreen(
+private fun HomeScreen(
     modifier: Modifier = Modifier
 ) {
 
@@ -25,7 +24,7 @@ fun HomeScreen(
 
 @Preview(showBackground = true)
 @Composable
-fun HomeScreenPreview() {
+private fun HomeScreenPreview() {
     KakaotaxiTheme {
         HomeScreen()
     }

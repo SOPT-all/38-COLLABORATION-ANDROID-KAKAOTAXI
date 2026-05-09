@@ -4,7 +4,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
-import com.jm.kakaotaxi.presentation.home.HomeScreen
 
 @Composable
 fun SearchRoute(
@@ -16,7 +15,7 @@ fun SearchRoute(
 }
 
 @Composable
-fun SearchScreen(
+private fun SearchScreen(
     modifier: Modifier = Modifier
 ) {
 
@@ -25,7 +24,7 @@ fun SearchScreen(
 
 @Preview(showBackground = true)
 @Composable
-fun SearchScreenPreview() {
+private fun SearchScreenPreview() {
     KakaotaxiTheme {
         SearchScreen()
     }
