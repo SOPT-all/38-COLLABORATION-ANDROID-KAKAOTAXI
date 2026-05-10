@@ -7,21 +7,21 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.tooling.preview.Preview
 
-private val LightColorScheme = lightColorScheme(
-    primary = PrimaryColor.blue_600
-)
+//private val LightColorScheme = lightColorScheme(
+//    primary = PrimaryColor.blue_600
+//)
 
-
-@Composable
-fun KakaotaxiTheme(
-    content: @Composable () -> Unit
-) {
-    CompositionLocalProvider(
-        LocalKaKaoTypography provides Typography
-    ) {
-        MaterialTheme(
-            colorScheme = LightColorScheme,
-            content = content
-        )
-    }
-}
+//
+//@Composable
+//fun KakaotaxiTheme(
+//    content: @Composable () -> Unit
+//) {
+//    CompositionLocalProvider(
+//        LocalKaKaoTypography provides Typography
+//    ) {
+//        MaterialTheme(
+//            colorScheme = LightColorScheme,
+//            content = content
+//        )
+//    }
+//}
