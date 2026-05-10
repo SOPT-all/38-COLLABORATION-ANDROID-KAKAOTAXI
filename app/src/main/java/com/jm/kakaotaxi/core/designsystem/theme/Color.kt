@@ -1,9 +1,15 @@
 package com.jm.kakaotaxi.core.designsystem.theme
 
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
@@ -11,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 
 @Immutable
@@ -48,4 +55,90 @@ object StaticColor {
     val Black = Color(0xFF000000)
 }
 
+@Preview(showBackground = true)
+@Composable
+fun ColorPreview() {
+    val greyColors = listOf(
+        "grey_900" to GreyColor.grey_900,
+        "grey_800" to GreyColor.grey_800,
+        "grey_700" to GreyColor.grey_700,
+        "grey_600" to GreyColor.grey_600,
+        "grey_500" to GreyColor.grey_500,
+        "grey_400" to GreyColor.grey_400,
+        "grey_300" to GreyColor.grey_300,
+        "grey_200" to GreyColor.grey_200,
+        "grey_150" to GreyColor.grey_150,
+        "grey_100" to GreyColor.grey_100,
+        "grey_50" to GreyColor.grey_50
+    )
 
+    val subColors = listOf(
+        "sub_red_500" to SubColor.sub_red_500,
+        "sub_red_700" to SubColor.sub_red_700,
+        "sub_yellow_500" to SubColor.sub_yellow_500,
+        "sub_yellow_700" to SubColor.sub_yellow_700
+    )
+
+    val staticColors = listOf(
+        "White" to StaticColor.White,
+        "Black" to StaticColor.Black
+    )
+
+    Row {
+        Column {
+            Text(text = "GreyColor", fontSize = 10.sp)
+            greyColors.forEach { (name, color) ->
+                Box(
+                    modifier = Modifier
+                        .height(15.dp)
+                        .width(60.dp)
+                        .background(color)
+                ) {
+                    Text(text = name, fontSize = 7.sp)
+                }
+            }
+        }
+
+        Column {
+            Text(text = "PrimaryColor", fontSize = 10.sp)
+            Box(
+                modifier = Modifier
+                    .height(15.dp)
+                    .width(60.dp)
+                    .background(PrimaryColor.blue_600)
+            ) {
+                Text(text = "blue_600", fontSize = 7.sp)
+            }
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            Text(text = "SubColor", fontSize = 10.sp)
+            subColors.forEach { (name, color) ->
+                Box(
+                    modifier = Modifier
+                        .height(15.dp)
+                        .width(60.dp)
+                        .background(color)
+                ) {
+                    Text(text = name, fontSize = 7.sp)
+                }
+            }
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            Text(text = "StaticColor", fontSize = 10.sp)
+            staticColors.forEach { (name, color) ->
+                Box(
+                    modifier = Modifier
+                        .height(15.dp)
+                        .width(60.dp)
+                        .background(color)
+                ) {
+                    Text(text = name, fontSize = 7.sp, color = GreyColor.grey_400)
+                }
+            }
+
+        }
+    }
+
+}
