@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.sp
 
 @Immutable
 object PrimaryColor {
-    val blue_600 = Color(0xFF0962E8)
+    val blue_600 = Color(0xFF096AE8)
 }
 
 @Immutable
