@@ -1,4 +1,4 @@
-package com.jm.kakaotaxi.ui.theme
+package com.jm.kakaotaxi.core.designsystem.theme
 
 import androidx.compose.ui.graphics.Color
 
