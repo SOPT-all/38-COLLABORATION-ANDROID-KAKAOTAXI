@@ -55,6 +55,7 @@ dependencies {
 
     // Network
     implementation(libs.bundles.network)
+    implementation(libs.androidx.ui)
 
     // Debug
     debugImplementation(libs.bundles.debug)
