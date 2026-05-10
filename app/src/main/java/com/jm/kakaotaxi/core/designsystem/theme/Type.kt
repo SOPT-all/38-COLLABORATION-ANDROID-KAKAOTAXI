@@ -169,7 +169,7 @@ val defaultKakaoTypography = KakaoTypography(
 
 
 
-val LocalKaKaoTypography = staticCompositionLocalOf { defaultKakaoTypography }
+val localKakaoTypography = staticCompositionLocalOf { defaultKakaoTypography }
 
 
 //@Preview(showBackground = true)
