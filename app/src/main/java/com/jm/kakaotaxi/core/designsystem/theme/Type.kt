@@ -4,7 +4,7 @@ package com.jm.kakaotaxi.core.designsystem.theme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
-import androidx.compose.material3.MaterialTheme.typography
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
@@ -172,31 +172,39 @@ val defaultKakaoTypography = KakaoTypography(
 val localKakaoTypography = staticCompositionLocalOf { defaultKakaoTypography }
 
 
-//@Preview(showBackground = true)
-//@Composable
-//fun KakaoTypographyPreview() {
-//    KakaotaxiTheme {
-//        Column {
-//            Text("TITLE")
-//            Text("Kakao_eb_22", style = typography.Title.Kakao_eb_22)
-//            Text("Kakao_eb_20", style = Typography.title.Kakao_eb_20)
-//            Text("Kakao_b_20", style = Typography.title.Kakao_b_20)
-//            Text("Kakao_eb_18", style = Typography.title.Kakao_eb_18)
-//            Text("Kakao_b_18", style = Typography.title.Kakao_b_18)
-//
-//            Spacer(modifier = Modifier.height(10.dp))
-//
-//            Text("BODY")
-//            Text("Kakao_eb_16", style = Typography.body.kakao_eb_16)
-//            Text("Kakao_b_16", style = Typography.body.kakao_b_16)
-//            Text("Kakao_eb_14", style = Typography.body.kakao_eb_14)
-//            Text("Kakao_b_14", style = Typography.body.kakao_b_14)
-//
-//            Spacer(modifier = Modifier.height(10.dp))
-//
-//            Text("LABEL")
-//            Text("kakao_eb_12", style = Typography.label.Kakao_eb_12)
-//            Text("kakao_b_12", style = Typography.label.Kakao_b_12)
-//        }
-//    }
-//}
+// Typography 프리뷰
+@Preview(showBackground = true)
+@Composable
+fun TypographyPreview() {
+    KakaotaxiTheme {
+        Column(modifier = Modifier.padding(8.dp)) {
+            Text("TITLE", style = KakaoTheme.typography.title.kakaoEb22)
+            Text("kakaoEb22", style = KakaoTheme.typography.title.kakaoEb22)
+            Text("kakaoEb20", style = KakaoTheme.typography.title.kakaoEb20)
+            Text("kakaoB20", style = KakaoTheme.typography.title.kakaoB20)
+            Text("kakaoEb18", style = KakaoTheme.typography.title.kakaoEb18)
+            Text("kakaoB18", style = KakaoTheme.typography.title.kakaoB18)
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            Text("BODY", style = KakaoTheme.typography.title.kakaoEb22)
+            Text("kakaoEb16", style = KakaoTheme.typography.body.kakaoEb16)
+            Text("kakaoB16", style = KakaoTheme.typography.body.kakaoB16)
+            Text("kakaoEb14", style = KakaoTheme.typography.body.kakaoEb14)
+            Text("kakaoB14", style = KakaoTheme.typography.body.kakaoB14)
+            Text("kakaoR14", style = KakaoTheme.typography.body.kakaoR14)
+            Text("kakaoR13", style = KakaoTheme.typography.body.kakaoR13)
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            Text("LABEL", style = KakaoTheme.typography.title.kakaoEb22)
+            Text("kakaoEb12", style = KakaoTheme.typography.label.kakaoEb12)
+            Text("kakaoB12", style = KakaoTheme.typography.label.kakaoB12)
+            Text("kakaoR12", style = KakaoTheme.typography.label.kakaoR12)
+            Text("kakaoR11", style = KakaoTheme.typography.label.kakaoR11)
+            Text("kakaoB10", style = KakaoTheme.typography.label.kakaoB10)
+            Text("kakaoR10", style = KakaoTheme.typography.label.kakaoR10)
+            Text("kakaoR8", style = KakaoTheme.typography.label.kakaoR8)
+        }
+    }
+}

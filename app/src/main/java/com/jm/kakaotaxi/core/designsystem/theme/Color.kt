@@ -92,23 +92,46 @@ val defaultKakaoColors = KakaoColors(
 
 val localKakaoColors = staticCompositionLocalOf { defaultKakaoColors }
 
-//@Preview
-//@Composable
-//fun ColorPreview() {
-//    Column(modifier = Modifier.padding(8.dp)) {
-//        KakaoColors.all
-//            .chunked(6)
-//            .forEach { rowColors ->
-//            Row(modifier = Modifier.padding(vertical = 4.dp)) {
-//                rowColors.forEach { color ->
-//                    Box(
-//                        modifier = Modifier
-//                            .size(24.dp)
-//                            .padding(end = 8.dp)
-//                            .background(color)
-//                    )
-//                }
-//            }
-//        }
-//    }
-//}
+@Preview(showBackground = true)
+@Composable
+private fun KakaoColorsPreview() {
+    KakaotaxiTheme {
+        Column {
+            listOf(
+                // Static Color
+                KakaoTheme.colors.white,
+                KakaoTheme.colors.black,
+                // Primary Color
+                KakaoTheme.colors.blue600,
+                // Grey Color
+                KakaoTheme.colors.grey900,
+                KakaoTheme.colors.grey800,
+                KakaoTheme.colors.grey700,
+                KakaoTheme.colors.grey600,
+                KakaoTheme.colors.grey500,
+                KakaoTheme.colors.grey400,
+                KakaoTheme.colors.grey300,
+                KakaoTheme.colors.grey200,
+                KakaoTheme.colors.grey150,
+                KakaoTheme.colors.grey100,
+                KakaoTheme.colors.grey50,
+                // Sub Color
+                KakaoTheme.colors.subRed500,
+                KakaoTheme.colors.subRed700,
+                KakaoTheme.colors.subYellow500,
+                KakaoTheme.colors.subYellow700,
+            ).chunked(6).forEach { rowColors ->
+                Row(modifier = Modifier.padding(vertical = 4.dp)) {
+                    rowColors.forEach { c ->
+                        Box(
+                            modifier = Modifier
+                                .size(24.dp)
+                                .background(c)
+                                .padding(end = 8.dp),
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
