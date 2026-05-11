@@ -66,7 +66,7 @@ data class KakaoTypography(
 )
 
 
-private fun KakaoTextStyle(
+private fun kakaoTextStyle(
     fontFamily: FontFamily,
     fontSize: TextUnit,
     lineHeight: TextUnit = 1.5.em,
@@ -82,23 +82,23 @@ val defaultKakaoTypography = KakaoTypography(
 
     // title 폰트
     title = TypographyTokens.Title(
-        kakaoEb22 = KakaoTextStyle(
+        kakaoEb22 = kakaoTextStyle(
             fontFamily = KakaoSansFont.extrabold,
             fontSize = 22.sp
         ),
-        kakaoEb20 = KakaoTextStyle(
+        kakaoEb20 = kakaoTextStyle(
             fontFamily = KakaoSansFont.extrabold,
             fontSize = 20.sp
         ),
-        kakaoB20 = KakaoTextStyle(
+        kakaoB20 = kakaoTextStyle(
             fontFamily = KakaoSansFont.bold,
             fontSize = 20.sp
         ),
-        kakaoEb18 = KakaoTextStyle(
+        kakaoEb18 = kakaoTextStyle(
             fontFamily = KakaoSansFont.extrabold,
             fontSize = 18.sp
         ),
-        kakaoB18 = KakaoTextStyle(
+        kakaoB18 = kakaoTextStyle(
             fontFamily = KakaoSansFont.bold,
             fontSize = 18.sp
         )
@@ -106,27 +106,27 @@ val defaultKakaoTypography = KakaoTypography(
 
     // body 폰트
     body = TypographyTokens.Body(
-        kakaoEb16 = KakaoTextStyle(
+        kakaoEb16 = kakaoTextStyle(
             fontFamily = KakaoSansFont.extrabold,
             fontSize = 16.sp
         ),
-        kakaoB16 = KakaoTextStyle(
+        kakaoB16 = kakaoTextStyle(
             fontFamily = KakaoSansFont.bold,
             fontSize = 16.sp
         ),
-        kakaoEb14 = KakaoTextStyle(
+        kakaoEb14 = kakaoTextStyle(
             fontFamily = KakaoSansFont.extrabold,
             fontSize = 14.sp
         ),
-        kakaoB14 = KakaoTextStyle(
+        kakaoB14 = kakaoTextStyle(
             fontFamily = KakaoSansFont.bold,
             fontSize = 14.sp
         ),
-        kakaoR14 = KakaoTextStyle(
+        kakaoR14 = kakaoTextStyle(
             fontFamily = KakaoSansFont.regular,
             fontSize = 14.sp
         ),
-        kakaoR13 = KakaoTextStyle(
+        kakaoR13 = kakaoTextStyle(
             fontFamily = KakaoSansFont.regular,
             fontSize = 13.sp
         )
@@ -134,31 +134,31 @@ val defaultKakaoTypography = KakaoTypography(
 
     // label 폰트
     label = TypographyTokens.Label(
-        kakaoEb12 = KakaoTextStyle(
+        kakaoEb12 = kakaoTextStyle(
             fontFamily = KakaoSansFont.extrabold,
             fontSize = 12.sp
         ),
-        kakaoB12 = KakaoTextStyle(
+        kakaoB12 = kakaoTextStyle(
             fontFamily = KakaoSansFont.bold,
             fontSize = 12.sp
         ),
-        kakaoR12 = KakaoTextStyle(
+        kakaoR12 = kakaoTextStyle(
             fontFamily = KakaoSansFont.regular,
             fontSize = 12.sp
         ),
-        kakaoR11 = KakaoTextStyle(
+        kakaoR11 = kakaoTextStyle(
             fontFamily = KakaoSansFont.regular,
             fontSize = 11.sp
         ),
-        kakaoB10 = KakaoTextStyle(
+        kakaoB10 = kakaoTextStyle(
             fontFamily = KakaoSansFont.bold,
             fontSize = 10.sp
         ),
-        kakaoR10 = KakaoTextStyle(
+        kakaoR10 = kakaoTextStyle(
             fontFamily = KakaoSansFont.regular,
             fontSize = 10.sp
         ),
-        kakaoR8 = KakaoTextStyle(
+        kakaoR8 = kakaoTextStyle(
             fontFamily = KakaoSansFont.regular,
             fontSize = 8.sp
         )
