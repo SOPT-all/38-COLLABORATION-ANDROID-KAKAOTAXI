@@ -176,33 +176,33 @@ val LocalKakaoTypography = staticCompositionLocalOf { defaultKakaoTypography }
 fun TypographyPreview() {
     KakaotaxiTheme {
         Column(modifier = Modifier.padding(8.dp)) {
-            Text("TITLE", style = KakaoTheme.typography.title.kakaoEb22)
-            Text("kakaoEb22", style = KakaoTheme.typography.title.kakaoEb22)
-            Text("kakaoEb20", style = KakaoTheme.typography.title.kakaoEb20)
-            Text("kakaoB20", style = KakaoTheme.typography.title.kakaoB20)
-            Text("kakaoEb18", style = KakaoTheme.typography.title.kakaoEb18)
-            Text("kakaoB18", style = KakaoTheme.typography.title.kakaoB18)
+            Text("TITLE", style = KakaotaxiTheme.typography.title.kakaoEb22)
+            Text("kakaoEb22", style = KakaotaxiTheme.typography.title.kakaoEb22)
+            Text("kakaoEb20", style = KakaotaxiTheme.typography.title.kakaoEb20)
+            Text("kakaoB20", style = KakaotaxiTheme.typography.title.kakaoB20)
+            Text("kakaoEb18", style = KakaotaxiTheme.typography.title.kakaoEb18)
+            Text("kakaoB18", style = KakaotaxiTheme.typography.title.kakaoB18)
 
             Spacer(modifier = Modifier.height(8.dp))
 
-            Text("BODY", style = KakaoTheme.typography.title.kakaoEb22)
-            Text("kakaoEb16", style = KakaoTheme.typography.body.kakaoEb16)
-            Text("kakaoB16", style = KakaoTheme.typography.body.kakaoB16)
-            Text("kakaoEb14", style = KakaoTheme.typography.body.kakaoEb14)
-            Text("kakaoB14", style = KakaoTheme.typography.body.kakaoB14)
-            Text("kakaoR14", style = KakaoTheme.typography.body.kakaoR14)
-            Text("kakaoR13", style = KakaoTheme.typography.body.kakaoR13)
+            Text("BODY", style = KakaotaxiTheme.typography.title.kakaoEb22)
+            Text("kakaoEb16", style = KakaotaxiTheme.typography.body.kakaoEb16)
+            Text("kakaoB16", style = KakaotaxiTheme.typography.body.kakaoB16)
+            Text("kakaoEb14", style = KakaotaxiTheme.typography.body.kakaoEb14)
+            Text("kakaoB14", style = KakaotaxiTheme.typography.body.kakaoB14)
+            Text("kakaoR14", style = KakaotaxiTheme.typography.body.kakaoR14)
+            Text("kakaoR13", style = KakaotaxiTheme.typography.body.kakaoR13)
 
             Spacer(modifier = Modifier.height(8.dp))
 
-            Text("LABEL", style = KakaoTheme.typography.title.kakaoEb22)
-            Text("kakaoEb12", style = KakaoTheme.typography.label.kakaoEb12)
-            Text("kakaoB12", style = KakaoTheme.typography.label.kakaoB12)
-            Text("kakaoR12", style = KakaoTheme.typography.label.kakaoR12)
-            Text("kakaoR11", style = KakaoTheme.typography.label.kakaoR11)
-            Text("kakaoB10", style = KakaoTheme.typography.label.kakaoB10)
-            Text("kakaoR10", style = KakaoTheme.typography.label.kakaoR10)
-            Text("kakaoR8", style = KakaoTheme.typography.label.kakaoR8)
+            Text("LABEL", style = KakaotaxiTheme.typography.title.kakaoEb22)
+            Text("kakaoEb12", style = KakaotaxiTheme.typography.label.kakaoEb12)
+            Text("kakaoB12", style = KakaotaxiTheme.typography.label.kakaoB12)
+            Text("kakaoR12", style = KakaotaxiTheme.typography.label.kakaoR12)
+            Text("kakaoR11", style = KakaotaxiTheme.typography.label.kakaoR11)
+            Text("kakaoB10", style = KakaotaxiTheme.typography.label.kakaoB10)
+            Text("kakaoR10", style = KakaotaxiTheme.typography.label.kakaoR10)
+            Text("kakaoR8", style = KakaotaxiTheme.typography.label.kakaoR8)
         }
     }
 }

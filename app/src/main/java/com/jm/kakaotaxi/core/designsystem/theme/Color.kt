@@ -93,27 +93,27 @@ private fun KakaoColorsPreview() {
         Column {
             listOf(
                 // Static Color
-                KakaoTheme.colors.white,
-                KakaoTheme.colors.black,
+                KakaotaxiTheme.colors.white,
+                KakaotaxiTheme.colors.black,
                 // Primary Color
-                KakaoTheme.colors.blue600,
+                KakaotaxiTheme.colors.blue600,
                 // Grey Color
-                KakaoTheme.colors.grey900,
-                KakaoTheme.colors.grey800,
-                KakaoTheme.colors.grey700,
-                KakaoTheme.colors.grey600,
-                KakaoTheme.colors.grey500,
-                KakaoTheme.colors.grey400,
-                KakaoTheme.colors.grey300,
-                KakaoTheme.colors.grey200,
-                KakaoTheme.colors.grey150,
-                KakaoTheme.colors.grey100,
-                KakaoTheme.colors.grey50,
+                KakaotaxiTheme.colors.grey900,
+                KakaotaxiTheme.colors.grey800,
+                KakaotaxiTheme.colors.grey700,
+                KakaotaxiTheme.colors.grey600,
+                KakaotaxiTheme.colors.grey500,
+                KakaotaxiTheme.colors.grey400,
+                KakaotaxiTheme.colors.grey300,
+                KakaotaxiTheme.colors.grey200,
+                KakaotaxiTheme.colors.grey150,
+                KakaotaxiTheme.colors.grey100,
+                KakaotaxiTheme.colors.grey50,
                 // Sub Color
-                KakaoTheme.colors.subRed500,
-                KakaoTheme.colors.subRed700,
-                KakaoTheme.colors.subYellow500,
-                KakaoTheme.colors.subYellow700,
+                KakaotaxiTheme.colors.subRed500,
+                KakaotaxiTheme.colors.subRed700,
+                KakaotaxiTheme.colors.subYellow500,
+                KakaotaxiTheme.colors.subYellow700,
             ).chunked(6).forEach { rowColors ->
                 Row(modifier = Modifier.padding(vertical = 4.dp)) {
                     rowColors.forEach { c ->

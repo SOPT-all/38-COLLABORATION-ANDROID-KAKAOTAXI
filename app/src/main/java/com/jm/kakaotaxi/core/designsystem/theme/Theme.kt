@@ -6,7 +6,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
 
 
-object KakaoTheme {
+object KakaotaxiTheme {
     val colors: KakaoColors
         @Composable
         @ReadOnlyComposable
