@@ -5,6 +5,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -34,7 +35,7 @@ fun SearchRecentItem(
 ){
     Column(
         modifier = modifier
-            //.aspectRatio(152f/102f)
+            .aspectRatio(152f/102f)
             .clip(RoundedCornerShape(10.dp))
             .background(color = KakaotaxiTheme.colors.white)
             .border(
