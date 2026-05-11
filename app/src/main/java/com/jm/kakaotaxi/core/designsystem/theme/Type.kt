@@ -13,7 +13,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
@@ -168,7 +167,7 @@ val defaultKakaoTypography = KakaoTypography(
 
 
 
-val localKakaoTypography = staticCompositionLocalOf { defaultKakaoTypography }
+val LocalKakaoTypography = staticCompositionLocalOf { defaultKakaoTypography }
 
 
 // Typography 프리뷰
