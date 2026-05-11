@@ -2,6 +2,9 @@ package com.jm.kakaotaxi.core.designsystem.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -24,7 +27,8 @@ fun KakaotaxiBottomSheet(
     modifier: Modifier = Modifier,
     bottomSheetState: SheetState = rememberModalBottomSheetState(
         skipPartiallyExpanded = true,
-    )
+    ),
+    content: @Composable ColumnScope.() -> Unit,
 ) {
     ModalBottomSheet(
         onDismissRequest = onDismissRequest,
@@ -38,7 +42,8 @@ fun KakaotaxiBottomSheet(
         containerColor = colors.white,
         scrimColor = colors.subGray2,
         dragHandle = { CustomDragHandle() },
-    ) {}
+        content = content
+    )
 }
 
 @Composable
@@ -64,6 +69,8 @@ private fun KakaoTaxiBottomSheetPreview() {
     KakaotaxiTheme {
         KakaotaxiBottomSheet(
             onDismissRequest = {},
-        )
+        ) {
+            Spacer(modifier = Modifier.height(300.dp))
+        }
     }
 }
