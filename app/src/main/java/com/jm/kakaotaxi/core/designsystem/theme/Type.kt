@@ -22,8 +22,8 @@ import com.jm.kakaotaxi.R
 
 object KakaoSansFont {
     val extrabold = FontFamily(Font(R.font.kakaobigsans_extrabold))
-    val bold = FontFamily(Font(R.font.kakaobigsans_bold))
-    val regular = FontFamily(Font(R.font.kakaobigsans_regular))
+    val bold = FontFamily(Font(R.font.kakaosmallsans_bold))
+    val regular = FontFamily(Font(R.font.kakaosmallsans_regular))
 }
 
 sealed interface TypographyTokens {
