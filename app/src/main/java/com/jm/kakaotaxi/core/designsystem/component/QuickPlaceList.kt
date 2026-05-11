@@ -22,12 +22,12 @@ import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 
 @Composable
 fun QuickPlaceList(
-    modifier: Modifier = Modifier,
-    places: List<String>
+    places: List<String>,
+    modifier: Modifier = Modifier
 ) {
     Column(
-        modifier = modifier.padding(10.dp)
-    ) {
+        modifier = modifier
+    ){
         Row(
             modifier = Modifier
                 .padding(horizontal = 10.dp, vertical = 12.dp),

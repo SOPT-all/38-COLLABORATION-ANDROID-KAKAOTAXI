@@ -17,9 +17,9 @@ import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 
 @Composable
 fun QuickItems(
-    modifier: Modifier = Modifier,
     place: String,
     icon: Int,
+    modifier: Modifier = Modifier,
     color: Color = KakaotaxiTheme.colors.textSecondary
 ) {
     Row(
@@ -40,6 +40,5 @@ fun QuickItems(
             color = color,
             style = KakaotaxiTheme.typography.body.kakaoB16
         )
-
     }
 }
