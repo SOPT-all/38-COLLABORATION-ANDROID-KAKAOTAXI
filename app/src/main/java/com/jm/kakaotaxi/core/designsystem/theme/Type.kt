@@ -21,11 +21,11 @@ import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import com.jm.kakaotaxi.R
 
-private val kakaoSansFontFamily = FontFamily(
-    Font(R.font.kakaobigsans_extrabold, weight = FontWeight.ExtraBold),
-    Font(R.font.kakaobigsans_bold, weight = FontWeight.Bold),
-    Font(R.font.kakaobigsans_regular, weight = FontWeight.Normal)
-)
+object KakaoSansFont {
+    val extrabold = FontFamily(Font(R.font.kakaobigsans_extrabold))
+    val bold = FontFamily(Font(R.font.kakaobigsans_bold))
+    val regular = FontFamily(Font(R.font.kakaobigsans_regular))
+}
 
 sealed interface TypographyTokens {
     @Immutable
@@ -59,6 +59,7 @@ sealed interface TypographyTokens {
     ) : TypographyTokens
 }
 
+@Immutable
 data class KakaoTypography(
     val title: TypographyTokens.Title,
     val body: TypographyTokens.Body,
@@ -67,14 +68,12 @@ data class KakaoTypography(
 
 
 private fun KakaoTextStyle(
-    fontFamily: FontFamily = kakaoSansFontFamily,
-    fontWeight : FontWeight,
+    fontFamily: FontFamily,
     fontSize: TextUnit,
     lineHeight: TextUnit = 1.5.em,
     letterSpacing: TextUnit = (-0.005).em,
 ): TextStyle = TextStyle(
     fontFamily = fontFamily,
-    fontWeight = fontWeight,
     fontSize = fontSize,
     lineHeight = lineHeight,
     letterSpacing = letterSpacing
@@ -85,23 +84,23 @@ val defaultKakaoTypography = KakaoTypography(
     // title 폰트
     title = TypographyTokens.Title(
         kakaoEb22 = KakaoTextStyle(
-            fontWeight = FontWeight.ExtraBold,
+            fontFamily = KakaoSansFont.extrabold,
             fontSize = 22.sp
         ),
         kakaoEb20 = KakaoTextStyle(
-            fontWeight = FontWeight.ExtraBold,
+            fontFamily = KakaoSansFont.extrabold,
             fontSize = 20.sp
         ),
         kakaoB20 = KakaoTextStyle(
-            fontWeight = FontWeight.Bold,
+            fontFamily = KakaoSansFont.bold,
             fontSize = 20.sp
         ),
         kakaoEb18 = KakaoTextStyle(
-            fontWeight = FontWeight.ExtraBold,
+            fontFamily = KakaoSansFont.extrabold,
             fontSize = 18.sp
         ),
         kakaoB18 = KakaoTextStyle(
-            fontWeight = FontWeight.Bold,
+            fontFamily = KakaoSansFont.bold,
             fontSize = 18.sp
         )
     ),
@@ -109,27 +108,27 @@ val defaultKakaoTypography = KakaoTypography(
     // body 폰트
     body = TypographyTokens.Body(
         kakaoEb16 = KakaoTextStyle(
-            fontWeight = FontWeight.ExtraBold,
+            fontFamily = KakaoSansFont.extrabold,
             fontSize = 16.sp
         ),
         kakaoB16 = KakaoTextStyle(
-            fontWeight = FontWeight.Bold,
+            fontFamily = KakaoSansFont.bold,
             fontSize = 16.sp
         ),
         kakaoEb14 = KakaoTextStyle(
-            fontWeight = FontWeight.ExtraBold,
+            fontFamily = KakaoSansFont.extrabold,
             fontSize = 14.sp
         ),
         kakaoB14 = KakaoTextStyle(
-            fontWeight = FontWeight.Bold,
+            fontFamily = KakaoSansFont.bold,
             fontSize = 14.sp
         ),
         kakaoR14 = KakaoTextStyle(
-            fontWeight = FontWeight.Normal,
+            fontFamily = KakaoSansFont.regular,
             fontSize = 14.sp
         ),
         kakaoR13 = KakaoTextStyle(
-            fontWeight = FontWeight.Normal,
+            fontFamily = KakaoSansFont.regular,
             fontSize = 13.sp
         )
     ),
@@ -137,31 +136,31 @@ val defaultKakaoTypography = KakaoTypography(
     // label 폰트
     label = TypographyTokens.Label(
         kakaoEb12 = KakaoTextStyle(
-            fontWeight = FontWeight.ExtraBold,
+            fontFamily = KakaoSansFont.extrabold,
             fontSize = 12.sp
         ),
         kakaoB12 = KakaoTextStyle(
-            fontWeight = FontWeight.Bold,
+            fontFamily = KakaoSansFont.bold,
             fontSize = 12.sp
         ),
         kakaoR12 = KakaoTextStyle(
-            fontWeight = FontWeight.Normal,
+            fontFamily = KakaoSansFont.regular,
             fontSize = 12.sp
         ),
         kakaoR11 = KakaoTextStyle(
-            fontWeight = FontWeight.Normal,
+            fontFamily = KakaoSansFont.regular,
             fontSize = 11.sp
         ),
         kakaoB10 = KakaoTextStyle(
-            fontWeight = FontWeight.Bold,
+            fontFamily = KakaoSansFont.bold,
             fontSize = 10.sp
         ),
         kakaoR10 = KakaoTextStyle(
-            fontWeight = FontWeight.Normal,
+            fontFamily = KakaoSansFont.regular,
             fontSize = 10.sp
         ),
         kakaoR8 = KakaoTextStyle(
-            fontWeight = FontWeight.Normal,
+            fontFamily = KakaoSansFont.regular,
             fontSize = 8.sp
         )
     )
