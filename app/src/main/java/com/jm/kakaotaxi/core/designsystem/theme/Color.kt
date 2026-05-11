@@ -19,32 +19,20 @@ import androidx.compose.ui.unit.dp
 
 @Immutable
 data class KakaoColors (
-    // Main Color
+    // Primary Color
+    val primaryBlue: Color,
+
+    // Gray Color
     val textPrimary: Color,
     val textSecondary: Color,
-    val bluePrimary: Color,
-
-    // Primary Color
-    val blue600: Color,
-
-    // Grey Color
-    val grey900: Color,
-    val grey800: Color,
-    val grey700: Color,
-    val grey600: Color,
-    val grey500: Color,
-    val grey400: Color,
-    val grey300: Color,
-    val grey200: Color,
-    val grey150: Color,
-    val grey100: Color,
-    val grey50: Color,
+    val subGray: Color,
+    val subGray2: Color,
+    val backgroundGray: Color,
+    val backgroundGray2: Color,
 
     // Sub Color
-    val subRed500: Color,
-    val subRed700: Color,
-    val subYellow500: Color,
-    val subYellow700: Color,
+    val pointYellow: Color,
+    val softYellow: Color,
 
     // Static Color
     val white: Color,
@@ -52,36 +40,24 @@ data class KakaoColors (
 )
 
 val defaultKakaoColors = KakaoColors(
-    // Main Color
+    // Primary Color
+    primaryBlue = Color(0xFF076AEB),
+
+    // Gray Color
     textPrimary = Color(0xFF282C37),
     textSecondary = Color(0xFF626871),
-    bluePrimary = Color(0xFF096AE8),
-
-    // Primary Color
-    blue600 = Color(0xFF096AE8),
-
-    // Grey Color
-    grey900 = Color(0xFF282C37),
-    grey800 = Color(0xFF414747),
-    grey700 = Color(0xFF626871),
-    grey600 = Color(0xFF777777),
-    grey500 = Color(0xFF9D9D9D),
-    grey400 = Color(0xFF93969D),
-    grey300 = Color(0xFFD9D9D9),
-    grey200 = Color(0xFFDCDDDF),
-    grey150 = Color(0xFFE6E7E9),
-    grey100 = Color(0xFFF1F1F1),
-    grey50 = Color(0xFFF8F8F8),
+    subGray = Color(0xFF93969D),
+    subGray2 = Color(0xFFB9BBBF),
+    backgroundGray = Color(0xFFEDEDED),
+    backgroundGray2 = Color(0xFFF4F6F7),
 
     // Sub Color
-    subRed500 = Color(0xFFD02020),
-    subRed700 = Color(0xFF90292C),
-    subYellow500 = Color(0xFFFFE826),
-    subYellow700 = Color(0xFFEDBC00),
+    pointYellow = Color(0xFFFFD213),
+    softYellow = Color(0xFFFFF3BF),
 
     // Static Color
     white = Color(0xFFFFFFFF),
-    black = Color(0xFF000000),
+    black = Color(0xFF000000)
 )
 
 val LocalKakaoColors = staticCompositionLocalOf { defaultKakaoColors }
@@ -92,28 +68,25 @@ private fun KakaoColorsPreview() {
     KakaotaxiTheme {
         Column {
             listOf(
+                // Primary Color
+                KakaotaxiTheme.colors.primaryBlue,
+
+                // Gray Color
+                KakaotaxiTheme.colors.textPrimary,
+                KakaotaxiTheme.colors.textSecondary,
+                KakaotaxiTheme.colors.subGray,
+                KakaotaxiTheme.colors.subGray2,
+                KakaotaxiTheme.colors.backgroundGray,
+                KakaotaxiTheme.colors.backgroundGray2,
+
+                // Sub Color
+                KakaotaxiTheme.colors.pointYellow,
+                KakaotaxiTheme.colors.softYellow,
+
                 // Static Color
                 KakaotaxiTheme.colors.white,
                 KakaotaxiTheme.colors.black,
-                // Primary Color
-                KakaotaxiTheme.colors.blue600,
-                // Grey Color
-                KakaotaxiTheme.colors.grey900,
-                KakaotaxiTheme.colors.grey800,
-                KakaotaxiTheme.colors.grey700,
-                KakaotaxiTheme.colors.grey600,
-                KakaotaxiTheme.colors.grey500,
-                KakaotaxiTheme.colors.grey400,
-                KakaotaxiTheme.colors.grey300,
-                KakaotaxiTheme.colors.grey200,
-                KakaotaxiTheme.colors.grey150,
-                KakaotaxiTheme.colors.grey100,
-                KakaotaxiTheme.colors.grey50,
-                // Sub Color
-                KakaotaxiTheme.colors.subRed500,
-                KakaotaxiTheme.colors.subRed700,
-                KakaotaxiTheme.colors.subYellow500,
-                KakaotaxiTheme.colors.subYellow700,
+
             ).chunked(6).forEach { rowColors ->
                 Row(modifier = Modifier.padding(vertical = 4.dp)) {
                     rowColors.forEach { c ->
