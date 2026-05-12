@@ -4,7 +4,6 @@ import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -23,6 +22,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.jm.kakaotaxi.R
@@ -110,12 +112,16 @@ private fun TaxiInfo(
         Spacer(modifier = Modifier.height(6.dp))
 
         Text(
-            text = "예상 "+ taxiPrice + "원",
+            text = buildAnnotatedString {
+                withStyle(SpanStyle(color = colors.black)) {
+                    append("예상 ${taxiPrice}")
+                }
+                withStyle(SpanStyle(color = colors.textSecondary)) {
+                    append("원")
+                }
+            },
             style = KakaotaxiTheme.typography.body.kakaoB16,
-            color = colors.black
-            // "원"은 textSecondary
         )
-
     }
 }
 
@@ -127,6 +133,7 @@ private fun KakaoTaxiSelectTaxiItemPreview() {
             modifier = Modifier.padding(16.dp)
         ) {
             SelectTaxiItem(
+                id = 1,
                 isSelected = true,
                 onItemClick = {},
             )
@@ -134,6 +141,7 @@ private fun KakaoTaxiSelectTaxiItemPreview() {
             Spacer(modifier = Modifier.height(10.dp))
 
             SelectTaxiItem(
+                id = 1,
                 isSelected = false,
                 onItemClick = {},
             )
