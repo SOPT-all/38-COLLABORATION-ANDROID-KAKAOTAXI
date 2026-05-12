@@ -23,7 +23,7 @@ import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme.colors
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun KakaotaxiBottomSheet(
+fun KakaoTaxiBottomSheet(
     onDismissRequest: () -> Unit,
     modifier: Modifier = Modifier,
     bottomSheetState: SheetState = rememberModalBottomSheetState(
@@ -69,7 +69,7 @@ private fun CustomDragHandle(
 @Composable
 private fun KakaoTaxiBottomSheetPreview() {
     KakaotaxiTheme {
-        KakaotaxiBottomSheet(
+        KakaoTaxiBottomSheet(
             onDismissRequest = {},
             showScrim = false
         ) {
