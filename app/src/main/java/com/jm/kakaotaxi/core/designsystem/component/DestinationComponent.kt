@@ -41,7 +41,7 @@ fun DestinationItem() {
                 spotColor    = Color(0x142A2A2A),
             )
             .background(colors.white, shape = RoundedCornerShape(50.dp))
-            .padding(top = 6.5.dp, bottom = 7.5.dp)
+            .padding(top = 6.5.dp, bottom = 7.5.dp, start = 14.dp)
     ) {
         Icon(
             imageVector = ImageVector.vectorResource(R.drawable.ic_calltaxi_close),
@@ -49,7 +49,6 @@ fun DestinationItem() {
             tint = Color.Unspecified,
             modifier = Modifier
                 .size(18.dp)
-                // .align(Alignment.Start as Alignment.Vertical)
         )
 
         Spacer(modifier = Modifier.width(44.dp))
@@ -67,8 +66,7 @@ fun DestinationItem() {
             contentDescription = "방향",
             tint = Color.Unspecified,
             modifier = Modifier
-                .size(10.dp)
-            // .align(Alignment.Start as Alignment.Vertical)
+                .size(24.dp)
         )
 
         Spacer(modifier = Modifier.width(22.dp))
@@ -88,7 +86,7 @@ private fun KakaoTaxiDestinationItemPreview() {
         Column(
             modifier = Modifier.padding(16.dp)
         ) {
-            DestinationItem()
+           DestinationItem()
         }
     }
 }
