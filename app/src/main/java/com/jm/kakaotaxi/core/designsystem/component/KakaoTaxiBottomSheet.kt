@@ -26,7 +26,7 @@ import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme.colors
 @Composable
 fun KakaoTaxiBottomSheet(
     modifier: Modifier = Modifier,
-    onDismissRequest: () -> Unit,
+    onDismissRequest: () -> Unit = { },
     bottomSheetState: SheetState = rememberModalBottomSheetState(
         skipPartiallyExpanded = true,
         confirmValueChange = { targetValue ->
