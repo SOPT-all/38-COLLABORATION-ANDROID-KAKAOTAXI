@@ -49,7 +49,8 @@ fun KakaoTaxiSearchBar(
                 } else Modifier
             )
             .noRippleClickable(onClick = onSearchBarClick)
-            .padding(horizontal = 13.dp, vertical = 12.dp),
+            .padding(start = 14.dp, end = 13.dp)
+            .padding(vertical = 12.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
 
