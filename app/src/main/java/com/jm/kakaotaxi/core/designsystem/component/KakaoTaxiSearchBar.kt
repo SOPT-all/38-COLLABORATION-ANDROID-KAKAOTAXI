@@ -75,7 +75,7 @@ fun KakaoTaxiSearchBar(
         Icon(
             imageVector = ImageVector.vectorResource(R.drawable.ic_mic),
             contentDescription = null,
-            modifier = Modifier.size(34.dp),
+            modifier = Modifier.size(if (isHome) 34.dp else 26.dp),
             tint = KakaotaxiTheme.colors.textSecondary,
         )
     }
