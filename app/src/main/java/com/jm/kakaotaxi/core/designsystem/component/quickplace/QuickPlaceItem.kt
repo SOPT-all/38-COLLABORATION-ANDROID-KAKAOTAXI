@@ -1,5 +1,6 @@
 package com.jm.kakaotaxi.core.designsystem.component.quickplace
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
@@ -18,7 +19,7 @@ import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 @Composable
 fun QuickPlaceItem(
     place: String,
-    icon: Int,
+    @DrawableRes icon: Int,
     modifier: Modifier = Modifier,
     color: Color = KakaotaxiTheme.colors.textSecondary
 ) {
