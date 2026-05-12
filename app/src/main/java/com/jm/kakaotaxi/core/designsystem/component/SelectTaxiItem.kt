@@ -33,24 +33,17 @@ import com.jm.kakaotaxi.core.extensions.noRippleClickable
 @Composable
 fun SelectTaxiItem(
     modifier: Modifier = Modifier,
+    id: Int,
     isSelected: Boolean = false,
     onItemClick: () -> Unit,
 ) {
     Box(
         modifier = modifier
             .background(colors.white)
-            .then(
-                if (isSelected) {
-                    Modifier.border(
-                        width = 1.dp,
-                        color = colors.pointYellow,
-                        shape = RoundedCornerShape(10.dp)
-                    )
-                } else Modifier.border(
-                    width = 1.dp,
-                    color = colors.backgroundGray,
-                    shape = RoundedCornerShape(10.dp)
-                )
+            .border(
+                width = 1.dp,
+                color = if (isSelected) colors.pointYellow else colors.backgroundGray,
+                shape = RoundedCornerShape(10.dp)
             )
             .noRippleClickable(onClick = onItemClick)
             .padding(top = 10.dp, end = 8.dp)
@@ -63,18 +56,12 @@ fun SelectTaxiItem(
             taxiPrice = "13000"
         )
 
-        if (isSelected) {
-            Icon(
-                imageVector = ImageVector.vectorResource(R.drawable.ic_calltaxi_selected_yellow),
-                contentDescription = "선택됨",
-                tint = Color.Unspecified,
-                modifier = Modifier
-                    .size(32.dp)
-                    .align(Alignment.TopEnd)
-            )
-        } else Icon(
-            imageVector = ImageVector.vectorResource(R.drawable.ic_calltaxi_default_grey),
-            contentDescription = "선택 안됨",
+        Icon(
+            imageVector = ImageVector.vectorResource(
+                if (isSelected) R.drawable.ic_calltaxi_selected_yellow
+                else R.drawable.ic_calltaxi_default_grey
+            ),
+            contentDescription = if (isSelected) "선택됨" else "선택 안됨",
             tint = Color.Unspecified,
             modifier = Modifier
                 .size(32.dp)
