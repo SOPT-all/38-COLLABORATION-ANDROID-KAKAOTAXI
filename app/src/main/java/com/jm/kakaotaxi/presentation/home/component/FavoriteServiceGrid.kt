@@ -18,8 +18,8 @@ fun FavoriteServiceGrid(
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
         contentPadding = PaddingValues(16.dp),
-        horizontalArrangement = Arrangement.spacedBy(12.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp)
+        horizontalArrangement = Arrangement.spacedBy(15.dp),
+        verticalArrangement = Arrangement.spacedBy(20.dp)
     ){
         items(services) { service ->
             FavoriteServiceItem(
