@@ -29,7 +29,7 @@ fun FavoriteServiceItem(
     modifier: Modifier = Modifier,
     title: String,
     subtitle: String,
-    starIcon: Int = R.drawable.ic_home_star_gray,
+    starIcon: Int,
     carImage: Int
 ) {
     Box(
