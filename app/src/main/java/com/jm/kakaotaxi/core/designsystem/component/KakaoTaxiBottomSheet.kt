@@ -52,11 +52,11 @@ private fun CustomDragHandle(
 ) {
     Box(
         modifier = modifier
-            .padding(vertical = 8.dp)
+            .padding(top = 8.dp, end = 12.dp)
             .size(width = 44.dp, height = 4.dp)
             .background(
                 color = colors.subGray2,
-                shape = RoundedCornerShape(28.0.dp)
+                shape = RoundedCornerShape(4.dp)
             ),
     )
 }
