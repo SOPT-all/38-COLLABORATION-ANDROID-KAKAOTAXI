@@ -110,6 +110,7 @@ private fun SearchRecentItemPreview() {
             time = "오늘 오전",
             location = "송파구",
             onRecentItemClick = {},
+            modifier = Modifier.width(152.dp)
         )
     }
 }
