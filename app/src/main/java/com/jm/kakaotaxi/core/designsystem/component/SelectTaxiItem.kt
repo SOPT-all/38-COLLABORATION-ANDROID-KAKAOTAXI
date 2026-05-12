@@ -55,7 +55,7 @@ fun SelectTaxiItem(
             taxiType = "대형 택시",
             taxiDescription = "넓은 좌석\n" +
                     "짐이 많을 때",
-            taxiPrice = "13000"
+            taxiPrice = "13,000"
         )
 
         Icon(
@@ -83,7 +83,7 @@ private fun TaxiInfo(
     Column(
         horizontalAlignment = Alignment.Start,
         modifier = Modifier
-            .padding(start = 21.dp, end = 29.dp, bottom = 13.dp)
+            .padding(start = 21.dp, end = 29.dp, bottom = 13.dp, top = 30.dp)
     ) {
         Image(
             painter = painterResource(taxiImage),
