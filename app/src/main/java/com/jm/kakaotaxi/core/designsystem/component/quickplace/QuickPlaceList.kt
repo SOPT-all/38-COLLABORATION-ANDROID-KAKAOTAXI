@@ -33,7 +33,7 @@ fun QuickPlaceList(
     ){
         Row(
             modifier = Modifier
-                .padding(top = 17.dp, bottom = 13.dp)
+                .padding(top = 10.dp, bottom = 6.dp)
                 .padding(horizontal = 10.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(22.dp)
@@ -64,6 +64,7 @@ fun QuickPlaceList(
 
         HorizontalDivider(
             modifier = Modifier
+                .padding(top = 7.dp)
                 .height(1.dp)
                 .fillMaxWidth()
                 .background(KakaotaxiTheme.colors.backgroundGray)
@@ -71,15 +72,17 @@ fun QuickPlaceList(
     }
 }
 
-private val fakeQuickPlaces = listOf(
-    QuickPlaceModel("집"),
-    QuickPlaceModel("한사랑병원"),
-    QuickPlaceModel("노인정")
-)
+
 
 @Preview(showBackground = true)
 @Composable
 private fun QuickPlaceListPreview() {
+    val fakeQuickPlaces = listOf(
+        QuickPlaceModel("집"),
+        QuickPlaceModel("한사랑병원"),
+        QuickPlaceModel("노인정")
+    )
+
     QuickPlaceList(
         places = fakeQuickPlaces
     )
