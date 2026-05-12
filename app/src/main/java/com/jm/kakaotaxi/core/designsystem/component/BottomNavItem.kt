@@ -30,7 +30,7 @@ fun BottomNavItem(
                 .clickable{
                     onClick()
                 }
-                .padding(vertical = 10.dp,horizontal = 12.dp )
+                .padding(vertical = 10.dp,horizontal = 12.dp )//값이 달라요..
         ) {
             Icon(
                 painter = painterResource(id = icon),
