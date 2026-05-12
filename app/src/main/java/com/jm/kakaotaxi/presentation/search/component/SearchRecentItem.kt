@@ -32,10 +32,10 @@ fun SearchRecentItem(
     location: String,
     onRecentItemClick: () -> Unit,
     modifier: Modifier = Modifier,
-){
+) {
     Column(
         modifier = modifier
-            .aspectRatio(152f/102f)
+            .aspectRatio(152f / 102f)
             .clip(RoundedCornerShape(10.dp))
             .background(color = KakaotaxiTheme.colors.white)
             .border(
@@ -83,7 +83,7 @@ private fun RecentLocationChip(
             )
             .padding(vertical = 4.dp, horizontal = 10.dp),
         verticalAlignment = Alignment.CenterVertically
-    ){
+    ) {
         Icon(
             imageVector = ImageVector.vectorResource(R.drawable.ic_location),
             contentDescription = null,
@@ -104,7 +104,7 @@ private fun RecentLocationChip(
 @Preview
 @Composable
 private fun SearchRecentItemPreview() {
-    KakaotaxiTheme{
+    KakaotaxiTheme {
         SearchRecentItem(
             place = "한사랑병원",
             time = "오늘 오전",

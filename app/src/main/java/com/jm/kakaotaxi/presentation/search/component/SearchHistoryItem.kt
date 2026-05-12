@@ -39,7 +39,7 @@ fun SearchHistoryItem(
             .fillMaxWidth()
             .background(color = KakaotaxiTheme.colors.white)
             .padding(bottom = 8.dp, end = 10.dp),
-    ){
+    ) {
         Box(
             modifier = Modifier
                 .clip(RoundedCornerShape(10.dp))
@@ -47,7 +47,7 @@ fun SearchHistoryItem(
                     color = KakaotaxiTheme.colors.backgroundGray2,
                 )
                 .padding(6.dp)
-        ){
+        ) {
             Icon(
                 imageVector = ImageVector.vectorResource(type.icon),
                 contentDescription = null,
@@ -58,9 +58,7 @@ fun SearchHistoryItem(
 
         Spacer(modifier = Modifier.width(20.dp))
 
-        Column(
-            modifier = Modifier,
-        ) {
+        Column {
             Text(
                 text = place,
                 color = KakaotaxiTheme.colors.textPrimary,
@@ -76,7 +74,7 @@ fun SearchHistoryItem(
             )
         }
 
-        if(type == SearchHistoryType.MAP){
+        if (type == SearchHistoryType.MAP) {
             Spacer(modifier = Modifier.weight(1f))
 
             Icon(
@@ -104,8 +102,8 @@ fun SearchHistoryItem(
 @Preview
 @Composable
 private fun SearchHistoryItemPreview() {
-    KakaotaxiTheme{
-        Column(modifier = Modifier.padding(16.dp)){
+    KakaotaxiTheme {
+        Column(modifier = Modifier.padding(16.dp)) {
             SearchHistoryItem(
                 type = SearchHistoryType.MAP,
                 place = "한사랑병원 응급실",
