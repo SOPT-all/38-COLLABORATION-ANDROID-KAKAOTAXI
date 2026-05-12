@@ -28,6 +28,7 @@ fun QuickPlaceList(
 ) {
     Column(
         modifier = modifier
+            .background(KakaotaxiTheme.colors.white)
     ){
         Row(
             modifier = Modifier
@@ -39,18 +40,18 @@ fun QuickPlaceList(
 
             QuickPlaceItem(
                 place = places[0].title,
-                icon = R.drawable.ic_home,
+                icon = R.drawable.img_home,
                 color = KakaotaxiTheme.colors.primaryBlue
             )
 
             QuickPlaceItem(
                 place = places[1].title,
-                icon = R.drawable.ic_hospital
+                icon = R.drawable.img_hospital
             )
 
             QuickPlaceItem(
                 place = places[2].title,
-                icon = R.drawable.ic_senior_home
+                icon = R.drawable.img_senior_home
             )
 
             Icon(
