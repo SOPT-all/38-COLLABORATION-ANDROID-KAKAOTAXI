@@ -1,20 +1,27 @@
 package com.jm.kakaotaxi.core.designsystem.component
 
-import android.R.attr.contentDescription
+import androidx.annotation.DrawableRes
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -37,23 +44,25 @@ fun SelectTaxiItem(
                     Modifier.border(
                         width = 1.dp,
                         color = colors.pointYellow,
+                        shape = RoundedCornerShape(10.dp)
                     )
                 } else Modifier.border(
                     width = 1.dp,
-                    color = colors.backgroundGray
+                    color = colors.backgroundGray,
+                    shape = RoundedCornerShape(10.dp)
                 )
             )
             .noRippleClickable(onClick = onItemClick)
             .padding(top = 10.dp, end = 8.dp)
     ) {
-        Column(
-            // 택시 이미지
-            // 택시 이름
-            // 택시 특징
-            // 예상 금액
-        ) {
+        TaxiInfo(
+            taxiImage = R.drawable.img_calltaxi_bigtaxi,
+            taxiType = "대형 택시",
+            taxiDescription = "넓은 좌석\n" +
+                    "짐이 많을 때",
+            taxiPrice = "13000"
+        )
 
-        }
         if (isSelected) {
             Icon(
                 imageVector = ImageVector.vectorResource(R.drawable.ic_calltaxi_selected_yellow),
@@ -71,6 +80,55 @@ fun SelectTaxiItem(
                 .size(32.dp)
                 .align(Alignment.TopEnd)
         )
+    }
+}
+
+@Composable
+private fun TaxiInfo(
+    @DrawableRes
+    taxiImage: Int,
+    taxiType: String,
+    taxiDescription: String,
+    taxiPrice: String,
+) {
+    Column(
+        horizontalAlignment = Alignment.Start,
+        modifier = Modifier
+            .padding(start = 21.dp, end = 29.dp, bottom = 13.dp)
+    ) {
+        Image(
+            painter = painterResource(taxiImage),
+            contentDescription = null,
+            modifier = Modifier
+                .width(97.dp)
+                .aspectRatio(97f/ 62f),
+        )
+
+        Spacer(modifier = Modifier.height(14.dp))
+
+        Text(
+            text = taxiType,
+            style = KakaotaxiTheme.typography.body.kakaoB16,
+            color = colors.textPrimary,
+        )
+
+        Spacer(modifier = Modifier.height(6.dp))
+
+        Text(
+            text = taxiDescription,
+            style = KakaotaxiTheme.typography.label.kakaoR12,
+            color = colors.textSecondary,
+        )
+
+        Spacer(modifier = Modifier.height(6.dp))
+
+        Text(
+            text = "예상 "+ taxiPrice + "원",
+            style = KakaotaxiTheme.typography.body.kakaoB16,
+            color = colors.black
+            // "원"은 textSecondary
+        )
+
     }
 }
 
