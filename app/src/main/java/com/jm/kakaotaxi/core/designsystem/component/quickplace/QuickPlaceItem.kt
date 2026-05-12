@@ -1,4 +1,4 @@
-package com.jm.kakaotaxi.core.designsystem.component
+package com.jm.kakaotaxi.core.designsystem.component.quickplace
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.dp
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 
 @Composable
-fun QuickItems(
+fun QuickPlaceItem(
     place: String,
     icon: Int,
     modifier: Modifier = Modifier,

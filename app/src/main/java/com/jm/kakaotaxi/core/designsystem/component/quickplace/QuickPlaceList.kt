@@ -1,4 +1,4 @@
-package com.jm.kakaotaxi.core.designsystem.component
+package com.jm.kakaotaxi.core.designsystem.component.quickplace
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -18,11 +18,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.jm.kakaotaxi.R
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
+import com.jm.kakaotaxi.data.model.QuickPlaceModel
 
 
 @Composable
 fun QuickPlaceList(
-    places: List<String>,
+    places: List<QuickPlaceModel>,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -34,19 +35,20 @@ fun QuickPlaceList(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(23.dp)
         ) {
-            QuickItems(
-                place = places[0],
+
+            QuickPlaceItem(
+                place = places[0].title,
                 icon = R.drawable.ic_home,
                 color = KakaotaxiTheme.colors.primaryBlue
             )
 
-            QuickItems(
-                place = places[1],
+            QuickPlaceItem(
+                place = places[1].title,
                 icon = R.drawable.ic_hospital
             )
 
-            QuickItems(
-                place = places[2],
+            QuickPlaceItem(
+                place = places[2].title,
                 icon = R.drawable.ic_building
             )
 
@@ -66,14 +68,16 @@ fun QuickPlaceList(
     }
 }
 
-private val dummyPlaces = listOf(
-    "집", "한사랑병원", "노인정"
+private val fakeQuickPlaces = listOf(
+    QuickPlaceModel("집"),
+    QuickPlaceModel("한사랑병원"),
+    QuickPlaceModel("노인정")
 )
 
 @Preview(showBackground = true)
 @Composable
 private fun QuickPlaceListPreview() {
     QuickPlaceList(
-        places = dummyPlaces
+        places = fakeQuickPlaces
     )
 }
