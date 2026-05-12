@@ -14,6 +14,7 @@ import androidx.compose.material3.SheetState
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -28,6 +29,7 @@ fun KakaotaxiBottomSheet(
     bottomSheetState: SheetState = rememberModalBottomSheetState(
         skipPartiallyExpanded = true,
     ),
+    showScrim: Boolean = true,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     ModalBottomSheet(
@@ -40,7 +42,7 @@ fun KakaotaxiBottomSheet(
             topEnd = 24.dp,
         ),
         containerColor = colors.white,
-        scrimColor = colors.subGray2,
+        scrimColor = if (showScrim) Color(0x66000000) else Color.Transparent,
         dragHandle = { CustomDragHandle() },
         content = content
     )
@@ -69,6 +71,7 @@ private fun KakaoTaxiBottomSheetPreview() {
     KakaotaxiTheme {
         KakaotaxiBottomSheet(
             onDismissRequest = {},
+            showScrim = false
         ) {
             Spacer(modifier = Modifier.height(300.dp))
         }
