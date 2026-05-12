@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -28,7 +27,7 @@ import com.jm.kakaotaxi.R
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 
 @Composable
-fun SearchBanner(
+fun SearchAdBanner(
     modifier: Modifier = Modifier,
 ) {
     Row(
@@ -84,6 +83,6 @@ fun SearchBanner(
 @Composable
 private fun SearchAdBannerPreview() {
     KakaotaxiTheme {
-        SearchBanner()
+        SearchAdBanner()
     }
 }
