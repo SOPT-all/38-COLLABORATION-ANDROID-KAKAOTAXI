@@ -33,9 +33,10 @@ fun QuickPlaceList(
     ){
         Row(
             modifier = Modifier
-                .padding(horizontal = 10.dp, vertical = 12.dp),
+                .padding(top = 17.dp, bottom = 13.dp)
+                .padding(horizontal = 10.dp),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(23.dp)
+            horizontalArrangement = Arrangement.spacedBy(22.dp)
         ) {
 
             QuickPlaceItem(
