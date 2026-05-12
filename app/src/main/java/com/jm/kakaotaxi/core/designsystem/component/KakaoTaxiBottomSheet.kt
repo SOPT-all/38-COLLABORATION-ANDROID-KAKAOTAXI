@@ -84,7 +84,7 @@ private fun CustomDragHandle(
 ) {
     Box(
         modifier = modifier
-            .padding(top = 8.dp, end = 12.dp)
+            .padding(top = 8.dp, bottom = 22.dp)
             .size(width = 44.dp, height = 4.dp)
             .background(
                 color = colors.subGray2,
