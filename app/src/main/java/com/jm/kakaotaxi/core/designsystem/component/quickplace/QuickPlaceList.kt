@@ -2,13 +2,11 @@ package com.jm.kakaotaxi.core.designsystem.component.quickplace
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
@@ -52,11 +50,11 @@ fun QuickPlaceList(
 
             QuickPlaceItem(
                 place = places[2].title,
-                icon = R.drawable.ic_building
+                icon = R.drawable.ic_senior_home
             )
 
             Icon(
-                imageVector = ImageVector.vectorResource(R.drawable.ic_plus),
+                imageVector = ImageVector.vectorResource(R.drawable.ic_pluscircle),
                 contentDescription = null,
                 tint = KakaotaxiTheme.colors.textSecondary
             )
