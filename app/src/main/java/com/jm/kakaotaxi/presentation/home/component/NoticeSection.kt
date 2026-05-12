@@ -1,0 +1,65 @@
+package com.jm.kakaotaxi.presentation.home.component
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.jm.kakaotaxi.R
+import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
+
+@Composable
+fun NoticeSection(
+    modifier: Modifier = Modifier
+){
+    Row(
+        modifier = modifier
+            .background(KakaotaxiTheme.colors.white),
+        verticalAlignment = Alignment.CenterVertically
+        ){
+            Text(
+                text = "공지",
+                style = KakaotaxiTheme.typography.body.kakaoB14,
+                color = KakaotaxiTheme.colors.black
+            )
+
+            Spacer(modifier = Modifier.width(10.dp))
+
+            Box(
+                modifier = Modifier
+                    .height(12.dp)
+                    .width(1.dp)
+                    .background(KakaotaxiTheme.colors.backgroundGray)
+            )
+
+            Spacer(modifier = Modifier.width(10.dp))
+
+            Text(
+                text = "[이벤트] 카카오 T 멤버스 5월 쿠폰 이벤트!",
+                style = KakaotaxiTheme.typography.body.kakaoR13,
+                color= KakaotaxiTheme.colors.black
+            )
+
+            Spacer(modifier = Modifier.width(25.dp))
+
+            Icon(
+                painterResource(R.drawable.ic_home_notice_more),
+                contentDescription = null
+            )
+        }
+}
+
+@Preview
+@Composable
+private fun NoticeSectionPreview(){
+    NoticeSection()
+}
