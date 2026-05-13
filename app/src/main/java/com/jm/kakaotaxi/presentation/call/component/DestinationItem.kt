@@ -44,7 +44,7 @@ fun DestinationItem(
         ) {
         Icon(
             imageVector = ImageVector.vectorResource(R.drawable.ic_calltaxi_close),
-            contentDescription = "닫기",
+            contentDescription = null,
             tint = Color.Unspecified,
             modifier = Modifier
                 .size(18.dp)
@@ -62,7 +62,7 @@ fun DestinationItem(
 
         Icon(
             imageVector = ImageVector.vectorResource(R.drawable.ic_calltaxi_arrow),
-            contentDescription = "방향",
+            contentDescription = null,
             tint = Color.Unspecified,
             modifier = Modifier
                 .size(24.dp)
