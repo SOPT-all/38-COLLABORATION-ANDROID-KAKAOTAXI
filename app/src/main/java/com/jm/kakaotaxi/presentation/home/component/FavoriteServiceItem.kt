@@ -81,6 +81,7 @@ fun FavoriteServiceItem(
             contentDescription = null,
             modifier = Modifier
                 .align(Alignment.BottomEnd)
+                .padding(end = 6.dp, bottom = 7.dp)
         )
     }
 }
