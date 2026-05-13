@@ -40,7 +40,7 @@ fun SelectTaxiItem(
 ) {
     Box(
         modifier = modifier
-            .background(colors.white)
+            .background(colors.white, shape = RoundedCornerShape(10.dp))
             .border(
                 width = 1.dp,
                 color = if (isSelected) colors.pointYellow else colors.backgroundGray,
