@@ -4,6 +4,8 @@ package com.jm.kakaotaxi.core.designsystem.component.quickplace
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -33,13 +35,15 @@ fun QuickPlaceList(
     Column(
         modifier = modifier
             .background(KakaotaxiTheme.colors.white)
+            .fillMaxWidth()
     ){
         LazyRow(
             modifier = Modifier
-                .padding(top = 10.dp, bottom = 6.dp)
-                .padding(horizontal = 10.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(22.dp)
+                .fillMaxWidth()
+                .padding(top = 10.dp, bottom = 6.dp),
+            contentPadding = PaddingValues(horizontal = 10.dp),
+            horizontalArrangement = Arrangement.spacedBy(22.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
 
             items(
@@ -62,9 +66,10 @@ fun QuickPlaceList(
             }
         }
 
+        Spacer(modifier = Modifier.height(7.dp))
+
         HorizontalDivider(
             modifier = Modifier
-                .padding(top = 7.dp)
                 .height(1.dp)
                 .fillMaxWidth()
                 .background(KakaotaxiTheme.colors.backgroundGray)
