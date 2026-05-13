@@ -28,17 +28,17 @@ import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 
 
 @Composable
-fun ArriveItem() {
+fun ArriveItem(
+    modifier: Modifier = Modifier
+) {
     Row(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
-            .padding(horizontal = 21.dp),
+            .padding(horizontal = 21.dp)
     ) {
-        //요청 박스
-        Box(
+        Row(
             modifier = Modifier
                 .weight(1f)
-                .height(42.dp)
                 .background(
                     shape = RoundedCornerShape(10.dp),
                     color = KakaotaxiTheme.colors.backgroundGray2
@@ -48,35 +48,28 @@ fun ArriveItem() {
                     shape = RoundedCornerShape(10.dp),
                     color = KakaotaxiTheme.colors.backgroundGray
                 )
+                .padding(horizontal = 10.dp, vertical = 4.dp)
         ) {
-            Row(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(start = 15.dp)
-            ) {
-                Icon(
-                    modifier = Modifier.padding(vertical = 9.dp),
-                    imageVector = ImageVector.vectorResource(R.drawable.ic_arrivescreen_checkcircle),
-                    contentDescription = null,
-                    tint = Color.Unspecified
-                )
+            Icon(
+                imageVector = ImageVector.vectorResource(R.drawable.ic_arrivescreen_checkcircle),
+                contentDescription = null,
+                tint = Color.Unspecified
+            )
 
-                Spacer(modifier = Modifier.width(9.dp))
+            Spacer(modifier = Modifier.width(4.dp))
 
-                Text(
-                    modifier = Modifier.padding(vertical = 11.dp),
-                    text = "천천히 탑승하실 수 있도록 전달해요!",
-                    style = KakaotaxiTheme.typography.body.kakaoR14,
-                    color = KakaotaxiTheme.colors.textSecondary
-                )
-            }
+            Text(
+                text = "천천히 탑승하실 수 있도록 전달해요!",
+                modifier = Modifier.padding(vertical = 7.dp),
+                style = KakaotaxiTheme.typography.body.kakaoR14,
+                color = KakaotaxiTheme.colors.textSecondary
+            )
         }
 
         Spacer(modifier = Modifier.width(7.dp))
         //전화 버튼
         Box(
             modifier = Modifier
-                .size(43.dp)
                 .background(
                     shape = RoundedCornerShape(10.dp),
                     color = KakaotaxiTheme.colors.backgroundGray2
@@ -86,12 +79,7 @@ fun ArriveItem() {
                     shape = RoundedCornerShape(10.dp),
                     color = KakaotaxiTheme.colors.backgroundGray
                 )
-                .padding(
-                    start = 10.dp,
-                    top = 10.dp,
-                    end = 9.dp,
-                    bottom = 9.dp
-                ),
+                .padding(10.dp),
             contentAlignment = Alignment.Center
         ) {
             Icon(
@@ -105,7 +93,7 @@ fun ArriveItem() {
 
 @Preview(showBackground = true)
 @Composable
-fun ArriveItemPreview() {
+private fun ArriveItemPreview() {
     KakaotaxiTheme {
         ArriveItem()
     }
