@@ -10,10 +10,12 @@ import com.jm.kakaotaxi.R
 import com.jm.kakaotaxi.data.model.FavoriteServiceModel
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.ui.tooling.preview.Preview
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.persistentListOf
 
 @Composable
 fun FavoriteServiceGrid(
-    services: List<FavoriteServiceModel>
+    services: ImmutableList<FavoriteServiceModel>
 ){
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
@@ -32,7 +34,7 @@ fun FavoriteServiceGrid(
     }
 }
 
-val favoriteServices = listOf(
+val favoriteServices = persistentListOf(
     FavoriteServiceModel(
         title = "택시",
         subtitle = "바로 이동해볼까요?",
