@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
+import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -23,6 +24,7 @@ fun NoticeSection(
 ){
     Row(
         modifier = modifier
+            .width(312.dp)
             .background(KakaotaxiTheme.colors.white),
         verticalAlignment = Alignment.CenterVertically
         ){
@@ -32,16 +34,16 @@ fun NoticeSection(
                 color = KakaotaxiTheme.colors.black
             )
 
-            Spacer(modifier = Modifier.width(10.dp))
+            Spacer(modifier = Modifier.weight(1f))
 
-            Box(
+            VerticalDivider(
                 modifier = Modifier
-                    .height(12.dp)
+                    .height(11.dp)
                     .width(1.dp)
                     .background(KakaotaxiTheme.colors.backgroundGray)
             )
 
-            Spacer(modifier = Modifier.width(10.dp))
+            Spacer(modifier = Modifier.weight(1f))
 
             Text(
                 text = "[이벤트] 카카오 T 멤버스 5월 쿠폰 이벤트!",
@@ -49,7 +51,7 @@ fun NoticeSection(
                 color= KakaotaxiTheme.colors.black
             )
 
-            Spacer(modifier = Modifier.width(25.dp))
+            Spacer(modifier = Modifier.weight(1f))
 
             Icon(
                 painterResource(R.drawable.ic_home_notice_more),
