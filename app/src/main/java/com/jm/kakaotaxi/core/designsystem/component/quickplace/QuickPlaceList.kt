@@ -70,9 +70,9 @@ fun QuickPlaceList(
 
         HorizontalDivider(
             modifier = Modifier
-                .height(1.dp)
-                .fillMaxWidth()
-                .background(KakaotaxiTheme.colors.backgroundGray)
+                .fillMaxWidth(),
+            thickness = 1.dp,
+            color = KakaotaxiTheme.colors.backgroundGray
         )
     }
 }
