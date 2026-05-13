@@ -1,4 +1,4 @@
-package com.jm.kakaotaxi.core.designsystem.component
+package com.jm.kakaotaxi.presentation.call.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

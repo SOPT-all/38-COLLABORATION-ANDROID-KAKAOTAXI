@@ -1,4 +1,4 @@
-package com.jm.kakaotaxi.core.designsystem.component
+package com.jm.kakaotaxi.presentation.call.component
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
