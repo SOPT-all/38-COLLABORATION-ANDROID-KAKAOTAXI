@@ -4,10 +4,10 @@ package com.jm.kakaotaxi.core.designsystem.component.quickplace
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
@@ -33,7 +33,7 @@ fun QuickPlaceList(
         modifier = modifier
             .background(KakaotaxiTheme.colors.white)
     ){
-        Row(
+        LazyRow(
             modifier = Modifier
                 .padding(top = 10.dp, bottom = 6.dp)
                 .padding(horizontal = 10.dp),
@@ -42,18 +42,22 @@ fun QuickPlaceList(
         ) {
 
             places.forEach{ place ->
-                QuickPlaceItem(
-                    place = place.title,
-                    icon = place.icon,
-                    color = place.color
-                )
+                item{
+                    QuickPlaceItem(
+                        place = place.title,
+                        icon = place.icon,
+                        color = place.color
+                    )
+                }
             }
 
-            Icon(
-                imageVector = ImageVector.vectorResource(R.drawable.ic_pluscircle),
-                contentDescription = null,
-                tint = KakaotaxiTheme.colors.textSecondary
-            )
+            item{
+                Icon(
+                    imageVector = ImageVector.vectorResource(R.drawable.ic_pluscircle),
+                    contentDescription = null,
+                    tint = KakaotaxiTheme.colors.textSecondary
+                )
+            }
         }
 
         HorizontalDivider(
@@ -71,13 +75,14 @@ fun QuickPlaceList(
 @Preview(showBackground = true)
 @Composable
 private fun QuickPlaceListPreview() {
-    val fakeQuickPlaces = persistentListOf(
-        QuickPlaceModel("집", R.drawable.ic_home, KakaotaxiTheme.colors.primaryBlue),
-        QuickPlaceModel("한사랑병원", R.drawable.ic_hospital, KakaotaxiTheme.colors.textSecondary),
-        QuickPlaceModel("노인정", R.drawable.ic_senior_home, KakaotaxiTheme.colors.textSecondary)
-    )
-
-    QuickPlaceList(
-        places = fakeQuickPlaces
-    )
+    KakaotaxiTheme {
+        val fakeQuickPlaces = persistentListOf(
+            QuickPlaceModel("집", R.drawable.ic_home, KakaotaxiTheme.colors.primaryBlue),
+            QuickPlaceModel("한사랑병원", R.drawable.ic_hospital, KakaotaxiTheme.colors.textSecondary),
+            QuickPlaceModel("노인정", R.drawable.ic_senior_home, KakaotaxiTheme.colors.textSecondary)
+        )
+        QuickPlaceList(
+            places = fakeQuickPlaces
+        )
+    }
 }
