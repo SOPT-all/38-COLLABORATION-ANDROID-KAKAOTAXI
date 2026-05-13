@@ -20,11 +20,13 @@ import androidx.compose.ui.unit.dp
 import com.jm.kakaotaxi.R
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 import com.jm.kakaotaxi.data.model.QuickPlaceModel
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.persistentListOf
 
 
 @Composable
 fun QuickPlaceList(
-    places: List<QuickPlaceModel>,
+    places: ImmutableList<QuickPlaceModel>,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -69,7 +71,7 @@ fun QuickPlaceList(
 @Preview(showBackground = true)
 @Composable
 private fun QuickPlaceListPreview() {
-    val fakeQuickPlaces = listOf(
+    val fakeQuickPlaces = persistentListOf(
         QuickPlaceModel("집", R.drawable.ic_home, KakaotaxiTheme.colors.primaryBlue),
         QuickPlaceModel("한사랑병원", R.drawable.ic_hospital, KakaotaxiTheme.colors.textSecondary),
         QuickPlaceModel("노인정", R.drawable.ic_senior_home, KakaotaxiTheme.colors.textSecondary)
