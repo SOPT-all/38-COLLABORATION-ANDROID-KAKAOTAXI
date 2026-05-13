@@ -52,8 +52,7 @@ fun SelectTaxiItem(
         TaxiInfo(
             taxiImage = R.drawable.img_calltaxi_bigtaxi,
             taxiType = "대형 택시",
-            taxiDescription = "넓은 좌석\n" +
-                    "짐이 많을 때",
+            taxiDescription = "넓은 좌석\n짐이 많을 때",
             taxiPrice = "13,000"
         )
 
@@ -73,8 +72,7 @@ fun SelectTaxiItem(
 
 @Composable
 private fun TaxiInfo(
-    @DrawableRes
-    taxiImage: Int,
+    @DrawableRes taxiImage: Int,
     taxiType: String,
     taxiDescription: String,
     taxiPrice: String,

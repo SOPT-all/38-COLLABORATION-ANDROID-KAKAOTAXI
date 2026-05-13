@@ -36,7 +36,7 @@ fun DestinationItem() {
                 spotColor    = Color(0x142A2A2A),
             )
             .background(colors.white, shape = RoundedCornerShape(50.dp))
-            .padding(top = 6.5.dp, bottom = 7.5.dp, start = 14.dp),
+            .padding(top = 6.5.dp, bottom = 7.5.dp, start = 14.dp, end = 42.dp),
         verticalAlignment = Alignment.CenterVertically,
         ) {
         Icon(
@@ -50,7 +50,7 @@ fun DestinationItem() {
         Spacer(modifier = Modifier.width(44.dp))
 
         Text(
-            "우리집",
+            text = "우리집",
             style = KakaotaxiTheme.typography.title.kakaoB18,
             color = colors.textPrimary,
         )
@@ -68,7 +68,7 @@ fun DestinationItem() {
         Spacer(modifier = Modifier.width(22.dp))
 
         Text(
-            "한사랑병원",
+            text = "한사랑병원",
             style = KakaotaxiTheme.typography.title.kakaoB18,
             color = colors.textPrimary,
         )
