@@ -76,6 +76,7 @@ private fun TaxiInfo(
     taxiType: String,
     taxiDescription: String,
     taxiPrice: String,
+    modifier: Modifier = Modifier
 ) {
     Column(
         horizontalAlignment = Alignment.Start,

@@ -25,9 +25,11 @@ import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme.colors
 
 @Composable
-fun DestinationItem() {
+fun DestinationItem(
+    modifier: Modifier = Modifier
+) {
     Row(
-        modifier = Modifier
+        modifier = modifier
             .size(320.dp, 43.dp)
             .shadow(
                 elevation   = 10.dp,
