@@ -23,6 +23,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.jm.kakaotaxi.R
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
+import com.jm.kakaotaxi.core.extensions.noRippleClickable
 
 @Composable
 fun FavoriteServiceItem(
@@ -30,7 +31,8 @@ fun FavoriteServiceItem(
     title: String,
     subtitle: String,
     starIcon: Int,
-    carImage: Int
+    carImage: Int,
+    onStarClick: () -> Unit
 ) {
     Box(
         modifier = modifier
@@ -68,8 +70,9 @@ fun FavoriteServiceItem(
             painterResource(starIcon),
             contentDescription = null,
             modifier = Modifier
-                .padding(end = 15.dp, top = 15.dp),
-            tint = Color.Unspecified
+                .padding(end = 15.dp, top = 15.dp)
+                .noRippleClickable(onClick = onStarClick),
+            tint = Color.Unspecified,
         )
 
         Image(
@@ -88,7 +91,8 @@ private fun FavoriteServiceItemPreview() {
     FavoriteServiceItem(
         title = "택시",
         subtitle = "바로 이동해볼까요?",
-        starIcon = R.drawable.ic_home_star_yellow,
-        carImage = R.drawable.img_home_taxi
+        starIcon = R.drawable.ic_home_star_gray,
+        carImage = R.drawable.img_home_taxi,
+        onStarClick = {}
     )
 }
