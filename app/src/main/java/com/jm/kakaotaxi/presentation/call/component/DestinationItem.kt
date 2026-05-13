@@ -39,7 +39,7 @@ fun DestinationItem(
                 spotColor    = Color(0x142A2A2A),
             )
             .background(colors.white, shape = RoundedCornerShape(50.dp))
-            .padding(top = 6.5.dp, bottom = 7.5.dp, start = 14.dp, end = 42.dp),
+            .padding(top = 6.dp, bottom = 7.dp, start = 21.dp, end = 35.dp),
         verticalAlignment = Alignment.CenterVertically,
         ) {
         Icon(
