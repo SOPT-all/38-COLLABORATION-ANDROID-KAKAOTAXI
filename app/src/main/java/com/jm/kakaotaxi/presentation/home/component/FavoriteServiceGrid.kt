@@ -23,7 +23,10 @@ fun FavoriteServiceGrid(
         horizontalArrangement = Arrangement.spacedBy(15.dp),
         verticalArrangement = Arrangement.spacedBy(20.dp)
     ){
-        items(services) { service ->
+        items(
+            items = services,
+            key = { it.id }
+        ) { service ->
             FavoriteServiceItem(
                 title = service.title,
                 subtitle = service.subtitle,
@@ -36,22 +39,26 @@ fun FavoriteServiceGrid(
 
 val favoriteServices = persistentListOf(
     FavoriteServiceModel(
+        id = 1,
         title = "택시",
         subtitle = "바로 이동해볼까요?",
         starIcon = R.drawable.ic_home_star_yellow,
         carImage = R.drawable.img_home_taxi
     ),
     FavoriteServiceModel(
+        id = 2,
         title = "택시 예약",
         subtitle = "미리 예약해볼까요?",
         carImage = R.drawable.img_home_taxi_reseravation
     ),
     FavoriteServiceModel(
+        id = 3,
         title = "기차/버스",
         subtitle = "교통편을 찾아볼까요?",
         carImage = R.drawable.img_home_train_bus
     ),
     FavoriteServiceModel(
+        id = 4,
         title = "렌터",
         subtitle = "차를 빌려볼까요?",
         carImage = R.drawable.img_home_rental_car
