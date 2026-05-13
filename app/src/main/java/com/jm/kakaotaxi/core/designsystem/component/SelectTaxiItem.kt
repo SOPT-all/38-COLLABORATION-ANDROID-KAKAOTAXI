@@ -34,10 +34,9 @@ import com.jm.kakaotaxi.core.extensions.noRippleClickable
 
 @Composable
 fun SelectTaxiItem(
-    modifier: Modifier = Modifier,
-    id: Int,
-    isSelected: Boolean = false,
     onItemClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    isSelected: Boolean = false,
 ) {
     Box(
         modifier = modifier
@@ -133,17 +132,15 @@ private fun KakaoTaxiSelectTaxiItemPreview() {
             modifier = Modifier.padding(16.dp)
         ) {
             SelectTaxiItem(
-                id = 1,
-                isSelected = true,
                 onItemClick = {},
+                isSelected = true,
             )
 
             Spacer(modifier = Modifier.height(10.dp))
 
             SelectTaxiItem(
-                id = 1,
-                isSelected = false,
                 onItemClick = {},
+                isSelected = false,
             )
         }
     }
