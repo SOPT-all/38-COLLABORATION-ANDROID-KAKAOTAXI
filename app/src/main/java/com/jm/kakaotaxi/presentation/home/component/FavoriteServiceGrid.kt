@@ -26,14 +26,16 @@ fun FavoriteServiceGrid(
                     title = services[i].title,
                     subtitle = services[i].subtitle,
                     starIcon = services[i].starIcon,
-                    carImage = services[i].carImage
+                    carImage = services[i].carImage,
+                    onStarClick = {}
                 )
 
                 FavoriteServiceItem(
                     title = services[i + 1].title,
                     subtitle = services[i + 1].subtitle,
                     starIcon = services[i + 1].starIcon,
-                    carImage = services[i + 1].carImage
+                    carImage = services[i + 1].carImage,
+                    onStarClick = {}
                 )
             }
         }
