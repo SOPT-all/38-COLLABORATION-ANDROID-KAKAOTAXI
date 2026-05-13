@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
@@ -41,14 +42,15 @@ fun QuickPlaceList(
             horizontalArrangement = Arrangement.spacedBy(22.dp)
         ) {
 
-            places.forEach{ place ->
-                item{
-                    QuickPlaceItem(
-                        place = place.title,
-                        icon = place.icon,
-                        color = place.color
-                    )
-                }
+            items(
+                items = places,
+                key = { it.id }
+            ) { place ->
+                QuickPlaceItem(
+                    place = place.title,
+                    icon = place.icon,
+                    color = place.color
+                )
             }
 
             item{
@@ -77,9 +79,9 @@ fun QuickPlaceList(
 private fun QuickPlaceListPreview() {
     KakaotaxiTheme {
         val fakeQuickPlaces = persistentListOf(
-            QuickPlaceModel("집", R.drawable.ic_home, KakaotaxiTheme.colors.primaryBlue),
-            QuickPlaceModel("한사랑병원", R.drawable.ic_hospital, KakaotaxiTheme.colors.textSecondary),
-            QuickPlaceModel("노인정", R.drawable.ic_senior_home, KakaotaxiTheme.colors.textSecondary)
+            QuickPlaceModel(1, "집", R.drawable.ic_home, KakaotaxiTheme.colors.primaryBlue),
+            QuickPlaceModel(2, "한사랑병원", R.drawable.ic_hospital, KakaotaxiTheme.colors.textSecondary),
+            QuickPlaceModel(3, "노인정", R.drawable.ic_senior_home, KakaotaxiTheme.colors.textSecondary)
         )
         QuickPlaceList(
             places = fakeQuickPlaces
