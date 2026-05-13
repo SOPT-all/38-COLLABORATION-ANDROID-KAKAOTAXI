@@ -31,9 +31,11 @@ import com.jm.kakaotaxi.R
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme.colors
 import com.jm.kakaotaxi.core.extensions.noRippleClickable
+import com.jm.kakaotaxi.data.model.call.TaxiInfoModel
 
 @Composable
 fun SelectTaxiItem(
+    item: TaxiInfoModel,
     onItemClick: () -> Unit,
     modifier: Modifier = Modifier,
     isSelected: Boolean = false,
@@ -50,10 +52,10 @@ fun SelectTaxiItem(
             .padding(top = 10.dp, end = 8.dp)
     ) {
         TaxiInfo(
-            taxiImage = R.drawable.img_calltaxi_bigtaxi,
-            taxiType = "대형 택시",
-            taxiDescription = "넓은 좌석\n짐이 많을 때",
-            taxiPrice = "13,000"
+            taxiImage = item.taxiImage,
+            taxiType = item.taxiType,
+            taxiDescription = item.taxiDescription,
+            taxiPrice = item.taxiPrice,
         )
 
         Icon(
@@ -112,7 +114,7 @@ private fun TaxiInfo(
         Text(
             text = buildAnnotatedString {
                 withStyle(SpanStyle(color = colors.black)) {
-                    append("예상 ${taxiPrice}")
+                    append("예상 $taxiPrice")
                 }
                 withStyle(SpanStyle(color = colors.textSecondary)) {
                     append("원")
@@ -126,11 +128,20 @@ private fun TaxiInfo(
 @Preview(showBackground = true)
 @Composable
 private fun KakaoTaxiSelectTaxiItemPreview() {
+    val previewItem = TaxiInfoModel(
+        id = "1",
+        taxiImage = R.drawable.img_calltaxi_bigtaxi,
+        taxiType = "대형 택시",
+        taxiDescription = "넓은 좌석\n짐이 많을 때",
+        taxiPrice = "13,000",
+    )
+
     KakaotaxiTheme {
         Column(
             modifier = Modifier.padding(16.dp)
         ) {
             SelectTaxiItem(
+                item = previewItem,
                 onItemClick = {},
                 isSelected = true,
             )
@@ -138,6 +149,7 @@ private fun KakaoTaxiSelectTaxiItemPreview() {
             Spacer(modifier = Modifier.height(10.dp))
 
             SelectTaxiItem(
+                item = previewItem,
                 onItemClick = {},
                 isSelected = false,
             )
