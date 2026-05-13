@@ -44,33 +44,33 @@ fun FavoriteServiceItem(
             )
 
     ) {
-        Row(
+        Column (
             modifier = Modifier
-                .padding(horizontal = 15.dp)
-                .padding(top = 12.dp),
-        ) {
-            Column {
-                Text(
-                    text = title,
-                    color = KakaotaxiTheme.colors.textPrimary,
-                    style = KakaotaxiTheme.typography.body.kakaoB16
-                )
+                .padding(start = 15.dp)
+                .padding(top = 12.dp)
+        ){
+            Text(
+                text = title,
+                color = KakaotaxiTheme.colors.textPrimary,
+                style = KakaotaxiTheme.typography.body.kakaoB16
+            )
 
-                Spacer(modifier = Modifier.height(3.dp))
+            Spacer(modifier = Modifier.height(3.dp))
 
-                Text(
-                    text = subtitle,
-                    color = KakaotaxiTheme.colors.textSecondary,
-                    style = KakaotaxiTheme.typography.label.kakaoR12
-                )
-            }
-
-            Icon(
-                painterResource(starIcon),
-                contentDescription = null,
-                tint = Color.Unspecified
+            Text(
+                text = subtitle,
+                color = KakaotaxiTheme.colors.textSecondary,
+                style = KakaotaxiTheme.typography.label.kakaoR12
             )
         }
+
+        Icon(
+            painterResource(starIcon),
+            contentDescription = null,
+            modifier = Modifier
+                .padding(end = 15.dp, top = 15.dp),
+            tint = Color.Unspecified
+        )
 
         Image(
             painter = painterResource(carImage),
