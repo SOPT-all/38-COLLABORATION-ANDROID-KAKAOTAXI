@@ -1,14 +1,12 @@
 package com.jm.kakaotaxi.presentation.home.component
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.layout.Arrangement.spacedBy
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.jm.kakaotaxi.R
 import com.jm.kakaotaxi.data.model.FavoriteServiceModel
-import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.ui.tooling.preview.Preview
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
@@ -17,21 +15,27 @@ import kotlinx.collections.immutable.persistentListOf
 fun FavoriteServiceGrid(
     services: ImmutableList<FavoriteServiceModel>
 ){
-    LazyVerticalGrid(
-        columns = GridCells.Fixed(2),
-        horizontalArrangement = Arrangement.spacedBy(12.dp),
-        verticalArrangement = Arrangement.spacedBy(15.dp)
-    ){
-        items(
-            items = services,
-            key = { it.id }
-        ) { service ->
-            FavoriteServiceItem(
-                title = service.title,
-                subtitle = service.subtitle,
-                starIcon = service.starIcon,
-                carImage = service.carImage
-            )
+    Column(
+        verticalArrangement = spacedBy(15.dp)
+    ) {
+        services.indices.step(2).forEach { i ->
+            Row(
+                horizontalArrangement = spacedBy(12.dp)
+            ) {
+                FavoriteServiceItem(
+                    title = services[i].title,
+                    subtitle = services[i].subtitle,
+                    starIcon = services[i].starIcon,
+                    carImage = services[i].carImage
+                )
+
+                FavoriteServiceItem(
+                    title = services[i + 1].title,
+                    subtitle = services[i + 1].subtitle,
+                    starIcon = services[i + 1].starIcon,
+                    carImage = services[i + 1].carImage
+                )
+            }
         }
     }
 }
