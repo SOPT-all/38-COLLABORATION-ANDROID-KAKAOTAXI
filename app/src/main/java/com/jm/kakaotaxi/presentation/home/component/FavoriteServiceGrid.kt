@@ -54,7 +54,7 @@ val favoriteServices = persistentListOf(
         id = 2,
         title = "택시 예약",
         subtitle = "미리 예약해볼까요?",
-        carImage = R.drawable.img_home_taxi_reseravation
+        carImage = R.drawable.img_home_taxi_reservation
     ),
     FavoriteServiceModel(
         id = 3,
