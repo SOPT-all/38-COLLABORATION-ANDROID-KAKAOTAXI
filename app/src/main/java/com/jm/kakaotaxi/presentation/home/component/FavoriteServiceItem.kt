@@ -70,6 +70,7 @@ fun FavoriteServiceItem(
             painterResource(starIcon),
             contentDescription = null,
             modifier = Modifier
+                .align (Alignment.TopEnd)
                 .padding(end = 15.dp, top = 15.dp)
                 .noRippleClickable(onClick = onStarClick),
             tint = Color.Unspecified,
