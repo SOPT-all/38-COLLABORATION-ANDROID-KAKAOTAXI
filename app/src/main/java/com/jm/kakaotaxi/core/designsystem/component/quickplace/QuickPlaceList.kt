@@ -34,8 +34,8 @@ fun QuickPlaceList(
 ) {
     Column(
         modifier = modifier
-            .background(KakaotaxiTheme.colors.white)
             .fillMaxWidth()
+            .background(KakaotaxiTheme.colors.white)
     ){
         LazyRow(
             modifier = Modifier
