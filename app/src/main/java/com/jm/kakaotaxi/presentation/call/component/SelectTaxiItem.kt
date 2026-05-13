@@ -81,9 +81,9 @@ private fun TaxiInfo(
     modifier: Modifier = Modifier
 ) {
     Column(
-        horizontalAlignment = Alignment.Start,
         modifier = Modifier
-            .padding(start = 21.dp, end = 29.dp, bottom = 13.dp, top = 30.dp)
+            .padding(start = 21.dp, end = 29.dp, bottom = 13.dp, top = 30.dp),
+        horizontalAlignment = Alignment.Start,
     ) {
         Image(
             painter = painterResource(taxiImage),
