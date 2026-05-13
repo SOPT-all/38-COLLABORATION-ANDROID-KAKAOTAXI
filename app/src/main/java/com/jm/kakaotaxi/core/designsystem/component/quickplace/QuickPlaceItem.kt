@@ -1,10 +1,10 @@
 package com.jm.kakaotaxi.core.designsystem.component.quickplace
 
 import androidx.annotation.DrawableRes
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.width
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -27,9 +27,10 @@ fun QuickPlaceItem(
         modifier = modifier,
         verticalAlignment = Alignment.CenterVertically
     ){
-        Image(
-            painterResource(icon),
-            contentDescription = null
+        Icon(
+            painter = painterResource(id = icon),
+            contentDescription = null,
+            tint = Color.Unspecified
         )
 
         Spacer(modifier = Modifier.width(5.dp))
@@ -42,12 +43,12 @@ fun QuickPlaceItem(
     }
 }
 
-@Preview(showBackground = true)
+@Preview
 @Composable
 private fun QuickPlaceItemPreview(){
     QuickPlaceItem(
         place = "집",
-        icon = R.drawable.img_home,
+        icon = R.drawable.ic_home,
         color = KakaotaxiTheme.colors.primaryBlue
     )
 }

@@ -40,18 +40,18 @@ fun QuickPlaceList(
 
             QuickPlaceItem(
                 place = places[0].title,
-                icon = R.drawable.img_home,
+                icon = R.drawable.ic_home,
                 color = KakaotaxiTheme.colors.primaryBlue
             )
 
             QuickPlaceItem(
                 place = places[1].title,
-                icon = R.drawable.img_hospital
+                icon = R.drawable.ic_hospital
             )
 
             QuickPlaceItem(
                 place = places[2].title,
-                icon = R.drawable.img_senior_home
+                icon = R.drawable.ic_senior_home
             )
 
             Icon(
