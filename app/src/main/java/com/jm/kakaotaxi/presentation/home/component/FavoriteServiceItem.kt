@@ -7,7 +7,9 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -35,23 +37,22 @@ fun FavoriteServiceItem(
     Box(
         modifier = modifier
             .size(150.dp)
-            .clip(RoundedCornerShape(12.dp))
+            .clip(RoundedCornerShape(10.dp))
             .background(KakaotaxiTheme.colors.white)
             .border(
                 width = 1.dp,
                 color = KakaotaxiTheme.colors.backgroundGray,
-                shape = RoundedCornerShape(12.dp)
+                shape = RoundedCornerShape(10.dp)
             )
 
     ) {
-        Column(
+        Row(
             modifier = Modifier
-                .padding(15.dp)
+                .padding(horizontal = 15.dp)
+                .padding(top = 12.dp),
         ) {
-            Row(
+            Column(
                 modifier = Modifier
-                    .fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
             ) {
                 Text(
                     text = title,
@@ -59,17 +60,19 @@ fun FavoriteServiceItem(
                     style = KakaotaxiTheme.typography.body.kakaoB16
                 )
 
-                Icon(
-                    painterResource(starIcon),
-                    contentDescription = null,
-                    tint = Color.Unspecified
+                Spacer(modifier = Modifier.height(3.dp))
+
+                Text(
+                    text = subtitle,
+                    color = KakaotaxiTheme.colors.textSecondary,
+                    style = KakaotaxiTheme.typography.label.kakaoR12
                 )
             }
 
-            Text(
-                text = subtitle,
-                color = KakaotaxiTheme.colors.textSecondary,
-                style = KakaotaxiTheme.typography.label.kakaoR12
+            Icon(
+                painterResource(starIcon),
+                contentDescription = null,
+                tint = Color.Unspecified
             )
         }
 
