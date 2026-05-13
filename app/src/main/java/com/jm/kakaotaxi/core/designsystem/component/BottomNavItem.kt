@@ -36,11 +36,7 @@ fun BottomNavItem(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = modifier
                 .background(
-                    color = KakaotaxiTheme.colors.white,
-                    shape = RoundedCornerShape(
-                        topStart = 20.dp,
-                        topEnd = 29.dp
-                    )
+                    color = KakaotaxiTheme.colors.white
                 )
                 .noRippleClickable(onClick = onClick)
                 .padding(vertical = 10.dp)
