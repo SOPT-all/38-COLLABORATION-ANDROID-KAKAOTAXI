@@ -27,7 +27,6 @@ import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme.colors
 @Composable
 fun DestinationItem() {
     Row(
-        verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .size(320.dp, 43.dp)
             .shadow(
@@ -37,8 +36,9 @@ fun DestinationItem() {
                 spotColor    = Color(0x142A2A2A),
             )
             .background(colors.white, shape = RoundedCornerShape(50.dp))
-            .padding(top = 6.5.dp, bottom = 7.5.dp, start = 14.dp)
-    ) {
+            .padding(top = 6.5.dp, bottom = 7.5.dp, start = 14.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        ) {
         Icon(
             imageVector = ImageVector.vectorResource(R.drawable.ic_calltaxi_close),
             contentDescription = "닫기",
@@ -79,8 +79,8 @@ fun DestinationItem() {
 @Composable
 private fun KakaoTaxiDestinationItemPreview() {
     Box(
+        modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center,
-        modifier = Modifier.fillMaxSize()
     ) {
         KakaotaxiTheme {
             DestinationItem()
