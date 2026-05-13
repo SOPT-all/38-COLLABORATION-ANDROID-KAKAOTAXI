@@ -1,5 +1,6 @@
 package com.jm.kakaotaxi.core.designsystem.component.quickplace
 
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -38,21 +39,13 @@ fun QuickPlaceList(
             horizontalArrangement = Arrangement.spacedBy(22.dp)
         ) {
 
-            QuickPlaceItem(
-                place = places[0].title,
-                icon = R.drawable.ic_home,
-                color = KakaotaxiTheme.colors.primaryBlue
-            )
-
-            QuickPlaceItem(
-                place = places[1].title,
-                icon = R.drawable.ic_hospital
-            )
-
-            QuickPlaceItem(
-                place = places[2].title,
-                icon = R.drawable.ic_senior_home
-            )
+            places.forEach{ place ->
+                QuickPlaceItem(
+                    place = place.title,
+                    icon = place.icon,
+                    color = place.color
+                )
+            }
 
             Icon(
                 imageVector = ImageVector.vectorResource(R.drawable.ic_pluscircle),
@@ -77,9 +70,9 @@ fun QuickPlaceList(
 @Composable
 private fun QuickPlaceListPreview() {
     val fakeQuickPlaces = listOf(
-        QuickPlaceModel("집"),
-        QuickPlaceModel("한사랑병원"),
-        QuickPlaceModel("노인정")
+        QuickPlaceModel("집", R.drawable.ic_home, KakaotaxiTheme.colors.primaryBlue),
+        QuickPlaceModel("한사랑병원", R.drawable.ic_hospital, KakaotaxiTheme.colors.textSecondary),
+        QuickPlaceModel("노인정", R.drawable.ic_senior_home, KakaotaxiTheme.colors.textSecondary)
     )
 
     QuickPlaceList(
