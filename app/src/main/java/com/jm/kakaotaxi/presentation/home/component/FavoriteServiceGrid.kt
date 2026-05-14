@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement.spacedBy
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.jm.kakaotaxi.R
 import com.jm.kakaotaxi.data.model.FavoriteServiceModel
@@ -13,9 +14,11 @@ import kotlinx.collections.immutable.persistentListOf
 
 @Composable
 fun FavoriteServiceGrid(
-    services: ImmutableList<FavoriteServiceModel>
+    services: ImmutableList<FavoriteServiceModel>,
+    modifier: Modifier = Modifier
 ){
     Column(
+        modifier = modifier,
         verticalArrangement = spacedBy(15.dp)
     ) {
         services.chunked(2).forEach { items ->
