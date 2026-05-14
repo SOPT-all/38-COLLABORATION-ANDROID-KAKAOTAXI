@@ -26,11 +26,11 @@ import com.jm.kakaotaxi.core.extensions.noRippleClickable
 
 @Composable
 fun BottomNavItem(
-    modifier: Modifier = Modifier,
     @DrawableRes icon: Int,
     label: String,
     isSelected: Boolean,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
 ){
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -71,7 +71,7 @@ fun BottomNavItem(
 private fun BottomNavItemSelectedPreview() {
     KakaotaxiTheme {
         BottomNavItem(
-            icon = R.drawable.ic_homenavigation_menu,
+            icon = R.drawable.ic_home_navigation_menu_selected,
             label = "전체보기",
             isSelected = true,
             onClick = {}
@@ -84,7 +84,7 @@ private fun BottomNavItemSelectedPreview() {
 private fun BottomNavItemUnselectedPreview() {
     KakaotaxiTheme {
         BottomNavItem(
-            icon = R.drawable.ic_homenavigation_menu,
+            icon = R.drawable.ic_home_navigation_menu_unselected,
             label = "전체보기",
             isSelected = false,
             onClick = {}

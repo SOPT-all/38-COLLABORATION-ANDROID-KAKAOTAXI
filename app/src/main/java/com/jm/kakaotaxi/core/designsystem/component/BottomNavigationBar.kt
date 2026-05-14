@@ -19,12 +19,15 @@ import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 
 @Composable
 fun BottomNavigationBar(
-    selectedIndex: Int,
-    onSelectedChange: (Int) -> Unit,
+    items: List<BottomNavType>,
+    selectedItem: BottomNavType,
+    onItemSelected: (BottomNavType) -> Unit,
     modifier: Modifier = Modifier
+
 ){
     Row(
         modifier = Modifier
+            .fillMaxWidth()
             .background(
                 color = KakaotaxiTheme.colors.white,
                 shape = RoundedCornerShape(
@@ -36,68 +39,35 @@ fun BottomNavigationBar(
             .padding(top = 8.dp, bottom = 2.dp),
         horizontalArrangement = Arrangement.spacedBy(5.dp)
     ){
-        BottomNavItem(
-            modifier = Modifier.weight(1f),
-            icon = R.drawable.ic_homenavigation_menu,
-            label = "전체보기",
-            isSelected = selectedIndex == 0,
-            onClick = {
-                onSelectedChange (0)
-            }
-        )
+        items.forEach {item->
 
-        BottomNavItem(
-            modifier = Modifier.weight(1f),
-            icon = R.drawable.ic_homenavigation_business,
-            label = "비즈니스",
-            isSelected = selectedIndex == 1,
-            onClick = {
-                onSelectedChange(1)
-            }
-        )
+            val isSelected = item == selectedItem
 
-        BottomNavItem(
-            modifier = Modifier.weight(1f),
-            icon = R.drawable.ic_homenavigation_house,
-            label = "홈",
-            isSelected = selectedIndex == 2,
-            onClick = {
-                onSelectedChange(2)
-            }
-        )
-
-        BottomNavItem(
-            modifier = Modifier.weight(1f),
-            icon = R.drawable.ic_homenavigation_bell,
-            label = "이용/알림",
-            isSelected = selectedIndex == 3,
-            onClick = {
-                onSelectedChange(3)
-            }
-        )
-
-        BottomNavItem(
-            modifier = Modifier.weight(1f),
-            icon = R.drawable.ic_homenavigation_user,
-            label = "내 정보",
-            isSelected = selectedIndex == 4,
-            onClick = {
-                onSelectedChange(4)
-            }
-        )
+            BottomNavItem(
+                icon = if (isSelected) item.selectedIconRes else item.unselectedIconRes,
+                label = item. label,
+                isSelected = isSelected,
+                onClick = {onItemSelected(item)}
+            )
+        }
     }
 }
 
 @Preview(showBackground = true)
 @Composable
 private fun BottomNavigationBarPreview() {
-         var selectedIndex by remember {
-        mutableStateOf(0)
-        }
-    BottomNavigationBar(
-        selectedIndex = selectedIndex,
-        onSelectedChange = {
-            selectedIndex = it
-        }
-    )
+
+    var selectedItem by remember {
+        mutableStateOf(BottomNavType.MENU)
+    }
+
+    val items = BottomNavType.entries
+
+    KakaotaxiTheme {
+        BottomNavigationBar(
+            items = items,
+            selectedItem = selectedItem,
+            onItemSelected = { selectedItem = it }
+        )
+    }
 }

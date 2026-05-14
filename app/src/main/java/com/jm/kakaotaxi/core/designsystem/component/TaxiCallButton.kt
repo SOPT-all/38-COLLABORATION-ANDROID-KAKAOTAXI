@@ -1,6 +1,5 @@
 package com.jm.kakaotaxi.core.designsystem.component
 
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
