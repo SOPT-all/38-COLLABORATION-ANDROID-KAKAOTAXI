@@ -15,6 +15,7 @@ import kotlinx.collections.immutable.persistentListOf
 @Composable
 fun FavoriteServiceGrid(
     services: ImmutableList<FavoriteServiceModel>,
+    onStarClick: (FavoriteServiceModel) -> Unit,
     modifier: Modifier = Modifier
 ){
     Column(
@@ -29,9 +30,9 @@ fun FavoriteServiceGrid(
                     FavoriteServiceItem(
                         title = service.title,
                         subtitle = service.subtitle,
-                        starIcon = service.starIcon,
+                        isStarClicked = service.isStarClicked,
                         carImage = service.carImage,
-                        onStarClick = {}
+                        onStarClick = { onStarClick(service)}
                     )
                 }
             }
@@ -44,25 +45,28 @@ val favoriteServices = persistentListOf(
         id = 1,
         title = "택시",
         subtitle = "바로 이동해볼까요?",
-        starIcon = R.drawable.ic_home_star_yellow,
+        isStarClicked = true,
         carImage = R.drawable.img_home_taxi
     ),
     FavoriteServiceModel(
         id = 2,
         title = "택시 예약",
         subtitle = "미리 예약해볼까요?",
+        isStarClicked = false,
         carImage = R.drawable.img_home_taxi_reservation
     ),
     FavoriteServiceModel(
         id = 3,
         title = "기차/버스",
         subtitle = "교통편을 찾아볼까요?",
+        isStarClicked = false,
         carImage = R.drawable.img_home_train_bus
     ),
     FavoriteServiceModel(
         id = 4,
         title = "렌터카",
         subtitle = "차를 빌려볼까요?",
+        isStarClicked = false,
         carImage = R.drawable.img_home_rental_car
     )
 )
@@ -70,5 +74,8 @@ val favoriteServices = persistentListOf(
 @Preview
 @Composable
 private fun FavoriteServiceGridPreview(){
-    FavoriteServiceGrid(favoriteServices)
+    FavoriteServiceGrid(
+        favoriteServices,
+        onStarClick = {}
+    )
 }
