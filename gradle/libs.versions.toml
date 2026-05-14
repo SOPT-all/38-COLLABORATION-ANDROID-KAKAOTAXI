@@ -33,9 +33,6 @@ retrofitKotlinSerializationConverter = "1.0.0"
 
 # Logging
 timber = "5.0.1"
-ui = "1.11.1"
-material3 = "1.4.0"
-foundation = "1.11.1"
 
 
 [libraries]
