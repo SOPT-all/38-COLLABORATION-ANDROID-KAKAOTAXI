@@ -31,7 +31,8 @@ fun NoticeSection(
 ){
     Row(
         modifier = modifier
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .padding(vertical = 2.5.dp),
         verticalAlignment = Alignment.CenterVertically
         ){
             Text(
@@ -62,7 +63,7 @@ fun NoticeSection(
             Icon(
                 imageVector = ImageVector.vectorResource(R.drawable.ic_home_notice_more),
                 contentDescription = null,
-                modifier = Modifier.padding(horizontal = 6.dp, vertical = 7.dp)
+                modifier = Modifier.padding(horizontal = 6.dp, vertical = 4.5.dp)
             )
         }
 }
