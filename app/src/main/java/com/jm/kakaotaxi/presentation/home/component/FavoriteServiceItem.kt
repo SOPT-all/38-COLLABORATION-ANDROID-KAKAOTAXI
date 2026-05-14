@@ -54,8 +54,7 @@ fun FavoriteServiceItem(
     ) {
         Column (
             modifier = Modifier
-                .padding(start = 15.dp)
-                .padding(top = 15.dp)
+                .padding(start = 15.dp, top = 15.dp)
         ){
             Text(
                 text = title,
