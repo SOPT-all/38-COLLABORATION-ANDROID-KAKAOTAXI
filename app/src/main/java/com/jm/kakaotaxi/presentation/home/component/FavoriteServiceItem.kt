@@ -18,7 +18,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.jm.kakaotaxi.R
@@ -67,7 +69,7 @@ fun FavoriteServiceItem(
         }
 
         Icon(
-            painterResource(starIcon),
+            imageVector = ImageVector.vectorResource(starIcon),
             contentDescription = null,
             modifier = Modifier
                 .align (Alignment.TopEnd)
