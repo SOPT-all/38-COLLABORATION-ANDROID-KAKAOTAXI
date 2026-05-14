@@ -18,25 +18,19 @@ fun FavoriteServiceGrid(
     Column(
         verticalArrangement = spacedBy(15.dp)
     ) {
-        services.indices.step(2).forEach { i ->
+        services.chunked(2).forEach { items ->
             Row(
                 horizontalArrangement = spacedBy(12.dp)
             ) {
-                FavoriteServiceItem(
-                    title = services[i].title,
-                    subtitle = services[i].subtitle,
-                    starIcon = services[i].starIcon,
-                    carImage = services[i].carImage,
-                    onStarClick = {}
-                )
-
-                FavoriteServiceItem(
-                    title = services[i + 1].title,
-                    subtitle = services[i + 1].subtitle,
-                    starIcon = services[i + 1].starIcon,
-                    carImage = services[i + 1].carImage,
-                    onStarClick = {}
-                )
+                items.forEach { service ->
+                    FavoriteServiceItem(
+                        title = service.title,
+                        subtitle = service.subtitle,
+                        starIcon = service.starIcon,
+                        carImage = service.carImage,
+                        onStarClick = {}
+                    )
+                }
             }
         }
     }
