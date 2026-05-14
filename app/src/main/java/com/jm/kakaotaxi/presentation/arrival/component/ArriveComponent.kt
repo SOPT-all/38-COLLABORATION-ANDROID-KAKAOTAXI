@@ -1,16 +1,12 @@
-package com.jm.kakaotaxi.core.designsystem.component
+package com.jm.kakaotaxi.presentation.arrival.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
@@ -33,19 +29,20 @@ fun ArriveItem(
 ) {
     Row(
         modifier = modifier
-            .fillMaxWidth()
-            .padding(horizontal = 21.dp)
+            .fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically
     ) {
         Row(
             modifier = Modifier
+                .padding(start = 21.dp)
                 .weight(1f)
                 .background(
-                    shape = RoundedCornerShape(10.dp),
+                    shape = RoundedCornerShape(size= 10.dp),
                     color = KakaotaxiTheme.colors.backgroundGray2
                 )
                 .border(
-                    1.dp,
-                    shape = RoundedCornerShape(10.dp),
+                    width = 1.dp,
+                    shape = RoundedCornerShape(size= 10.dp),
                     color = KakaotaxiTheme.colors.backgroundGray
                 )
                 .padding(horizontal = 10.dp, vertical = 4.dp)
@@ -70,16 +67,17 @@ fun ArriveItem(
         //전화 버튼
         Box(
             modifier = Modifier
+                .padding(end = 21.dp)
                 .background(
-                    shape = RoundedCornerShape(10.dp),
+                    shape = RoundedCornerShape(size= 10.dp),
                     color = KakaotaxiTheme.colors.backgroundGray2
                 )
                 .border(
-                    1.dp,
-                    shape = RoundedCornerShape(10.dp),
+                    width = 1.dp,
+                    shape = RoundedCornerShape(size= 10.dp),
                     color = KakaotaxiTheme.colors.backgroundGray
                 )
-                .padding(10.dp),
+                .padding(all= 10.dp),
             contentAlignment = Alignment.Center
         ) {
             Icon(
