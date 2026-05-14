@@ -1,5 +1,6 @@
 package com.jm.kakaotaxi.presentation.home.component
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -29,8 +30,8 @@ fun FavoriteServiceItem(
     modifier: Modifier = Modifier,
     title: String,
     subtitle: String,
-    starIcon: Int,
-    carImage: Int,
+    @DrawableRes starIcon: Int,
+    @DrawableRes carImage: Int,
     onStarClick: () -> Unit
 ) {
     Box(
