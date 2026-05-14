@@ -34,7 +34,6 @@ fun ArriveItem(
     ) {
         Row(
             modifier = Modifier
-                .padding(start = 21.dp)
                 .weight(1f)
                 .background(
                     shape = RoundedCornerShape(size= 10.dp),
@@ -67,7 +66,6 @@ fun ArriveItem(
         //전화 버튼
         Box(
             modifier = Modifier
-                .padding(end = 21.dp)
                 .background(
                     shape = RoundedCornerShape(size= 10.dp),
                     color = KakaotaxiTheme.colors.backgroundGray2
