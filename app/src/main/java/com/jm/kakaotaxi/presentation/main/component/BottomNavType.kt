@@ -1,4 +1,4 @@
-package com.jm.kakaotaxi.core.designsystem.component
+package com.jm.kakaotaxi.presentation.main.component
 
 import androidx.annotation.DrawableRes
 import com.jm.kakaotaxi.R

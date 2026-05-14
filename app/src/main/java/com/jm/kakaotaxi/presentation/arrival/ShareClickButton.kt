@@ -1,4 +1,4 @@
-package com.jm.kakaotaxi.core.designsystem.component
+package com.jm.kakaotaxi.presentation.arrival
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.PaddingValues
@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.jm.kakaotaxi.core.designsystem.component.ButtonItem
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 
 @Composable
