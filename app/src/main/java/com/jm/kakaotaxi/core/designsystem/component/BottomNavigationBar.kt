@@ -44,6 +44,7 @@ fun BottomNavigationBar(
             val isSelected = item == selectedItem
 
             BottomNavItem(
+                modifier = Modifier.weight(1f),
                 icon = if (isSelected) item.selectedIconRes else item.unselectedIconRes,
                 label = item. label,
                 isSelected = isSelected,
