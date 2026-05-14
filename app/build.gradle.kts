@@ -57,7 +57,6 @@ dependencies {
     implementation(libs.bundles.network)
     implementation(libs.androidx.ui)
     implementation(libs.androidx.material3)
-    implementation(libs.androidx.compose.ui.unit)
 
     // Debug
     debugImplementation(libs.bundles.debug)
