@@ -27,12 +27,12 @@ import com.jm.kakaotaxi.core.extensions.noRippleClickable
 
 @Composable
 fun FavoriteServiceItem(
-    modifier: Modifier = Modifier,
     title: String,
     subtitle: String,
     @DrawableRes starIcon: Int,
     @DrawableRes carImage: Int,
-    onStarClick: () -> Unit
+    onStarClick: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
     Box(
         modifier = modifier
