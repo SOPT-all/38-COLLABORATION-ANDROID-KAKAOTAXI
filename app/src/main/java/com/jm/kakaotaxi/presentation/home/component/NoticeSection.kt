@@ -40,9 +40,9 @@ fun NoticeSection(
 
             VerticalDivider(
                 modifier = Modifier
-                    .height(11.dp)
-                    .width(1.dp)
-                    .background(KakaotaxiTheme.colors.backgroundGray)
+                    .height(11.dp),
+                thickness = 1.dp,
+                color = KakaotaxiTheme.colors.backgroundGray
             )
 
             Spacer(modifier = Modifier.weight(1f))
