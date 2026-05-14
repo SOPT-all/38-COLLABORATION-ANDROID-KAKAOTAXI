@@ -3,8 +3,10 @@ package com.jm.kakaotaxi.presentation.home.component
 import android.graphics.Color
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -32,7 +34,7 @@ fun NoticeSection(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .padding(vertical = 2.5.dp),
+            .padding(vertical = 3.dp),
         verticalAlignment = Alignment.CenterVertically
         ){
             Text(
@@ -45,7 +47,7 @@ fun NoticeSection(
 
             VerticalDivider(
                 modifier = Modifier
-                    .height(11.dp),
+                    .padding(vertical = 5.dp),
                 thickness = 1.dp,
                 color = KakaotaxiTheme.colors.backgroundGray
             )
@@ -63,7 +65,7 @@ fun NoticeSection(
             Icon(
                 imageVector = ImageVector.vectorResource(R.drawable.ic_home_notice_more),
                 contentDescription = null,
-                modifier = Modifier.padding(horizontal = 6.dp, vertical = 4.5.dp)
+                modifier = Modifier.padding(horizontal = 6.dp, vertical = 7.dp)
             )
         }
 }
