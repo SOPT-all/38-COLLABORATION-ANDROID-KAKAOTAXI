@@ -58,7 +58,7 @@ private fun ButtonItemPreview() {
                backgroundColor = KakaotaxiTheme.colors.primaryBlue,
                contentColor = KakaotaxiTheme.colors.white,
                paddingValues = PaddingValues(
-                   horizontal = 69.dp,
+                   horizontal = 68.5.dp,
                    vertical = 10.dp
                ),
                onClick = {}
