@@ -27,8 +27,7 @@ fun NoticeSection(
 ){
     Row(
         modifier = modifier
-            .fillMaxWidth()
-            .background(KakaotaxiTheme.colors.white),
+            .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
         ){
             Text(
