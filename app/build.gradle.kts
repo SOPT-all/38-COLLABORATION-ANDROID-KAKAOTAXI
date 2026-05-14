@@ -55,8 +55,6 @@ dependencies {
 
     // Network
     implementation(libs.bundles.network)
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.material3)
 
     // Debug
     debugImplementation(libs.bundles.debug)
@@ -68,5 +66,4 @@ dependencies {
 
     // Logging
     implementation(libs.timber)
-    
 }
