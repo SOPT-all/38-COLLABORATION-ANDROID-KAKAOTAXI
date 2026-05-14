@@ -14,6 +14,10 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -31,7 +35,7 @@ import com.jm.kakaotaxi.core.extensions.noRippleClickable
 fun FavoriteServiceItem(
     title: String,
     subtitle: String,
-    @DrawableRes starIcon: Int,
+    isStarClicked: Boolean,
     @DrawableRes carImage: Int,
     onStarClick: () -> Unit,
     modifier: Modifier = Modifier
@@ -69,7 +73,12 @@ fun FavoriteServiceItem(
         }
 
         Icon(
-            imageVector = ImageVector.vectorResource(starIcon),
+            imageVector = ImageVector.vectorResource(
+                if (isStarClicked) {
+                    R.drawable.ic_home_star_yellow
+                } else {
+                    R.drawable.ic_home_star_gray
+                }),
             contentDescription = null,
             modifier = Modifier
                 .align (Alignment.TopEnd)
@@ -90,11 +99,13 @@ fun FavoriteServiceItem(
 @Preview
 @Composable
 private fun FavoriteServiceItemPreview() {
+    var isStarClicked by remember { mutableStateOf(false) }
+
     FavoriteServiceItem(
         title = "택시",
         subtitle = "바로 이동해볼까요?",
-        starIcon = R.drawable.ic_home_star_gray,
+        isStarClicked = isStarClicked,
         carImage = R.drawable.img_home_taxi,
-        onStarClick = {}
+        onStarClick = { isStarClicked = !isStarClicked }
     )
 }
