@@ -1,5 +1,6 @@
 package com.jm.kakaotaxi.presentation.home.component
 
+import android.graphics.Color
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -14,11 +15,14 @@ import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.jm.kakaotaxi.R
+import com.jm.kakaotaxi.core.designsystem.theme.KakaoColors
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 
 @Composable
@@ -56,14 +60,14 @@ fun NoticeSection(
             Spacer(modifier = Modifier.weight(1f))
 
             Icon(
-                painterResource(R.drawable.ic_home_notice_more),
+                imageVector = ImageVector.vectorResource(R.drawable.ic_home_notice_more),
                 contentDescription = null,
                 modifier = Modifier.padding(horizontal = 6.dp, vertical = 7.dp)
             )
         }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun NoticeSectionPreview(){
     NoticeSection()
