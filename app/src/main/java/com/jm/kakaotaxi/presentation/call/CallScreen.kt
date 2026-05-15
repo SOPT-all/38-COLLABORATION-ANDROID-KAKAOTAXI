@@ -22,15 +22,18 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 import com.jm.kakaotaxi.R
 import com.jm.kakaotaxi.core.designsystem.component.KakaoTaxiBottomSheet
+import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme.colors
 import com.jm.kakaotaxi.data.model.call.TaxiInfoModel
 import com.jm.kakaotaxi.presentation.call.component.TaxiItemGrid
 import com.jm.kakaotaxi.presentation.call.component.taxiServices
-import kotlin.math.max
 
 @Composable
 fun CallRoute(
@@ -103,9 +106,15 @@ private fun CallScreen(
                     Spacer(modifier = Modifier.weight(1f))
 
                     Text(
-                        text = "7,800원",
-                        style = KakaotaxiTheme.typography.title.kakaoB20,
-                        color = KakaotaxiTheme.colors.textPrimary
+                        text = buildAnnotatedString {
+                            withStyle(SpanStyle(color = colors.black)) {
+                                append("예상 ${selectedService.taxiPrice}")
+                            }
+                            withStyle(SpanStyle(color = colors.textSecondary)) {
+                                append("원")
+                            }
+                        },
+                        style = KakaotaxiTheme.typography.body.kakaoB16,
                     )
                 }
 
