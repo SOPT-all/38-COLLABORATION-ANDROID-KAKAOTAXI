@@ -3,8 +3,10 @@ package com.jm.kakaotaxi.presentation.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.HorizontalDivider
@@ -62,10 +64,11 @@ private fun HomeScreen(
                     onSearchBarClick = onSearchBarClick
                 )
 
-                QuickPlaceList(
-                    places = quickPlaces,
-                    modifier = Modifier.padding(vertical = 15.dp)
-                )
+                Spacer(modifier = Modifier.height(15.dp))
+
+                QuickPlaceList(places = quickPlaces)
+
+                Spacer(modifier = Modifier.height(15.dp))
 
                 FavoriteSection(
                     services = services,
@@ -77,13 +80,16 @@ private fun HomeScreen(
         }
 
         item{
+            Spacer(modifier = Modifier.height(15.dp))
+
             HorizontalDivider(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 15.dp),
+                    .fillMaxWidth(),
                 thickness = 10.dp,
                 color = KakaotaxiTheme.colors.backgroundGray2
             )
+
+            Spacer(modifier = Modifier.height(15.dp))
         }
 
         item{EventNoticeSection(modifier = Modifier.fillMaxWidth())}

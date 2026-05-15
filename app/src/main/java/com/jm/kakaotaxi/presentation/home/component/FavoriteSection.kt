@@ -4,7 +4,9 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -48,31 +50,36 @@ fun FavoriteSection(
             )
         }
 
+        Spacer(modifier = Modifier.height(9.dp))
+
         Image(
             painter = painterResource(R.drawable.img_home_point_taxi),
             contentDescription = null,
             modifier = Modifier
                 .fillMaxWidth(2f / 3f)
-                .padding(vertical = 9.dp)
         )
+
+        Spacer(modifier = Modifier.height(9.dp))
 
         FavoriteServiceGrid(
             services = services,
             onStarClick = onStarClick,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(bottom = 15.dp)
         )
+
+        Spacer(modifier = Modifier.height(24.dp))
 
         Text(
             text = "전체 서비스 보기",
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 9.dp),
+                .fillMaxWidth(),
             color = KakaotaxiTheme.colors.textSecondary,
             textAlign = TextAlign.Center,
             style = KakaotaxiTheme.typography.body.kakaoB16
         )
+
+        Spacer(modifier = Modifier.height(9.dp))
     }
 }
 
