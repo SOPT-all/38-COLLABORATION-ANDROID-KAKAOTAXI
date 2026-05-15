@@ -16,6 +16,7 @@ import kotlinx.collections.immutable.persistentListOf
 fun TaxiItemGrid(
     services: ImmutableList<TaxiInfoModel>,
     service: TaxiInfoModel,
+    onServiceChange: (TaxiInfoModel) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -29,7 +30,7 @@ fun TaxiItemGrid(
                 items.forEach { item ->
                     SelectTaxiItem(
                         item = item,
-                        onItemClick = {},
+                        onItemClick = {onServiceChange(item)},
                         isSelected = service == item,
                         modifier = Modifier.weight(1f)
                     )
@@ -75,6 +76,7 @@ val taxiServices = persistentListOf(
 private fun TaxiItemGridPreview() {
     TaxiItemGrid(
         taxiServices,
-        service = taxiServices.first()
+        service = taxiServices.first(),
+        onServiceChange = {}
     )
 }

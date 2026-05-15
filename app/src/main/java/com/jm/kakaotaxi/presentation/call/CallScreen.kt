@@ -8,12 +8,17 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -25,6 +30,7 @@ import com.jm.kakaotaxi.core.designsystem.component.KakaoTaxiBottomSheet
 import com.jm.kakaotaxi.data.model.call.TaxiInfoModel
 import com.jm.kakaotaxi.presentation.call.component.TaxiItemGrid
 import com.jm.kakaotaxi.presentation.call.component.taxiServices
+import kotlin.math.max
 
 @Composable
 fun CallRoute(
@@ -40,6 +46,8 @@ fun CallRoute(
 private fun CallScreen(
     modifier: Modifier = Modifier
 ) {
+    var selectedService by remember { mutableStateOf(taxiServices.first()) }
+
     Box(
         modifier = modifier.fillMaxSize()
     ) {
@@ -56,9 +64,9 @@ private fun CallScreen(
         ) {
             Column(
                 modifier = Modifier
+                    .heightIn(max = 450.dp)
                     .padding(top = 10.dp, bottom = 20.dp, start = 20.dp, end = 20.dp)
                     .verticalScroll(rememberScrollState())
-
             ) {
                 Text(
                     text = "원하는 택시를 골라주세요",
@@ -70,7 +78,8 @@ private fun CallScreen(
 
                 TaxiItemGrid(
                     services = taxiServices,
-                    service = taxiServices.first(),
+                    service = selectedService,
+                    onServiceChange = { selectedService = it }
                 )
 
                 Spacer(modifier = Modifier.height(13.dp))
