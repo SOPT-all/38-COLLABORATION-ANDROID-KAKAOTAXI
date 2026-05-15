@@ -32,7 +32,7 @@ fun FavoriteServiceGrid(
                         subtitle = service.subtitle,
                         isStarClicked = service.isStarClicked,
                         carImage = service.carImage,
-                        onStarClick = { onStarClick(service)}
+                        onStarClick = { onStarClick(service) }
                     )
                 }
             }
