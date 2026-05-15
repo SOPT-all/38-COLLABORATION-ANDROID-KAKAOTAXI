@@ -12,9 +12,12 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.jm.kakaotaxi.R
 import com.jm.kakaotaxi.core.designsystem.component.KakaoTaxiSearchBar
 import com.jm.kakaotaxi.core.designsystem.component.quickplace.QuickPlaceList
@@ -33,11 +36,19 @@ import kotlinx.collections.immutable.persistentListOf
 
 @Composable
 fun SearchRoute(
-    modifier: Modifier = Modifier
+    navigateToCall: () -> Unit,
+    modifier: Modifier = Modifier,
+    viewModel: SearchViewModel = viewModel(),
 ) {
-    /*SearchScreen(
-        modifier = modifier
-    )*/
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+
+    SearchScreen(
+        myPlaces = uiState.myPlaces,
+        recentPlaces = uiState.recentPlaces,
+        historyItems = uiState.historyItems,
+        onRecentItemClick = navigateToCall,
+        modifier = modifier,
+    )
 }
 
 @Composable
@@ -156,44 +167,49 @@ private fun SearchScreenPreview() {
     KakaotaxiTheme {
         SearchScreen(
             myPlaces = persistentListOf(
-                QuickPlaceModel(1, "집", R.drawable.ic_home, KakaotaxiTheme.colors.primaryBlue),
                 QuickPlaceModel(
-                    2,
-                    "한사랑병원",
-                    R.drawable.ic_hospital,
-                    KakaotaxiTheme.colors.textSecondary
+                    id = 1,
+                    title = "집",
+                    icon = R.drawable.ic_home,
+                    color = KakaotaxiTheme.colors.primaryBlue
                 ),
                 QuickPlaceModel(
-                    3,
-                    "노인정",
-                    R.drawable.ic_senior_home,
-                    KakaotaxiTheme.colors.textSecondary
+                    id = 2,
+                    title = "한사랑병원",
+                    icon = R.drawable.ic_hospital,
+                    color = KakaotaxiTheme.colors.textSecondary
+                ),
+                QuickPlaceModel(
+                    id = 3,
+                    title = "노인정",
+                    icon = R.drawable.ic_senior_home,
+                    color = KakaotaxiTheme.colors.textSecondary
                 )
             ),
             recentPlaces = persistentListOf(
                 SearchRecentModel(
-                    1,
-                    "한사랑병원",
-                    "오늘 오전",
-                    "송파구"
+                    id = 1,
+                    place = "한사랑병원",
+                    time = "오늘 오전",
+                    location = "송파구"
                 ),
                 SearchRecentModel(
-                    2,
-                    "강남구 보건소",
-                    "오늘 오후",
-                    "강남구"
+                    id = 2,
+                    place = "강남구 보건소",
+                    time = "오늘 오후",
+                    location = "강남구"
                 ),
                 SearchRecentModel(
-                    3,
-                    "성동복지관",
-                    "어제",
-                    "성동구"
+                    id = 3,
+                    place = "성동복지관",
+                    time = "어제",
+                    location = "성동구"
                 ),
                 SearchRecentModel(
-                    4,
-                    "탑마트 성수점",
-                    "어제",
-                    "성동구"
+                    id = 4,
+                    place = "탑마트 성수점",
+                    time = "어제",
+                    location = "성동구"
                 ),
             ),
             historyItems = persistentListOf(
