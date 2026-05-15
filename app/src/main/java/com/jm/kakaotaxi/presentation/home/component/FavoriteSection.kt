@@ -2,17 +2,23 @@ package com.jm.kakaotaxi.presentation.home.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.jm.kakaotaxi.R
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 import com.jm.kakaotaxi.data.model.FavoriteServiceModel
 import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.persistentListOf
 
 @Composable
 fun FavoriteSection(
@@ -20,40 +26,89 @@ fun FavoriteSection(
     onStarClick: (FavoriteServiceModel) -> Unit,
     modifier: Modifier = Modifier
 ){
-    Row(
-        modifier = modifier,
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically
-    ){
-        Text(
-            text = "자주 쓰는 서비스",
-            color = KakaotaxiTheme.colors.textPrimary,
-            style = KakaotaxiTheme.typography.body.kakaoB16
+    Column(){
+        Row(
+            modifier = modifier
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ){
+            Text(
+                text = "자주 쓰는 서비스",
+                color = KakaotaxiTheme.colors.textPrimary,
+                style = KakaotaxiTheme.typography.body.kakaoB16
+            )
+
+            Text(
+                text = "편집",
+                color = KakaotaxiTheme.colors.textSecondary,
+                style = KakaotaxiTheme.typography.body.kakaoB14
+            )
+        }
+
+        Image(
+            painter = painterResource(R.drawable.img_home_point_taxi),
+            contentDescription = null,
+            modifier = Modifier
+                .fillMaxWidth(2f / 3f)
+                .padding(vertical = 9.dp)
+        )
+
+        FavoriteServiceGrid(
+            services = services,
+            onStarClick = onStarClick,
+            modifier = Modifier
+                .fillMaxWidth()
         )
 
         Text(
-            text = "편집",
+            text = "전체 서비스 보기",
             color = KakaotaxiTheme.colors.textSecondary,
-            style = KakaotaxiTheme.typography.body.kakaoB14
+            textAlign = TextAlign.Center,
+            style = KakaotaxiTheme.typography.body.kakaoB16,
         )
     }
 
-    Image(
-        painter = painterResource(R.drawable.img_home_point_taxi),
-        contentDescription = null,
-        modifier = Modifier
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun FavoriteSectionPreview() {
+    val fakeFavoriteServices = persistentListOf(
+        FavoriteServiceModel(
+            id = 1,
+            title = "택시",
+            subtitle = "바로 이동해볼까요?",
+            isStarClicked = true,
+            carImage = R.drawable.img_home_taxi
+        ),
+        FavoriteServiceModel(
+            id = 2,
+            title = "택시 예약",
+            subtitle = "미리 예약해볼까요?",
+            isStarClicked = false,
+            carImage = R.drawable.img_home_taxi_reservation
+        ),
+        FavoriteServiceModel(
+            id = 3,
+            title = "기차/버스",
+            subtitle = "교통편을 찾아볼까요?",
+            isStarClicked = false,
+            carImage = R.drawable.img_home_train_bus
+        ),
+        FavoriteServiceModel(
+            id = 4,
+            title = "렌터카",
+            subtitle = "차를 빌려볼까요?",
+            isStarClicked = false,
+            carImage = R.drawable.img_home_rental_car
+        )
     )
 
-    FavoriteServiceGrid(
-        services = services,
-        onStarClick = onStarClick
-    )
-
-    Text(
-        text = "전체 서비스 보기",
-        color = KakaotaxiTheme.colors.textSecondary,
-        textAlign = TextAlign.Center,
-        style = KakaotaxiTheme.typography.body.kakaoB16,
-    )
-
+    KakaotaxiTheme {
+        FavoriteSection(
+            services = fakeFavoriteServices,
+            onStarClick = {}
+        )
+    }
 }
