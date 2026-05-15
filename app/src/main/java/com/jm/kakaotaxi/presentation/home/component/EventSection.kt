@@ -37,6 +37,8 @@ fun EventNoticeSection(
             modifier = Modifier
         )
 
+        Spacer(modifier = Modifier.height(14.dp))
+
         HorizontalDivider(
             modifier = Modifier,
             thickness = 1.dp,
