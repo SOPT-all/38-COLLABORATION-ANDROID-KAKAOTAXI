@@ -1,6 +1,7 @@
 package com.jm.kakaotaxi.presentation.home
 
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.Composable
@@ -43,6 +44,7 @@ private fun HomeScreen(
 ) {
     Column(
         modifier = modifier
+            .background(KakaotaxiTheme.colors.white)
     ) {
         KakaoTaxiSearchBar(
             type = SearchBarType.HOME,
@@ -72,8 +74,6 @@ private fun HomeScreen(
 
         NoticeSection()
     }
-
-
 }
 
 
