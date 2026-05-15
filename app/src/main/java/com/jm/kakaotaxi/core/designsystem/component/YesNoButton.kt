@@ -13,26 +13,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
+import com.jm.kakaotaxi.presentation.main.component.BottomNavType
 
 @Composable
 fun AnswerButton(
     modifier: Modifier = Modifier
 ) {
-    Row(modifier = modifier.padding(horizontal = 21.dp))
+    Row(modifier = modifier)
     {
         ButtonItem(
             text = "아니요",
-            backgroundColor = KakaotaxiTheme.colors.white,
-            contentColor = KakaotaxiTheme.colors.subGray,
-            paddingValues = PaddingValues(
-                horizontal = 52.dp,
-                vertical = 10.dp
-            ),
-            modifier = Modifier.border(
-                width = 1.dp,
-                color = KakaotaxiTheme.colors.backgroundGray,
-                shape = RoundedCornerShape(10.dp)
-            ),
+            style = ButtonStyle.NO,
+            horizontalPadding = 52.dp,
             onClick = {}
         )
 
@@ -40,16 +32,8 @@ fun AnswerButton(
 
         ButtonItem(
             text = "네",
-            backgroundColor = KakaotaxiTheme.colors.primaryBlue,
-            contentColor = KakaotaxiTheme.colors.white,
-            paddingValues = PaddingValues(
-                horizontal = 68.5.dp,
-                vertical = 10.dp
-            ),
-            modifier = Modifier.background(
-                color = KakaotaxiTheme.colors.primaryBlue,
-                shape = RoundedCornerShape(10.dp)
-            ),
+            style = ButtonStyle.YES,
+            horizontalPadding = 69.dp,
             onClick = {}
         )
     }

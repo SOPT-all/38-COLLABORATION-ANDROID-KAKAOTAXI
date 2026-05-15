@@ -15,17 +15,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.toImmutableList
 
 @Composable
 fun BottomNavigationBar(
-    items: List<BottomNavType>,
+    items: ImmutableList<BottomNavType>,
     selectedItem: BottomNavType,
     onItemSelected: (BottomNavType) -> Unit,
     modifier: Modifier = Modifier
 
 ){
     Row(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .background(
                 color = KakaotaxiTheme.colors.white,
@@ -39,15 +41,14 @@ fun BottomNavigationBar(
         horizontalArrangement = Arrangement.spacedBy(5.dp)
     ){
         items.forEach {item->
-
             val isSelected = item == selectedItem
-
             BottomNavItem(
-                modifier = Modifier.weight(1f),
                 icon = if (isSelected) item.selectedIconRes else item.unselectedIconRes,
                 label = item. label,
-                isSelected = isSelected,
-                onClick = {onItemSelected(item)}
+                isSelected = item == selectedItem,
+                onClick = {onItemSelected(item)},
+                modifier = Modifier.weight(1f)
+
             )
         }
     }
@@ -61,7 +62,7 @@ private fun BottomNavigationBarPreview() {
         mutableStateOf(BottomNavType.MENU)
     }
 
-    val items = BottomNavType.entries
+    val items = BottomNavType.entries.toImmutableList()
 
     KakaotaxiTheme {
         BottomNavigationBar(

@@ -41,7 +41,7 @@ fun ButtonItem(
             .noRippleClickable(onClick = onClick)
             .padding(
                 horizontal = horizontalPadding,
-                vertical = 13.dp
+                vertical = 14.dp
             ),
         contentAlignment = Alignment.Center
     ) {
