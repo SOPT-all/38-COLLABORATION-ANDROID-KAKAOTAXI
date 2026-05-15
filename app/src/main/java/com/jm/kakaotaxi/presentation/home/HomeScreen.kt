@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.HorizontalDivider
@@ -69,7 +70,8 @@ private fun HomeScreen(
 
                 FavoriteSection(
                     services = services,
-                    onStarClick = onStarClick
+                    onStarClick = onStarClick,
+                    modifier = Modifier.fillMaxWidth()
                 )
             }
 
@@ -77,7 +79,7 @@ private fun HomeScreen(
 
         item{
             HorizontalDivider(
-                modifier = Modifier,
+                modifier = Modifier.fillMaxWidth(),
                 thickness = 10.dp,
                 color = KakaotaxiTheme.colors.backgroundGray2
             )

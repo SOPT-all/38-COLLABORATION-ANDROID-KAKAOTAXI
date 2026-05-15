@@ -26,6 +26,7 @@ fun FavoriteServiceGrid(
     ) {
         services.chunked(2).forEach { items ->
             Row(
+                modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = spacedBy(12.dp)
             ) {
                 items.forEach { service ->

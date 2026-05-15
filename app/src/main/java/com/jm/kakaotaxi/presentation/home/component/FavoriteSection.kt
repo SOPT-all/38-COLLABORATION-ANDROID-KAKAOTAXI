@@ -26,9 +26,11 @@ fun FavoriteSection(
     onStarClick: (FavoriteServiceModel) -> Unit,
     modifier: Modifier = Modifier
 ){
-    Column(){
+    Column(
+        modifier = modifier
+    ){
         Row(
-            modifier = modifier
+            modifier = Modifier
                 .fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
@@ -57,12 +59,12 @@ fun FavoriteSection(
         FavoriteServiceGrid(
             services = services,
             onStarClick = onStarClick,
-            modifier = Modifier
-                .fillMaxWidth()
+            modifier = Modifier.fillMaxWidth()
         )
 
         Text(
             text = "전체 서비스 보기",
+            modifier = Modifier,
             color = KakaotaxiTheme.colors.textSecondary,
             textAlign = TextAlign.Center,
             style = KakaotaxiTheme.typography.body.kakaoB16,
