@@ -31,7 +31,6 @@ import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 import com.jm.kakaotaxi.R
 import com.jm.kakaotaxi.core.designsystem.component.KakaoTaxiBottomSheet
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme.colors
-import com.jm.kakaotaxi.data.model.call.TaxiInfoModel
 import com.jm.kakaotaxi.presentation.call.component.TaxiItemGrid
 import com.jm.kakaotaxi.presentation.call.component.taxiServices
 
@@ -74,7 +73,7 @@ private fun CallScreen(
                 Text(
                     text = "원하는 택시를 골라주세요",
                     style = KakaotaxiTheme.typography.body.kakaoB16,
-                    color = KakaotaxiTheme.colors.textPrimary,
+                    color = colors.textPrimary,
                 )
 
                 Spacer(modifier = Modifier.height(9.dp))
@@ -100,7 +99,7 @@ private fun CallScreen(
                     Text(
                         text = "예상 요금",
                         style = KakaotaxiTheme.typography.body.kakaoR14,
-                        color = KakaotaxiTheme.colors.textSecondary,
+                        color = colors.textSecondary,
                     )
 
                     Spacer(modifier = Modifier.weight(1f))
