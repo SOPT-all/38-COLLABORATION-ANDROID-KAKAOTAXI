@@ -40,40 +40,42 @@ fun FavoriteServiceGrid(
     }
 }
 
-val favoriteServices = persistentListOf(
-    FavoriteServiceModel(
-        id = 1,
-        title = "택시",
-        subtitle = "바로 이동해볼까요?",
-        isStarClicked = true,
-        carImage = R.drawable.img_home_taxi
-    ),
-    FavoriteServiceModel(
-        id = 2,
-        title = "택시 예약",
-        subtitle = "미리 예약해볼까요?",
-        isStarClicked = false,
-        carImage = R.drawable.img_home_taxi_reservation
-    ),
-    FavoriteServiceModel(
-        id = 3,
-        title = "기차/버스",
-        subtitle = "교통편을 찾아볼까요?",
-        isStarClicked = false,
-        carImage = R.drawable.img_home_train_bus
-    ),
-    FavoriteServiceModel(
-        id = 4,
-        title = "렌터카",
-        subtitle = "차를 빌려볼까요?",
-        isStarClicked = false,
-        carImage = R.drawable.img_home_rental_car
-    )
-)
+
 
 @Preview
 @Composable
 private fun FavoriteServiceGridPreview(){
+    val favoriteServices = persistentListOf(
+        FavoriteServiceModel(
+            id = 1,
+            title = "택시",
+            subtitle = "바로 이동해볼까요?",
+            isStarClicked = true,
+            carImage = R.drawable.img_home_taxi
+        ),
+        FavoriteServiceModel(
+            id = 2,
+            title = "택시 예약",
+            subtitle = "미리 예약해볼까요?",
+            isStarClicked = false,
+            carImage = R.drawable.img_home_taxi_reservation
+        ),
+        FavoriteServiceModel(
+            id = 3,
+            title = "기차/버스",
+            subtitle = "교통편을 찾아볼까요?",
+            isStarClicked = false,
+            carImage = R.drawable.img_home_train_bus
+        ),
+        FavoriteServiceModel(
+            id = 4,
+            title = "렌터카",
+            subtitle = "차를 빌려볼까요?",
+            isStarClicked = false,
+            carImage = R.drawable.img_home_rental_car
+        )
+    )
+
     FavoriteServiceGrid(
         favoriteServices,
         onStarClick = {}
