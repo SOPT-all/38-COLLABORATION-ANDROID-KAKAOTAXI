@@ -1,8 +1,10 @@
 package com.jm.kakaotaxi.core.designsystem.component.quickplace
 
 import androidx.annotation.DrawableRes
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -20,8 +22,7 @@ import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 fun QuickPlaceItem(
     place: String,
     @DrawableRes icon: Int,
-    modifier: Modifier = Modifier,
-    color: Color = KakaotaxiTheme.colors.textSecondary
+    modifier: Modifier = Modifier
 ) {
     Row (
         modifier = modifier,
@@ -37,18 +38,27 @@ fun QuickPlaceItem(
 
         Text(
             text = place,
-            color = color,
+            color = if (place == "집") KakaotaxiTheme.colors.primaryBlue
+                    else KakaotaxiTheme.colors.textSecondary,
             style = KakaotaxiTheme.typography.body.kakaoB16
         )
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun QuickPlaceItemPreview(){
-    QuickPlaceItem(
-        place = "집",
-        icon = R.drawable.ic_home,
-        color = KakaotaxiTheme.colors.primaryBlue
-    )
+    Column(){
+        QuickPlaceItem(
+            place = "집",
+            icon = R.drawable.ic_home
+        )
+
+        Spacer(modifier = Modifier.height(10.dp))
+
+        QuickPlaceItem(
+            place = "한사랑병원",
+            icon = R.drawable.ic_hospital
+        )
+    }
 }
