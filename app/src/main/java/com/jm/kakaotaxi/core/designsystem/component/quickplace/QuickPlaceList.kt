@@ -52,8 +52,7 @@ fun QuickPlaceList(
             ) { place ->
                 QuickPlaceItem(
                     place = place.title,
-                    icon = place.icon,
-                    color = place.color
+                    icon = place.icon
                 )
             }
 
@@ -84,9 +83,9 @@ fun QuickPlaceList(
 private fun QuickPlaceListPreview() {
     KakaotaxiTheme {
         val fakeQuickPlaces = persistentListOf(
-            QuickPlaceModel(1, "집", R.drawable.ic_home, KakaotaxiTheme.colors.primaryBlue),
-            QuickPlaceModel(2, "한사랑병원", R.drawable.ic_hospital, KakaotaxiTheme.colors.textSecondary),
-            QuickPlaceModel(3, "노인정", R.drawable.ic_senior_home, KakaotaxiTheme.colors.textSecondary)
+            QuickPlaceModel(1, "집", R.drawable.ic_home),
+            QuickPlaceModel(2, "한사랑병원", R.drawable.ic_hospital),
+            QuickPlaceModel(3, "노인정", R.drawable.ic_senior_home)
         )
         QuickPlaceList(
             places = fakeQuickPlaces
