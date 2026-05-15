@@ -3,8 +3,10 @@ package com.jm.kakaotaxi.core.designsystem.component
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
@@ -22,9 +24,8 @@ import com.jm.kakaotaxi.core.extensions.noRippleClickable
 fun ButtonItem(
     text: String,
     style: ButtonStyle,
-    horizontalPadding: Dp,
-    modifier: Modifier = Modifier,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
 
     Box(
@@ -39,10 +40,7 @@ fun ButtonItem(
                 shape = RoundedCornerShape(10.dp)
             )
             .noRippleClickable(onClick = onClick)
-            .padding(
-                horizontal = horizontalPadding,
-                vertical = 14.dp
-            ),
+            .padding(vertical = 14.dp),
         contentAlignment = Alignment.Center
     ) {
 
@@ -58,12 +56,14 @@ fun ButtonItem(
 @Composable
 private fun ButtonItemPreview() {
     KakaotaxiTheme {
-
-        ButtonItem(
-               text = "네",
-               style = ButtonStyle.YES,
-               horizontalPadding = 68.dp,
-               onClick = {}
-           )
+        Column(
+            modifier = Modifier.padding(horizontal = 19.dp)
+        ) {
+            ButtonItem(
+                text = "택시 부르기",
+                style = ButtonStyle.CALL,
+                onClick = {}
+            )
+        }
     }
 }

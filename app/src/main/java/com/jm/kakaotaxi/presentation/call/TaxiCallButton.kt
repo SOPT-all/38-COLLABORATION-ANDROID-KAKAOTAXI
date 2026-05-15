@@ -1,6 +1,7 @@
 package com.jm.kakaotaxi.presentation.call
 
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -12,13 +13,14 @@ import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 
 @Composable
 fun TaxiCallButton(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onClick : () -> Unit
 ) {
     ButtonItem(
         text = "택시 부르기",
         style = ButtonStyle.CALL,
-        horizontalPadding = 118.dp,
-        onClick = {}
+        onClick = {},
+        modifier = modifier.fillMaxWidth()
     )
 }
 
@@ -26,6 +28,8 @@ fun TaxiCallButton(
 @Composable
 private fun TaxiCallButtonPreview() {
     KakaotaxiTheme {
-        TaxiCallButton()
+        TaxiCallButton(
+            onClick = {}
+        )
     }
 }

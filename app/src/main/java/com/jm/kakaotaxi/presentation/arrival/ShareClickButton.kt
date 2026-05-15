@@ -2,6 +2,7 @@ package com.jm.kakaotaxi.presentation.arrival
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
@@ -14,13 +15,14 @@ import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 
 @Composable
 fun ShareClickButton(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onClick : () -> Unit
 ) {
     ButtonItem(
         text = "보호자에게 공유",
         style = ButtonStyle.SHARE,
-        horizontalPadding = 99.dp,
-        onClick = {}
+        onClick = {},
+        modifier = modifier.fillMaxWidth()
     )
 }
 
@@ -28,6 +30,8 @@ fun ShareClickButton(
 @Composable
 private fun ShareClickButtonPreview() {
     KakaotaxiTheme {
-        ShareClickButton()
+        ShareClickButton(
+            onClick = {}
+        )
     }
 }
