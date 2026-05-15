@@ -3,6 +3,7 @@ package com.jm.kakaotaxi.presentation.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -42,37 +43,45 @@ private fun HomeScreen(
     onStarClick: (FavoriteServiceModel) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Column(
+    LazyColumn(
         modifier = modifier
             .background(KakaotaxiTheme.colors.white)
-    ) {
-        KakaoTaxiSearchBar(
-            type = SearchBarType.HOME,
-            onSearchBarClick = onSearchBarClick
-        )
+    ){
+        item {
+            KakaoTaxiSearchBar(
+                type = SearchBarType.HOME,
+                onSearchBarClick = onSearchBarClick
+            )
+        }
 
-        QuickPlaceList(places = quickPlaces)
+        item{QuickPlaceList(places = quickPlaces)}
 
-        FavoriteSection(
+        item{
+            FavoriteSection(
             services = services,
             onStarClick = onStarClick
         )
+        }
 
-        HorizontalDivider(
-            modifier = Modifier,
-            thickness = 10.dp,
-            color = KakaotaxiTheme.colors.backgroundGray2
-        )
+        item{
+            HorizontalDivider(
+                modifier = Modifier,
+                thickness = 10.dp,
+                color = KakaotaxiTheme.colors.backgroundGray2
+            )
+        }
 
-        EventSection()
+        item{EventSection()}
 
-        HorizontalDivider(
-            modifier = Modifier,
-            thickness = 1.dp,
-            color = KakaotaxiTheme.colors.backgroundGray
-        )
+        item{
+            HorizontalDivider(
+                modifier = Modifier,
+                thickness = 1.dp,
+                color = KakaotaxiTheme.colors.backgroundGray
+            )
+        }
 
-        NoticeSection()
+        item{NoticeSection()}
     }
 }
 
