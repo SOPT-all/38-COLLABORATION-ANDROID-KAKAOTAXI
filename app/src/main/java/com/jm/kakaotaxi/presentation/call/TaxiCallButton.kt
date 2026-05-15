@@ -13,8 +13,8 @@ import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 
 @Composable
 fun TaxiCallButton(
-    modifier: Modifier = Modifier,
-    onClick : () -> Unit
+    onClick : () -> Unit,
+    modifier: Modifier = Modifier
 ) {
     ButtonItem(
         text = "택시 부르기",

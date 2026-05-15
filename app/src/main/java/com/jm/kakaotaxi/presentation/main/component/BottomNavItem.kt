@@ -29,17 +29,17 @@ fun BottomNavItem(
     modifier: Modifier = Modifier,
 ){
         Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
             modifier = modifier
                 .background(
                     color = KakaotaxiTheme.colors.white
                 )
                 .noRippleClickable(onClick = onClick)
-                .padding(vertical = 10.dp)
+                .padding(vertical = 10.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Icon(
                 imageVector = ImageVector.vectorResource(id = icon),
-                contentDescription = label,
+                contentDescription = null,
                 tint = if (isSelected) KakaotaxiTheme.colors.primaryBlue else Color. Unspecified
             )
 

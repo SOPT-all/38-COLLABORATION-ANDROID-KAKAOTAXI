@@ -19,9 +19,9 @@ import com.jm.kakaotaxi.presentation.main.component.BottomNavType
 
 @Composable
 fun AnswerButton(
-    modifier: Modifier = Modifier,
     onNoClick : () -> Unit,
-    onYesClick : () -> Unit
+    onYesClick : () -> Unit,
+    modifier: Modifier = Modifier
 
 ) {
     Row(

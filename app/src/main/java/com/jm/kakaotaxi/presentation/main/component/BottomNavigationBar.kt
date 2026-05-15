@@ -41,9 +41,8 @@ fun BottomNavigationBar(
         horizontalArrangement = Arrangement.spacedBy(5.dp)
     ){
         items.forEach {item->
-            val isSelected = item == selectedItem
             BottomNavItem(
-                icon = if (isSelected) item.selectedIconRes else item.unselectedIconRes,
+                icon = if (item == selectedItem) item.selectedIconRes else item.unselectedIconRes,
                 label = item. label,
                 isSelected = item == selectedItem,
                 onClick = {onItemSelected(item)},

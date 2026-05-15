@@ -15,8 +15,8 @@ import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 
 @Composable
 fun ShareClickButton(
-    modifier: Modifier = Modifier,
-    onClick : () -> Unit
+    onClick : () -> Unit,
+    modifier: Modifier = Modifier
 ) {
     ButtonItem(
         text = "보호자에게 공유",
