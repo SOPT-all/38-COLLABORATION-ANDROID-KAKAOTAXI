@@ -1,6 +1,5 @@
 package com.jm.kakaotaxi.presentation.call
 
-import android.R.attr.end
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -104,7 +103,7 @@ private fun CallScreen(
 
                 Spacer(modifier = Modifier.height(15.dp))
 
-                Row() {
+                Row {
                     Text(
                         text = "예상 요금",
                         style = KakaotaxiTheme.typography.body.kakaoR14,
