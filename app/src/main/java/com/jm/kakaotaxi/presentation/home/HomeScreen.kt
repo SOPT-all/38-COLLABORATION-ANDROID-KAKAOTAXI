@@ -3,7 +3,6 @@ package com.jm.kakaotaxi.presentation.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -20,7 +19,7 @@ import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 import com.jm.kakaotaxi.core.designsystem.type.SearchBarType
 import com.jm.kakaotaxi.data.model.FavoriteServiceModel
 import com.jm.kakaotaxi.data.model.QuickPlaceModel
-import com.jm.kakaotaxi.presentation.home.component.EventSection
+import com.jm.kakaotaxi.presentation.home.component.EventNoticeSection
 import com.jm.kakaotaxi.presentation.home.component.FavoriteSection
 import com.jm.kakaotaxi.presentation.home.component.NoticeSection
 import kotlinx.collections.immutable.ImmutableList
@@ -81,28 +80,18 @@ private fun HomeScreen(
             HorizontalDivider(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 15.dp),
+                    .padding(vertical = 15.dp),
                 thickness = 10.dp,
                 color = KakaotaxiTheme.colors.backgroundGray2
             )
         }
 
-        item{EventSection()}
-
-        item{
-            HorizontalDivider(
-                modifier = Modifier,
-                thickness = 1.dp,
-                color = KakaotaxiTheme.colors.backgroundGray
-            )
-        }
-
-        item{NoticeSection()}
+        item{EventNoticeSection(modifier = Modifier.fillMaxWidth())}
     }
 }
 
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, heightDp = 1195)
 @Composable
 private fun HomeScreenPreview() {
     KakaotaxiTheme {
