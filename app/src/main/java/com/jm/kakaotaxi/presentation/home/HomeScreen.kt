@@ -79,7 +79,9 @@ private fun HomeScreen(
 
         item{
             HorizontalDivider(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 15.dp),
                 thickness = 10.dp,
                 color = KakaotaxiTheme.colors.backgroundGray2
             )

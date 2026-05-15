@@ -64,13 +64,14 @@ fun FavoriteSection(
 
         Text(
             text = "전체 서비스 보기",
-            modifier = Modifier,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 24.dp),
             color = KakaotaxiTheme.colors.textSecondary,
             textAlign = TextAlign.Center,
-            style = KakaotaxiTheme.typography.body.kakaoB16,
+            style = KakaotaxiTheme.typography.body.kakaoB16
         )
     }
-
 }
 
 @Preview(showBackground = true)
