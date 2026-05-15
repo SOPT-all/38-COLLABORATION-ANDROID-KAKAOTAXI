@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.HorizontalDivider
@@ -99,8 +100,8 @@ private fun SearchScreen(
         ) {
             recentPlaces.chunked(2).forEach { places ->
                 Row(
-                    horizontalArrangement = Arrangement.spacedBy(9.dp),
                     modifier = Modifier.padding(horizontal = 24.dp),
+                    horizontalArrangement = Arrangement.spacedBy(9.dp),
                 ) {
                     places.forEach { place ->
                         SearchRecentItem(
@@ -112,6 +113,7 @@ private fun SearchScreen(
                         )
                     }
                 }
+
             }
         }
 
@@ -171,19 +173,16 @@ private fun SearchScreenPreview() {
                     id = 1,
                     title = "집",
                     icon = R.drawable.ic_home,
-                    color = KakaotaxiTheme.colors.primaryBlue
                 ),
                 QuickPlaceModel(
                     id = 2,
                     title = "한사랑병원",
                     icon = R.drawable.ic_hospital,
-                    color = KakaotaxiTheme.colors.textSecondary
                 ),
                 QuickPlaceModel(
                     id = 3,
                     title = "노인정",
                     icon = R.drawable.ic_senior_home,
-                    color = KakaotaxiTheme.colors.textSecondary
                 )
             ),
             recentPlaces = persistentListOf(
