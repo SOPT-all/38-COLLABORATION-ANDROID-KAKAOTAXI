@@ -30,6 +30,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 import com.jm.kakaotaxi.R
+import com.jm.kakaotaxi.core.designsystem.component.ButtonItem
+import com.jm.kakaotaxi.core.designsystem.component.ButtonStyle
 import com.jm.kakaotaxi.core.designsystem.component.KakaoTaxiBottomSheet
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme.colors
 import com.jm.kakaotaxi.presentation.call.component.DestinationItem
@@ -127,7 +129,12 @@ private fun CallScreen(
 
                 Spacer(modifier = Modifier.height(15.dp))
 
-                // TODO: 버튼 컴포넌트 불러오기
+                ButtonItem(
+                    text = "택시 부르기",
+                    style = ButtonStyle.CALL,
+                    onClick = {},
+                    modifier = Modifier.fillMaxWidth()
+                )
             }
         }
     }
