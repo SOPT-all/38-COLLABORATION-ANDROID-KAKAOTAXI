@@ -1,8 +1,10 @@
 package com.jm.kakaotaxi.presentation.call
 
+import android.R.attr.end
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -19,6 +21,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -31,6 +34,7 @@ import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 import com.jm.kakaotaxi.R
 import com.jm.kakaotaxi.core.designsystem.component.KakaoTaxiBottomSheet
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme.colors
+import com.jm.kakaotaxi.presentation.call.component.DestinationItem
 import com.jm.kakaotaxi.presentation.call.component.TaxiItemGrid
 import com.jm.kakaotaxi.presentation.call.component.taxiServices
 
@@ -58,6 +62,12 @@ private fun CallScreen(
             contentDescription = null,
             contentScale = ContentScale.Crop,
             modifier = modifier.fillMaxSize()
+        )
+
+        DestinationItem(
+            modifier = Modifier
+                .align(Alignment.TopCenter)
+                .padding(start = 20.dp, top = 54.dp, end = 20.dp)
         )
 
         KakaoTaxiBottomSheet(
@@ -119,7 +129,7 @@ private fun CallScreen(
 
                 Spacer(modifier = Modifier.height(15.dp))
 
-
+                // TODO: 버튼 컴포넌트 불러오기
             }
         }
     }
