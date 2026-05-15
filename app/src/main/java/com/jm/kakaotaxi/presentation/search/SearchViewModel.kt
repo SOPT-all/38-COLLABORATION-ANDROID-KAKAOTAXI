@@ -1,6 +1,9 @@
 package com.jm.kakaotaxi.presentation.search
 
 import androidx.lifecycle.ViewModel
+import com.jm.kakaotaxi.R
+import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
+import com.jm.kakaotaxi.data.model.QuickPlaceModel
 import com.jm.kakaotaxi.data.model.search.SearchHistoryModel
 import com.jm.kakaotaxi.data.model.search.SearchRecentModel
 import com.jm.kakaotaxi.presentation.search.type.SearchHistoryType
@@ -15,36 +18,35 @@ class SearchViewModel : ViewModel() {
     val uiState = _uiState.asStateFlow()
 
     init {
+        getMyPlaces()
         getRecentPlaces()
         getHistoryItems()
     }
 
-    /*private fun getMyPlaces() {
+    private fun getMyPlaces() {
         _uiState.update {
+            // api 연동
             it.copy(
                 myPlaces = persistentListOf(
                     QuickPlaceModel(
                         id = 1,
                         title = "집",
                         icon = R.drawable.ic_home,
-                        color = KakaotaxiTheme.colors.primaryBlue
                     ),
                     QuickPlaceModel(
                         id = 2,
                         title = "한사랑병원",
                         icon = R.drawable.ic_hospital,
-                        color = KakaotaxiTheme.colors.textSecondary
                     ),
                     QuickPlaceModel(
                         id = 3,
                         title = "노인정",
                         icon = R.drawable.ic_senior_home,
-                        color = KakaotaxiTheme.colors.textSecondary
                     )
                 )
             )
         }
-    }*/
+    }
 
     private fun getRecentPlaces() {
         _uiState.update {
