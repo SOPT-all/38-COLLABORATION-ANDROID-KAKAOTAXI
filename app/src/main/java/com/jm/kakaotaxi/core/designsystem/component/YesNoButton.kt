@@ -18,15 +18,14 @@ import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 import com.jm.kakaotaxi.presentation.main.component.BottomNavType
 
 @Composable
-fun AnswerButton(
+fun YesNoButton(
     onNoClick : () -> Unit,
     onYesClick : () -> Unit,
     modifier: Modifier = Modifier
 
 ) {
     Row(
-        modifier = modifier
-            .fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
     )
     {
@@ -52,7 +51,7 @@ fun AnswerButton(
 @Composable
 private fun AnswerButtonPreview() {
     KakaotaxiTheme {
-        AnswerButton(
+        YesNoButton(
             onNoClick = {},
             onYesClick = {}
         )
