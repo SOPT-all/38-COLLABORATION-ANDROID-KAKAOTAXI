@@ -24,6 +24,7 @@ import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 import com.jm.kakaotaxi.core.designsystem.type.SearchBarType
 import com.jm.kakaotaxi.data.model.FavoriteServiceModel
 import com.jm.kakaotaxi.data.model.QuickPlaceModel
+import com.jm.kakaotaxi.presentation.home.component.FavoriteSection
 import com.jm.kakaotaxi.presentation.home.component.FavoriteServiceGrid
 import com.jm.kakaotaxi.presentation.home.component.NoticeSection
 import kotlinx.collections.immutable.ImmutableList
@@ -60,40 +61,9 @@ private fun HomeScreen(
 
         QuickPlaceList(places = quickPlaces)
 
-        Row(
-            modifier = Modifier,
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
-        ){
-            Text(
-                text = "자주 쓰는 서비스",
-                color = KakaotaxiTheme.colors.textPrimary,
-                style = KakaotaxiTheme.typography.body.kakaoB16
-            )
-
-            Text(
-                text = "편집",
-                color = KakaotaxiTheme.colors.textSecondary,
-                style = KakaotaxiTheme.typography.body.kakaoB14
-            )
-        }
-
-        Image(
-            painter = painterResource(R.drawable.img_home_point_taxi),
-            contentDescription = null,
-            modifier = Modifier
-        )
-
-        FavoriteServiceGrid(
+        FavoriteSection(
             services = services,
             onStarClick = onStarClick
-        )
-
-        Text(
-            text = "전체 서비스 보기",
-            color = KakaotaxiTheme.colors.textSecondary,
-            textAlign = TextAlign.Center,
-            style = KakaotaxiTheme.typography.body.kakaoB16,
         )
 
         HorizontalDivider(
