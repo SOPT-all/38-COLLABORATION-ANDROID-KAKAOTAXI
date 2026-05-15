@@ -7,6 +7,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -42,7 +43,7 @@ fun FavoriteServiceItem(
 ) {
     Box(
         modifier = modifier
-            .size(150.dp)
+            .aspectRatio(1f)
             .clip(RoundedCornerShape(10.dp))
             .background(KakaotaxiTheme.colors.white)
             .border(

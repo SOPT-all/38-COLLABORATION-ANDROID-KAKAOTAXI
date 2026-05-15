@@ -3,6 +3,7 @@ package com.jm.kakaotaxi.presentation.home.component
 import androidx.compose.foundation.layout.Arrangement.spacedBy
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -19,7 +20,8 @@ fun FavoriteServiceGrid(
     modifier: Modifier = Modifier
 ){
     Column(
-        modifier = modifier,
+        modifier = modifier
+            .fillMaxWidth(),
         verticalArrangement = spacedBy(15.dp)
     ) {
         services.chunked(2).forEach { items ->
@@ -32,7 +34,8 @@ fun FavoriteServiceGrid(
                         subtitle = service.subtitle,
                         isStarClicked = service.isStarClicked,
                         carImage = service.carImage,
-                        onStarClick = { onStarClick(service) }
+                        onStarClick = { onStarClick(service) },
+                        modifier = Modifier.weight(1f)
                     )
                 }
             }
