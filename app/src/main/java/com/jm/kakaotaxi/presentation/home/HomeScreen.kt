@@ -4,7 +4,6 @@ package com.jm.kakaotaxi.presentation.home
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -37,8 +36,8 @@ fun HomeRoute(
     HomeScreen(
         quickPlaces = uiState.myPlaces,
         favoriteServices = uiState.favoritePlaces,
-        onSearchBarClick = { viewModel.onSearchBarClick() },
-        onStarClick = { viewModel.onStarClick(it) },
+        onSearchBarClick = viewModel::onSearchBarClick,
+        onStarClick = viewModel::onStarClick,
         modifier = modifier
     )
 }
@@ -69,27 +68,20 @@ private fun HomeScreen(
 
                 QuickPlaceList(places = quickPlaces)
 
-                Spacer(modifier = Modifier.height(24.dp))
-
                 FavoriteSection(
                     services = favoriteServices,
                     onStarClick = onStarClick
                 )
             }
-
         }
 
         item{
-            Spacer(modifier = Modifier.height(15.dp))
-
             HorizontalDivider(
                 modifier = Modifier
                     .fillMaxWidth(),
                 thickness = 10.dp,
                 color = KakaotaxiTheme.colors.backgroundGray2
             )
-
-            Spacer(modifier = Modifier.height(15.dp))
         }
 
         item{

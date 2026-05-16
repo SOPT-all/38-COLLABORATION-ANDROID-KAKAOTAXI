@@ -30,6 +30,8 @@ fun FavoriteSection(
     Column(
         modifier = modifier
     ) {
+        Spacer(modifier = Modifier.height(24.dp))
+
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
@@ -74,6 +76,8 @@ fun FavoriteSection(
             textAlign = TextAlign.Center,
             style = KakaotaxiTheme.typography.body.kakaoB16
         )
+
+        Spacer(modifier = Modifier.height(15.dp))
     }
 }
 

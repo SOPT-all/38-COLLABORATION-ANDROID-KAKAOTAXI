@@ -24,6 +24,8 @@ fun EventNoticeSection(
             .padding(top = 34.dp, bottom = 14.dp)
             .padding(horizontal = 24.dp)
     ){
+        Spacer(modifier = Modifier.height(15.dp))
+
         Text(
             text = "이벤트/새소식",
             color = KakaotaxiTheme.colors.textPrimary,
