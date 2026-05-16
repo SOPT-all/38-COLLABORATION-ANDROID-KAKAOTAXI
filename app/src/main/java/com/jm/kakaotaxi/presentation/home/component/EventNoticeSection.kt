@@ -40,7 +40,6 @@ fun EventNoticeSection(
         Spacer(modifier = Modifier.height(14.dp))
 
         HorizontalDivider(
-            modifier = Modifier,
             thickness = 1.dp,
             color = KakaotaxiTheme.colors.backgroundGray
         )
