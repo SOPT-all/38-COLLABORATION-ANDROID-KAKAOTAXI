@@ -25,7 +25,8 @@ import kotlinx.collections.immutable.persistentListOf
 @Composable
 fun FavoriteSection(
     services: ImmutableList<FavoriteServiceModel>,
-    onStarClick: (FavoriteServiceModel) -> Unit,
+    onStarClick: () -> Unit,
+    isStarClicked: Boolean,
     modifier: Modifier = Modifier
 ){
     Column(
@@ -64,6 +65,7 @@ fun FavoriteSection(
         FavoriteServiceGrid(
             services = services,
             onStarClick = onStarClick,
+            isStarClicked = isStarClicked,
             modifier = Modifier
                 .fillMaxWidth()
         )
@@ -91,28 +93,24 @@ private fun FavoriteSectionPreview() {
             id = 1,
             title = "택시",
             subtitle = "바로 이동해볼까요?",
-            isStarClicked = true,
             carImage = R.drawable.img_home_taxi
         ),
         FavoriteServiceModel(
             id = 2,
             title = "택시 예약",
             subtitle = "미리 예약해볼까요?",
-            isStarClicked = false,
             carImage = R.drawable.img_home_taxi_reservation
         ),
         FavoriteServiceModel(
             id = 3,
             title = "기차/버스",
             subtitle = "교통편을 찾아볼까요?",
-            isStarClicked = false,
             carImage = R.drawable.img_home_train_bus
         ),
         FavoriteServiceModel(
             id = 4,
             title = "렌터카",
             subtitle = "차를 빌려볼까요?",
-            isStarClicked = false,
             carImage = R.drawable.img_home_rental_car
         )
     )
@@ -120,6 +118,7 @@ private fun FavoriteSectionPreview() {
     KakaotaxiTheme {
         FavoriteSection(
             services = fakeFavoriteServices,
+            isStarClicked = false,
             onStarClick = {}
         )
     }

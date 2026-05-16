@@ -10,8 +10,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
+import com.jm.kakaotaxi.presentation.home.HomeRoute
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,10 +22,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             KakaotaxiTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
+                    HomeRoute(
                         modifier = Modifier.padding(innerPadding)
                     )
+
+
                 }
             }
         }

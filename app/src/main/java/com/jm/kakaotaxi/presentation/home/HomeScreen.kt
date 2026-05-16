@@ -11,9 +11,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.jm.kakaotaxi.core.designsystem.component.KakaoTaxiSearchBar
 import com.jm.kakaotaxi.core.designsystem.component.quickplace.QuickPlaceList
@@ -27,15 +29,17 @@ import kotlinx.collections.immutable.ImmutableList
 
 @Composable
 fun HomeRoute(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    viewModel: HomeViewModel = viewModel(),
 ) {
-    val viewModel: HomeViewModel = viewModel()
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     HomeScreen(
-        quickPlaces = viewModel.getHomeData(),
-        services = viewModel.favoriteServices,
+        quickPlaces = uiState.myPlaces,
+        services = uiState.favoritePlaces,
         onSearchBarClick = { viewModel.onSearchBarClick() },
-        onStarClick = { model -> viewModel.onStarClick(model) },
+        onStarClick = { viewModel.onStarClick() },
+        isStarClicked = uiState.isStarClicked,
         modifier = modifier.fillMaxSize()
     )
 }
@@ -45,7 +49,8 @@ private fun HomeScreen(
     quickPlaces: ImmutableList<QuickPlaceModel>,
     services: ImmutableList<FavoriteServiceModel>,
     onSearchBarClick: () -> Unit,
-    onStarClick: (FavoriteServiceModel) -> Unit,
+    onStarClick: () -> Unit,
+    isStarClicked: Boolean,
     modifier: Modifier = Modifier
 ) {
     LazyColumn(
@@ -72,6 +77,7 @@ private fun HomeScreen(
                 FavoriteSection(
                     services = services,
                     onStarClick = onStarClick,
+                    isStarClicked = isStarClicked,
                     modifier = Modifier.fillMaxWidth()
                 )
             }

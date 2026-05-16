@@ -8,6 +8,7 @@ import kotlinx.collections.immutable.persistentListOf
 interface HomeContract {
     data class State(
         val myPlaces: ImmutableList<QuickPlaceModel> = persistentListOf(),
-        val favortePlaces: ImmutableList<FavoriteServiceModel> = persistentListOf()
+        val favoritePlaces: ImmutableList<FavoriteServiceModel> = persistentListOf(),
+        val isStarClicked : Boolean = false
     )
 }
