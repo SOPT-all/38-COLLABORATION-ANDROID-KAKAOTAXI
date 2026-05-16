@@ -45,7 +45,9 @@ fun EventNoticeSection(
             color = KakaotaxiTheme.colors.backgroundGray
         )
 
-        NoticeSection(modifier = Modifier.padding(vertical = 20.dp))
+        Spacer(modifier = Modifier.height(20.dp))
+
+        NoticeSection()
     }
 }
 
