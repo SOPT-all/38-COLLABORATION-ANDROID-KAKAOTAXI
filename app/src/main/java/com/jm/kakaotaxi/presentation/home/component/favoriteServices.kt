@@ -1,6 +1,5 @@
 package com.jm.kakaotaxi.presentation.home.component
 
-import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.Arrangement.spacedBy
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -27,12 +26,9 @@ fun FavoriteServiceGrid(
     ) {
         services.chunked(2).forEach { items ->
             Row(
-                modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = spacedBy(12.dp)
             ) {
                 items.forEach { service ->
-
-
                     FavoriteServiceItem(
                         title = service.title,
                         subtitle = service.subtitle,
