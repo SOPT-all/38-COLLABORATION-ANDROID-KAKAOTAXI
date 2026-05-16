@@ -85,7 +85,7 @@ class HomeViewModel : ViewModel() {
     fun onStarClick(id: Int){
         val updateList = _uiState.value.favoritePlaces.map { service ->
             if (service.id == id)
-                service.copy(isStarClicked = true)
+                service.copy(isStarClicked = !service.isStarClicked)
             else service
         }.toImmutableList()
         _uiState.update {
