@@ -38,8 +38,7 @@ fun HomeRoute(
         quickPlaces = uiState.myPlaces,
         services = uiState.favoritePlaces,
         onSearchBarClick = { viewModel.onSearchBarClick() },
-        onStarClick = { viewModel.onStarClick() },
-        isStarClicked = uiState.isStarClicked,
+        onStarClick = { viewModel.onStarClick(it) },
         modifier = modifier.fillMaxSize()
     )
 }
@@ -49,8 +48,7 @@ private fun HomeScreen(
     quickPlaces: ImmutableList<QuickPlaceModel>,
     services: ImmutableList<FavoriteServiceModel>,
     onSearchBarClick: () -> Unit,
-    onStarClick: () -> Unit,
-    isStarClicked: Boolean,
+    onStarClick: (Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
     LazyColumn(
@@ -77,7 +75,6 @@ private fun HomeScreen(
                 FavoriteSection(
                     services = services,
                     onStarClick = onStarClick,
-                    isStarClicked = isStarClicked,
                     modifier = Modifier.fillMaxWidth()
                 )
             }

@@ -1,5 +1,6 @@
 package com.jm.kakaotaxi.presentation.home.component
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.Arrangement.spacedBy
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -16,8 +17,7 @@ import kotlinx.collections.immutable.persistentListOf
 @Composable
 fun FavoriteServiceGrid(
     services: ImmutableList<FavoriteServiceModel>,
-    onStarClick: () -> Unit,
-    isStarClicked: Boolean,
+    onStarClick: (Int) -> Unit,
     modifier: Modifier = Modifier
 ){
     Column(
@@ -31,12 +31,15 @@ fun FavoriteServiceGrid(
                 horizontalArrangement = spacedBy(12.dp)
             ) {
                 items.forEach { service ->
+
+
                     FavoriteServiceItem(
                         title = service.title,
                         subtitle = service.subtitle,
-                        isStarClicked = isStarClicked,
                         carImage = service.carImage,
-                        onStarClick = { onStarClick() },
+                        starIcon = if (service.isStarClicked) R.drawable.ic_home_star_yellow
+                                else R.drawable.ic_home_star_gray,
+                        onStarClick = {onStarClick(service.id)},
                         modifier = Modifier.weight(1f)
                     )
                 }
@@ -77,9 +80,8 @@ private fun FavoriteServiceGridPreview(){
         )
     )
 
-    FavoriteServiceGrid(
-        favoriteServices,
-        onStarClick = {},
-        isStarClicked = false
-    )
+//    FavoriteServiceGrid(
+//        favoriteServices,
+//        onStarClick = {}
+//    )
 }

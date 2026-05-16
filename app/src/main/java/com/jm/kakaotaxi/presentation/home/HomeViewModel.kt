@@ -5,6 +5,7 @@ import com.jm.kakaotaxi.R
 import com.jm.kakaotaxi.data.model.home.FavoriteServiceModel
 import com.jm.kakaotaxi.data.model.QuickPlaceModel
 import kotlinx.collections.immutable.persistentListOf
+import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
@@ -81,8 +82,13 @@ class HomeViewModel : ViewModel() {
         // 검색바 누르면 어케 될까~
     }
 
-    fun onStarClick(){
+    fun onStarClick(id: Int){
+        val updateList = _uiState.value.favoritePlaces.map { service ->
+            if (service.id == id)
+                service.copy(isStarClicked = true)
+            else service
+        }.toImmutableList()
         _uiState.update {
-            it.copy(isStarClicked = !it.isStarClicked) }
+            it.copy(favoritePlaces = updateList) }
     }
 }

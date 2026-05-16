@@ -1,5 +1,6 @@
 package com.jm.kakaotaxi.presentation.home.component
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -25,8 +26,7 @@ import kotlinx.collections.immutable.persistentListOf
 @Composable
 fun FavoriteSection(
     services: ImmutableList<FavoriteServiceModel>,
-    onStarClick: () -> Unit,
-    isStarClicked: Boolean,
+    onStarClick: (Int) -> Unit,
     modifier: Modifier = Modifier
 ){
     Column(
@@ -65,7 +65,6 @@ fun FavoriteSection(
         FavoriteServiceGrid(
             services = services,
             onStarClick = onStarClick,
-            isStarClicked = isStarClicked,
             modifier = Modifier
                 .fillMaxWidth()
         )
@@ -115,11 +114,11 @@ private fun FavoriteSectionPreview() {
         )
     )
 
-    KakaotaxiTheme {
-        FavoriteSection(
-            services = fakeFavoriteServices,
-            isStarClicked = false,
-            onStarClick = {}
-        )
-    }
+//    KakaotaxiTheme {
+//        FavoriteSection(
+//            services = fakeFavoriteServices,
+//            isStarClicked = false,
+//            onStarClick = {}
+//        )
+//    }
 }
