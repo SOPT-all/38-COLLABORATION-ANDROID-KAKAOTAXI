@@ -21,7 +21,8 @@ fun EventNoticeSection(
 ){
     Column(
         modifier = modifier
-            .padding(top = 19.dp, bottom = 14.dp, start = 24.dp, end = 25.dp)
+            .padding(top = 19.dp, bottom = 14.dp)
+            .padding(horizontal = 24.dp)
     ){
         Text(
             text = "이벤트/새소식",

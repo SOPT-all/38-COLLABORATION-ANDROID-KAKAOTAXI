@@ -58,7 +58,7 @@ private fun HomeScreen(
         item {
             Column(
                 modifier = Modifier
-                    .padding(horizontal = 24.5.dp)
+                    .padding(horizontal = 24.dp)
                     .padding(top = 25.dp)
             ){
                 KakaoTaxiSearchBar(
