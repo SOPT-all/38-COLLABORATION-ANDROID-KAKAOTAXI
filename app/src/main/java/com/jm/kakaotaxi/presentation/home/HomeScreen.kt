@@ -36,7 +36,7 @@ fun HomeRoute(
 
     HomeScreen(
         quickPlaces = uiState.myPlaces,
-        services = uiState.favoritePlaces,
+        favoriteServices = uiState.favoritePlaces,
         onSearchBarClick = { viewModel.onSearchBarClick() },
         onStarClick = { viewModel.onStarClick(it) },
         modifier = modifier.fillMaxSize()
@@ -46,7 +46,7 @@ fun HomeRoute(
 @Composable
 private fun HomeScreen(
     quickPlaces: ImmutableList<QuickPlaceModel>,
-    services: ImmutableList<FavoriteServiceModel>,
+    favoriteServices: ImmutableList<FavoriteServiceModel>,
     onSearchBarClick: () -> Unit,
     onStarClick: (Int) -> Unit,
     modifier: Modifier = Modifier
@@ -72,7 +72,7 @@ private fun HomeScreen(
                 Spacer(modifier = Modifier.height(24.dp))
 
                 FavoriteSection(
-                    services = services,
+                    services = favoriteServices,
                     onStarClick = onStarClick,
                     modifier = Modifier.fillMaxWidth()
                 )
