@@ -90,16 +90,14 @@ fun FavoriteServiceItem(
     }
 }
 
-//@Preview
-//@Composable
-//private fun FavoriteServiceItemPreview() {
-//    var isStarClicked by remember { mutableStateOf(false) }
-//
-//    FavoriteServiceItem(
-//        title = "택시",
-//        subtitle = "바로 이동해볼까요?",
-//        isStarClicked = isStarClicked,
-//        carImage = R.drawable.img_home_taxi,
-//        onStarClick = { isStarClicked = !isStarClicked }
-//    )
-//}
+@Preview
+@Composable
+private fun FavoriteServiceItemPreview() {
+    FavoriteServiceItem(
+        title = "택시",
+        subtitle = "바로 이동해볼까요?",
+        starIcon = R.drawable.ic_home_star_gray,
+        carImage = R.drawable.img_home_taxi,
+        onStarClick = {}
+    )
+}

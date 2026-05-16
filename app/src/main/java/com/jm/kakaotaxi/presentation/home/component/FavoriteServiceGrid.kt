@@ -80,8 +80,8 @@ private fun FavoriteServiceGridPreview(){
         )
     )
 
-//    FavoriteServiceGrid(
-//        favoriteServices,
-//        onStarClick = {}
-//    )
+    FavoriteServiceGrid(
+        favoriteServices,
+        onStarClick = {}
+    )
 }

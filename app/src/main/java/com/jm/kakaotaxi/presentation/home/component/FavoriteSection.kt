@@ -114,11 +114,10 @@ private fun FavoriteSectionPreview() {
         )
     )
 
-//    KakaotaxiTheme {
-//        FavoriteSection(
-//            services = fakeFavoriteServices,
-//            isStarClicked = false,
-//            onStarClick = {}
-//        )
-//    }
+    KakaotaxiTheme {
+        FavoriteSection(
+            services = fakeFavoriteServices,
+            onStarClick = {}
+        )
+    }
 }
