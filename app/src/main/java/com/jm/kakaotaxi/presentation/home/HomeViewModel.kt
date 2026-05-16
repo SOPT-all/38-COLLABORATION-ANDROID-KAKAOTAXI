@@ -2,7 +2,7 @@ package com.jm.kakaotaxi.presentation.home
 
 import androidx.lifecycle.ViewModel
 import com.jm.kakaotaxi.R
-import com.jm.kakaotaxi.data.model.FavoriteServiceModel
+import com.jm.kakaotaxi.data.model.home.FavoriteServiceModel
 import com.jm.kakaotaxi.data.model.QuickPlaceModel
 import kotlinx.collections.immutable.PersistentList
 import kotlinx.collections.immutable.persistentListOf
@@ -15,7 +15,6 @@ class HomeViewModel : ViewModel() {
     )
 
     fun getHomeData() = fakeHomeData
-
 
     val favoriteServices: PersistentList<FavoriteServiceModel> = persistentListOf(
         FavoriteServiceModel(
@@ -50,10 +49,11 @@ class HomeViewModel : ViewModel() {
 
 
     fun onSearchBarClick(){
-        // 흠 검색바 누르면 어케되는거지
+        // 검색바 누르면 어케 될까~
     }
 
     fun onStarClick(model: FavoriteServiceModel){
-
+        if (model.isStarClicked == true) model.isStarClicked = false
+        else model.isStarClicked = true
     }
 }

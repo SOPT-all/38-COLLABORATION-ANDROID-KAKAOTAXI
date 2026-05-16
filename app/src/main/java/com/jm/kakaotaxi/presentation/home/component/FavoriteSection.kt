@@ -18,7 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.jm.kakaotaxi.R
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
-import com.jm.kakaotaxi.data.model.FavoriteServiceModel
+import com.jm.kakaotaxi.data.model.home.FavoriteServiceModel
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 

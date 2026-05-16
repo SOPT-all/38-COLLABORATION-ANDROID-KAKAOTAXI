@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.jm.kakaotaxi.R
-import com.jm.kakaotaxi.data.model.FavoriteServiceModel
+import com.jm.kakaotaxi.data.model.home.FavoriteServiceModel
 import androidx.compose.ui.tooling.preview.Preview
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf

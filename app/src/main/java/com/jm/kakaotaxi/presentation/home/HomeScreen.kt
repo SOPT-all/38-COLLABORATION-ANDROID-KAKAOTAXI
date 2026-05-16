@@ -19,11 +19,10 @@ import com.jm.kakaotaxi.core.designsystem.component.KakaoTaxiSearchBar
 import com.jm.kakaotaxi.core.designsystem.component.quickplace.QuickPlaceList
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 import com.jm.kakaotaxi.core.designsystem.type.SearchBarType
-import com.jm.kakaotaxi.data.model.FavoriteServiceModel
+import com.jm.kakaotaxi.data.model.home.FavoriteServiceModel
 import com.jm.kakaotaxi.data.model.QuickPlaceModel
 import com.jm.kakaotaxi.presentation.home.component.EventNoticeSection
 import com.jm.kakaotaxi.presentation.home.component.FavoriteSection
-import com.jm.kakaotaxi.presentation.home.component.NoticeSection
 import kotlinx.collections.immutable.ImmutableList
 
 @Composable
