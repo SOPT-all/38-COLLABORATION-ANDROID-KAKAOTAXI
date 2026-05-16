@@ -1,0 +1,13 @@
+package com.jm.kakaotaxi.presentation.home
+
+import com.jm.kakaotaxi.data.model.QuickPlaceModel
+import com.jm.kakaotaxi.data.model.home.FavoriteServiceModel
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.persistentListOf
+
+interface HomeContract {
+    data class State(
+        val myPlaces: ImmutableList<QuickPlaceModel> = persistentListOf(),
+        val favortePlaces: ImmutableList<FavoriteServiceModel> = persistentListOf()
+    )
+}
