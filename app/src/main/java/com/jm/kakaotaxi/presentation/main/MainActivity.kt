@@ -22,11 +22,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             KakaotaxiTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    HomeRoute(
+                    Greeting(
+                        name = "Android",
                         modifier = Modifier.padding(innerPadding)
                     )
-
-
                 }
             }
         }
