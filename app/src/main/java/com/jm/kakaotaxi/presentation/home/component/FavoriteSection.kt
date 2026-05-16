@@ -76,8 +76,6 @@ fun FavoriteSection(
             textAlign = TextAlign.Center,
             style = KakaotaxiTheme.typography.body.kakaoB16
         )
-
-        Spacer(modifier = Modifier.height(9.dp))
     }
 }
 

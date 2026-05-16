@@ -69,7 +69,7 @@ private fun HomeScreen(
 
                 QuickPlaceList(places = quickPlaces)
 
-                Spacer(modifier = Modifier.height(15.dp))
+                Spacer(modifier = Modifier.height(24.dp))
 
                 FavoriteSection(
                     services = services,
