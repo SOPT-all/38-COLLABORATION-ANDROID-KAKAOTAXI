@@ -39,7 +39,7 @@ fun HomeRoute(
         favoriteServices = uiState.favoritePlaces,
         onSearchBarClick = { viewModel.onSearchBarClick() },
         onStarClick = { viewModel.onStarClick(it) },
-        modifier = modifier.fillMaxSize()
+        modifier = modifier
     )
 }
 
@@ -73,8 +73,7 @@ private fun HomeScreen(
 
                 FavoriteSection(
                     services = favoriteServices,
-                    onStarClick = onStarClick,
-                    modifier = Modifier.fillMaxWidth()
+                    onStarClick = onStarClick
                 )
             }
 
@@ -93,12 +92,16 @@ private fun HomeScreen(
             Spacer(modifier = Modifier.height(15.dp))
         }
 
-        item{EventNoticeSection(modifier = Modifier.fillMaxWidth())}
+        item{
+            EventNoticeSection(
+                modifier = Modifier.fillMaxWidth()
+            )
+        }
     }
 }
 
 
-@Preview(showBackground = true, heightDp = 1195)
+@Preview(showBackground = true)
 @Composable
 private fun HomeScreenPreview() {
     KakaotaxiTheme {
