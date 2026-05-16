@@ -21,7 +21,7 @@ fun EventNoticeSection(
 ){
     Column(
         modifier = modifier
-            .padding(top = 19.dp, bottom = 14.dp)
+            .padding(top = 34.dp, bottom = 14.dp)
             .padding(horizontal = 24.dp)
     ){
         Text(
@@ -34,8 +34,7 @@ fun EventNoticeSection(
 
         Image(
             painter = painterResource(R.drawable.img_home_event_banner),
-            contentDescription = null,
-            modifier = Modifier
+            contentDescription = null
         )
 
         Spacer(modifier = Modifier.height(14.dp))
