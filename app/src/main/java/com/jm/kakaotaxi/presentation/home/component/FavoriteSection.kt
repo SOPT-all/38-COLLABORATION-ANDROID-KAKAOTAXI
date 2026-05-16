@@ -61,9 +61,7 @@ fun FavoriteSection(
 
         FavoriteServiceGrid(
             services = services,
-            onStarClick = onStarClick,
-            modifier = Modifier
-                .fillMaxWidth()
+            onStarClick = onStarClick
         )
 
         Spacer(modifier = Modifier.height(24.dp))
