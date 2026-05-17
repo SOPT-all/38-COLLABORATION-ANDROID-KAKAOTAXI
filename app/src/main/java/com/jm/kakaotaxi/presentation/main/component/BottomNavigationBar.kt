@@ -46,7 +46,7 @@ fun BottomNavigationBar(
                     color = KakaotaxiTheme.colors.white,
                     shape = RoundedCornerShape(
                         topStart = 20.dp,
-                        topEnd = 29.dp
+                        topEnd = 20.dp
                     )
                 )
                 .padding(horizontal = 25.dp)
