@@ -65,7 +65,7 @@ private fun CallScreen(
         DestinationItem(
             modifier = Modifier
                 .align(Alignment.TopCenter)
-                .padding(start = 20.dp, top = 54.dp, end = 20.dp)
+                .padding(start = 20.dp, top = 44.dp, end = 20.dp)
         )
 
         KakaoTaxiBottomSheet(
