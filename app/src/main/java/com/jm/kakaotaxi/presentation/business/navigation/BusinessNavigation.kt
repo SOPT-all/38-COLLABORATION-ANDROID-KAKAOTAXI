@@ -11,7 +11,7 @@ import com.jm.kakaotaxi.core.navigation.MainTabRoute.Business
 import com.jm.kakaotaxi.presentation.business.BusinessRoute
 
 fun NavController.navigateToBusiness(
-    navOptions: NavOptions,
+    navOptions: NavOptions? = null,
 ) {
     navigate(Business, navOptions)
 }

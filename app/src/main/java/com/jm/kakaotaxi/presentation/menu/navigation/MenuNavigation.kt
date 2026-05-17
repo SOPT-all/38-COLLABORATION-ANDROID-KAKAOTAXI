@@ -11,7 +11,7 @@ import com.jm.kakaotaxi.core.navigation.MainTabRoute.Menu
 import com.jm.kakaotaxi.presentation.menu.MenuRoute
 
 fun NavController.navigateToMenu(
-    navOptions: NavOptions,
+    navOptions: NavOptions? = null,
 ) {
     navigate(Menu, navOptions)
 }

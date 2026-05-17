@@ -11,7 +11,7 @@ import com.jm.kakaotaxi.core.navigation.MainTabRoute.Home
 import com.jm.kakaotaxi.presentation.home.HomeRoute
 
 fun NavController.navigateToHome(
-    navOptions: NavOptions,
+    navOptions: NavOptions? = null,
 ) {
     navigate(Home, navOptions)
 }

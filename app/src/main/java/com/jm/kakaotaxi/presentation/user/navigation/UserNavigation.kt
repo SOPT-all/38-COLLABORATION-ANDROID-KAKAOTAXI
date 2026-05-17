@@ -11,7 +11,7 @@ import com.jm.kakaotaxi.core.navigation.MainTabRoute.User
 import com.jm.kakaotaxi.presentation.user.UserRoute
 
 fun NavController.navigateToUser(
-    navOptions: NavOptions,
+    navOptions: NavOptions? = null,
 ) {
     navigate(User, navOptions)
 }

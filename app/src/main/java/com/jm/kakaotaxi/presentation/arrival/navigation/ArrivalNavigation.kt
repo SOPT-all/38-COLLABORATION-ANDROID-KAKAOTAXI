@@ -8,7 +8,7 @@ import com.jm.kakaotaxi.presentation.arrival.ArrivalRoute
 import kotlinx.serialization.Serializable
 
 fun NavController.navigateToArrival(
-    navOptions: NavOptions,
+    navOptions: NavOptions? = null,
 ) {
     navigate(Arrival, navOptions)
 }

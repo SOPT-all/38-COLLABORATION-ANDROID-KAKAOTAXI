@@ -8,7 +8,7 @@ import com.jm.kakaotaxi.presentation.call.CallRoute
 import kotlinx.serialization.Serializable
 
 fun NavController.navigateToCall(
-    navOptions: NavOptions,
+    navOptions: NavOptions? = null,
 ) {
     navigate(Call, navOptions)
 }

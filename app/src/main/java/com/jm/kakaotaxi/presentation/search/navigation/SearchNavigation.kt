@@ -11,7 +11,7 @@ import com.jm.kakaotaxi.presentation.search.SearchRoute
 import kotlinx.serialization.Serializable
 
 fun NavController.navigateToSearch(
-    navOptions: NavOptions,
+    navOptions: NavOptions? = null,
 ) {
     navigate(Search, navOptions)
 }
