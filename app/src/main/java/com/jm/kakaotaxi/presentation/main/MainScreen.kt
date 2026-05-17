@@ -20,17 +20,6 @@ fun MainScreen(
 ) {
     val currentTab by appState.currentTab.collectAsStateWithLifecycle()
     val isBottomBarVisible by appState.isBottomBarVisible.collectAsStateWithLifecycle()
-    val isHomeTab = currentTab == BottomNavType.HOME
-
-    val activity = LocalActivity.current
-
-    BackHandler(enabled = currentTab != null) {
-        if (isHomeTab) {
-            activity?.finish()
-        } else {
-            appState.navigate(BottomNavType.MENU)
-        }
-    }
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
@@ -43,7 +32,6 @@ fun MainScreen(
                 modifier = Modifier.navigationBarsPadding()
             )
         },
-        containerColor = KakaotaxiTheme.colors.backgroundGray,
     ) { innerPadding ->
 
         MainNavHost(
