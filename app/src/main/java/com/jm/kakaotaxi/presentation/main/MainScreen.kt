@@ -1,6 +1,5 @@
 package com.jm.kakaotaxi.presentation.main
 
-import android.R.attr.visible
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.LocalActivity
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,9 +9,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.example.letssopt.core.designsystem.theme.LETSSOPTTheme
-import com.example.letssopt.presentation.main.component.MainBottomBar
-import com.example.letssopt.presentation.main.component.MainTab
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 import com.jm.kakaotaxi.presentation.main.component.BottomNavType
 import com.jm.kakaotaxi.presentation.main.component.BottomNavigationBar
