@@ -22,6 +22,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.VerticalDivider
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.BiasAbsoluteAlignment
 import androidx.compose.ui.Modifier
@@ -33,6 +34,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.jm.kakaotaxi.R
 import com.jm.kakaotaxi.core.designsystem.component.ButtonItem
 import com.jm.kakaotaxi.core.designsystem.component.ButtonStyle
@@ -41,9 +44,17 @@ import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 
 @Composable
 fun ArrivalRoute(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    viewModel: ArrivalViewModel = viewModel()
 ) {
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+
     ArrivalScreen(
+        taxiType = uiState.taxiType,
+        carNumber = uiState.carNumber,
+        carType = uiState.carType,
+        carColor = uiState.carColor,
+        driverName = uiState.driverName,
         modifier = modifier
     )
 }
@@ -51,6 +62,11 @@ fun ArrivalRoute(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun ArrivalScreen(
+    taxiType: String,
+    carNumber: String,
+    carType : String,
+    carColor : String,
+    driverName : String,
     modifier: Modifier = Modifier
 ) {
     Box(
@@ -95,7 +111,7 @@ private fun ArrivalScreen(
 
                 Row {
                     Text(
-                        text = "안심택시",
+                        text = taxiType,
                         style = KakaotaxiTheme.typography.body.kakaoB16,
                         color = KakaotaxiTheme.colors.primaryBlue
                     )
@@ -137,7 +153,7 @@ private fun ArrivalScreen(
 
                     Column {
                         Text(
-                            text = "서울 38 아 2864",
+                            text = carNumber,
                             modifier = modifier.padding(top = 24.dp),
                             style = KakaotaxiTheme.typography.body.kakaoB16,
                             color = KakaotaxiTheme.colors.textPrimary
@@ -146,7 +162,7 @@ private fun ArrivalScreen(
                         Spacer(modifier = Modifier.height(3.dp))
 
                         Text(
-                            text = "김민수 기사님",
+                            text = "${driverName} 기사님",
                             style = KakaotaxiTheme.typography.body.kakaoR14,
                             color = KakaotaxiTheme.colors.textSecondary
                         )
@@ -165,7 +181,7 @@ private fun ArrivalScreen(
                     Spacer(modifier = Modifier.width(7.dp))
 
                     Text(
-                        text = "현대 쏘나타 화이트",
+                        text = "$carType $carColor",
                         modifier = modifier.padding(top = 24.dp),
                         style = KakaotaxiTheme.typography.body.kakaoR14,
                         color = KakaotaxiTheme.colors.textSecondary
@@ -252,6 +268,12 @@ private fun ArrivalScreen(
 @Composable
 private fun ArrivalScreenPreview() {
     KakaotaxiTheme {
-        ArrivalScreen()
+        ArrivalScreen(
+            taxiType = "안심택시",
+            carNumber = "서울 38 아 2864",
+            carType = "현대 쏘나타",
+            carColor = "화이트",
+            driverName = "김민수"
+        )
     }
 }
