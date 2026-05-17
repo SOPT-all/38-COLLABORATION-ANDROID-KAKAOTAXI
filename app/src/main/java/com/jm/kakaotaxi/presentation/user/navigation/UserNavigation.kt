@@ -7,10 +7,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
-import com.jm.kakaotaxi.core.navigation.MainTabRoute
-import com.jm.kakaotaxi.core.navigation.MainTabRoute.Bell
 import com.jm.kakaotaxi.core.navigation.MainTabRoute.User
-import com.jm.kakaotaxi.presentation.bell.BellRoute
 import com.jm.kakaotaxi.presentation.user.UserRoute
 
 fun NavController.navigateToUser(

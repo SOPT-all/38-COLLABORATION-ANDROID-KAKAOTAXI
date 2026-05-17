@@ -7,8 +7,6 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
-import com.jm.kakaotaxi.core.navigation.MainTabRoute.Home
-import com.jm.kakaotaxi.presentation.arrival.ArrivalRoute
 import com.jm.kakaotaxi.presentation.search.SearchRoute
 import kotlinx.serialization.Serializable
 

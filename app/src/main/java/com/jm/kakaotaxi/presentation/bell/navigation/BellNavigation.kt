@@ -20,7 +20,6 @@ fun NavGraphBuilder.bellNavGraph(
     innerPadding: PaddingValues,
 ) {
     composable<Bell> {
-        BellRoute(modifier = Modifier.padding(innerPadding),
-        )
+        BellRoute(modifier = Modifier.padding(innerPadding))
     }
 }
