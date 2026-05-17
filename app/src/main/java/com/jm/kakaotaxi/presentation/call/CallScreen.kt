@@ -38,8 +38,10 @@ import com.jm.kakaotaxi.core.designsystem.component.ButtonStyle
 import com.jm.kakaotaxi.core.designsystem.component.KakaoTaxiBottomSheet
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme.colors
 import com.jm.kakaotaxi.data.model.call.TaxiInfoModel
+import com.jm.kakaotaxi.presentation.call.component.DestinationConfirmContent
 import com.jm.kakaotaxi.presentation.call.component.DestinationItem
 import com.jm.kakaotaxi.presentation.call.component.TaxiItemGrid
+import com.jm.kakaotaxi.presentation.call.component.TaxiSelectContent
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 
@@ -65,6 +67,8 @@ private fun CallScreen(
     onServiceChange: (TaxiInfoModel) -> Unit,
     modifier: Modifier = Modifier
 ) {
+    var bottomSheetStep by remember { mutableStateOf(0) }
+
     Box(
         modifier = modifier.fillMaxSize()
     ) {
@@ -85,69 +89,17 @@ private fun CallScreen(
             onDismissRequest = {},
             showScrim = false
         ) {
-            Column(
-                modifier = Modifier
-                    .heightIn(max = 450.dp)
-                    .padding(top = 10.dp, bottom = 20.dp, start = 20.dp, end = 20.dp)
-                    .verticalScroll(rememberScrollState())
-            ) {
-                Text(
-                    text = "원하는 택시를 골라주세요",
-                    style = KakaotaxiTheme.typography.body.kakaoB16,
-                    color = colors.textPrimary,
+            when (bottomSheetStep) {
+                0 -> TaxiSelectContent(
+                    taxiInfo = taxiInfo,
+                    selectedTaxi = selectedTaxi,
+                    onServiceChange = onServiceChange,
+                    onCallClick = { bottomSheetStep++ }
                 )
-
-                Spacer(modifier = Modifier.height(9.dp))
-
-                TaxiItemGrid(
-                    services = taxiInfo,
-                    service = selectedTaxi ?: taxiInfo.first(),
-                    onServiceChange = onServiceChange
-                )
-
-                Spacer(modifier = Modifier.height(13.dp))
-
-                Image(
-                    painter = painterResource(R.drawable.img_calltaxi_coupon),
-                    contentDescription = null,
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier.fillMaxWidth()
-                )
-
-                Spacer(modifier = Modifier.height(15.dp))
-
-                Row {
-                    Text(
-                        text = "예상 요금",
-                        style = KakaotaxiTheme.typography.body.kakaoR14,
-                        color = colors.textSecondary,
-                    )
-
-                    Spacer(modifier = Modifier.weight(1f))
-
-                    Text(
-                        text = buildAnnotatedString {
-                            withStyle(SpanStyle(color = colors.black)) {
-                                append("예상 ${selectedTaxi?.taxiPrice}")
-                            }
-                            withStyle(SpanStyle(color = colors.textSecondary)) {
-                                append("원")
-                            }
-                        },
-                        style = KakaotaxiTheme.typography.body.kakaoB16,
-                    )
-                }
-
-                Spacer(modifier = Modifier.height(15.dp))
-
-                ButtonItem(
-                    text = "택시 부르기",
-                    style = ButtonStyle.CALL,
-                    onClick = {
-                        // TODO: 버튼 클릭되면 taxiId 서버에 넘기고 "목적지 확인" 바텀 시트로 갈아끼우기
-                        // Int 변수 하나 선언해서 when 안에 바텀 시트의 content 넣고 +1, -1으로 네/아니오 구분
-                    },
-                    modifier = Modifier.fillMaxWidth()
+                1 -> DestinationConfirmContent(
+                    selectedTaxi = selectedTaxi,
+                    onNoClick = { bottomSheetStep-- },
+                    onYesClick = { bottomSheetStep++ }
                 )
             }
         }

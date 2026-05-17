@@ -1,0 +1,61 @@
+package com.jm.kakaotaxi.presentation.call.component
+
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.unit.dp
+import com.jm.kakaotaxi.R
+import com.jm.kakaotaxi.core.designsystem.component.YesNoButton
+import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
+import com.jm.kakaotaxi.data.model.call.TaxiInfoModel
+
+@Composable
+fun DestinationConfirmContent(
+    selectedTaxi: TaxiInfoModel?,
+    onNoClick: () -> Unit,
+    onYesClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Column(
+        modifier = modifier
+            .heightIn(max = 276.dp)
+            .padding(top = 25.dp, bottom = 30.dp, start = 21.dp, end = 21.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Icon(
+            imageVector = ImageVector.vectorResource(R.drawable.ic_calltaxi_taxi),
+            contentDescription = null,
+            tint = Color.Unspecified,
+            modifier = Modifier
+                .size(36.dp)
+        )
+
+        Spacer(modifier = Modifier.height(17.dp))
+
+        Text(
+            text = "승례님, 집에서 한사랑 병원으로\n가는 택시를 부를까요?",
+            style = KakaotaxiTheme.typography.body.kakaoB16,
+            color = KakaotaxiTheme.colors.textPrimary,
+        )
+
+        Spacer(modifier = Modifier.height(47.dp))
+
+        YesNoButton(
+            onNoClick = onNoClick,
+            onYesClick = onYesClick
+        )
+    }
+}
