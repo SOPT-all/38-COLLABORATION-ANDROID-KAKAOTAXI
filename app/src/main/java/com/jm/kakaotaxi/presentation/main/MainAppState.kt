@@ -8,7 +8,7 @@ import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
-import com.jm.kakaotaxi.core.navigation.MainTabRoute.Menu
+import com.jm.kakaotaxi.core.navigation.MainTabRoute.Home
 import com.jm.kakaotaxi.presentation.bell.navigation.navigateToBell
 import com.jm.kakaotaxi.presentation.business.navigation.navigateToBusiness
 import com.jm.kakaotaxi.presentation.home.navigation.navigateToHome
@@ -26,7 +26,7 @@ class MainAppState(
     val navController: NavHostController,
     coroutineScope: CoroutineScope,
 ) {
-    val startDestination = Menu
+    val startDestination = Home
 
     private val currentDestination = navController.currentBackStackEntryFlow
         .map { it.destination }
