@@ -1,6 +1,5 @@
 package com.jm.kakaotaxi.presentation.arrival
 
-import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -20,13 +19,10 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.VerticalDivider
-import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.BiasAbsoluteAlignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
@@ -75,14 +71,14 @@ private fun ArrivalScreen(
         Image(
             painter = painterResource(R.drawable.img_arrival_map),
             contentDescription = null,
-            contentScale = ContentScale.Crop
+            contentScale = ContentScale.Crop,
+            modifier = Modifier.fillMaxSize()
         )
 
-        Spacer(modifier = modifier.padding(top = 191.dp))
-
         Icon(
-            painter = painterResource(R.drawable.ic_arrivescreen_gps),
+            imageVector = ImageVector.vectorResource(R.drawable.ic_arrivescreen_gps),
             contentDescription = null,
+            modifier = modifier.padding(top = 191.dp),
             tint = Color.Unspecified
         )
 
@@ -98,7 +94,7 @@ private fun ArrivalScreen(
                     )
 
                     Icon(
-                        painter = painterResource(R.drawable.ic_arrivescreen_arrowsout),
+                        imageVector = ImageVector.vectorResource(R.drawable.ic_arrivescreen_arrowsout),
                         contentDescription = null,
                         tint = Color.Unspecified,
                         modifier = modifier
