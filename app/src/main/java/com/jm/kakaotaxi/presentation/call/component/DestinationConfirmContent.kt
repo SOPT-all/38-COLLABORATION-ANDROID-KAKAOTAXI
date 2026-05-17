@@ -16,6 +16,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.jm.kakaotaxi.R
 import com.jm.kakaotaxi.core.designsystem.component.YesNoButton
@@ -49,6 +51,7 @@ fun DestinationConfirmContent(
             text = "승례님, 집에서 한사랑 병원으로\n가는 택시를 부를까요?",
             style = KakaotaxiTheme.typography.body.kakaoB16,
             color = KakaotaxiTheme.colors.textPrimary,
+            textAlign = TextAlign.Center
         )
 
         Spacer(modifier = Modifier.height(47.dp))
@@ -56,6 +59,18 @@ fun DestinationConfirmContent(
         YesNoButton(
             onNoClick = onNoClick,
             onYesClick = onYesClick
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun DestinationConfirmContentPreview() {
+    KakaotaxiTheme() {
+        DestinationConfirmContent(
+            selectedTaxi = null,
+            onNoClick = {},
+            onYesClick = {}
         )
     }
 }
