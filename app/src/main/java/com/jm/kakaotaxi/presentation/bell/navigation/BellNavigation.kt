@@ -11,7 +11,7 @@ import com.jm.kakaotaxi.core.navigation.MainTabRoute.Bell
 import com.jm.kakaotaxi.presentation.bell.BellRoute
 
 fun NavController.navigateToBell(
-    navOptions: NavOptions,
+    navOptions: NavOptions? = null,
 ) {
     navigate(Bell, navOptions)
 }
