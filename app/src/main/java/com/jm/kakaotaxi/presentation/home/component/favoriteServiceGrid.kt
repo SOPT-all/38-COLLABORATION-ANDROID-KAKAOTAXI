@@ -37,7 +37,7 @@ fun FavoriteServiceGrid(
                         starIcon = if (service.isStarClicked) R.drawable.ic_home_star_yellow
                                 else R.drawable.ic_home_star_gray,
                         onStarClick = {onStarClick(service.id)},
-                        onServiceClick = onServiceClick,
+                        onServiceClick = { if (service.id == 1) onServiceClick() },
                         modifier = Modifier.weight(1f)
                     )
                 }
