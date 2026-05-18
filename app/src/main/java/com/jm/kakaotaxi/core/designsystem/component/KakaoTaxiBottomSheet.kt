@@ -44,7 +44,7 @@ fun KakaoTaxiBottomSheet(
         shape = RoundedCornerShape(
             topStart = 24.dp,
             topEnd = 24.dp,
-            ),
+        ),
         containerColor = colors.white,
         scrimColor = if (showScrim) Color(0x66000000) else Color.Transparent,
         dragHandle = { CustomDragHandle() },

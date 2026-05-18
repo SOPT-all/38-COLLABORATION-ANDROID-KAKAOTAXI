@@ -18,10 +18,12 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
+import com.jm.kakaotaxi.core.extensions.customShadow
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
 
@@ -42,6 +44,15 @@ fun BottomNavigationBar(
         Row(
             modifier = modifier
                 .fillMaxWidth()
+                .customShadow(
+                    shape = RoundedCornerShape(
+                        topStart = 20.dp,
+                        topEnd = 20.dp
+                    ),
+                    color = Color(0x0D000000),
+                    blur = 4.dp,
+                    offsetY = (-2).dp
+                )
                 .background(
                     color = KakaotaxiTheme.colors.white,
                     shape = RoundedCornerShape(

@@ -26,6 +26,7 @@ fun NoticeSection(
     Row(
         modifier = modifier
             .fillMaxWidth()
+            .padding(bottom = 50.dp)
             .padding(vertical = 3.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {

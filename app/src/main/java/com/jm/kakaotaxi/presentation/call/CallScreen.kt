@@ -1,10 +1,12 @@
 package com.jm.kakaotaxi.presentation.call
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -13,6 +15,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -22,6 +26,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.jm.kakaotaxi.R
 import com.jm.kakaotaxi.core.designsystem.component.KakaoTaxiBottomSheet
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
+import com.jm.kakaotaxi.core.extensions.customShadow
 import com.jm.kakaotaxi.data.model.call.TaxiInfoModel
 import com.jm.kakaotaxi.presentation.call.component.DestinationConfirmContent
 import com.jm.kakaotaxi.presentation.call.component.DestinationItem
@@ -70,7 +75,7 @@ private fun CallScreen(
             contentScale = ContentScale.Crop,
             modifier = modifier.fillMaxSize()
         )
-        
+
         DestinationItem(
             modifier = Modifier
                 .align(Alignment.TopCenter)
@@ -79,7 +84,7 @@ private fun CallScreen(
         )
 
         KakaoTaxiBottomSheet(
-            showScrim = bottomSheetStep != 0
+            showScrim = bottomSheetStep != 0,
         ) {
             when (bottomSheetStep) {
                 0 -> TaxiSelectContent(
@@ -88,6 +93,7 @@ private fun CallScreen(
                     onServiceChange = onServiceChange,
                     onCallClick = onNextStep
                 )
+
                 1 -> DestinationConfirmContent(
                     onNoClick = onPreviousStep,
                     onYesClick = onTaxiCallConfirmed
