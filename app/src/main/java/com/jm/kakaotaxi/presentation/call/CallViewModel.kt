@@ -1,14 +1,12 @@
 package com.jm.kakaotaxi.presentation.call
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.jm.kakaotaxi.R
 import com.jm.kakaotaxi.data.model.call.TaxiInfoModel
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.launch
 
 class CallViewModel : ViewModel() {
     val taxiInfoList = persistentListOf(

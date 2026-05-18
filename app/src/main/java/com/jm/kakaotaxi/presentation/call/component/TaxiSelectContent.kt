@@ -114,7 +114,7 @@ fun TaxiSelectContent(
 @Preview(showBackground = true)
 @Composable
 private fun TaxiSelectContentPreview() {
-    KakaotaxiTheme() {
+    KakaotaxiTheme {
         val taxiServices = persistentListOf(
             TaxiInfoModel(
                 id = 1,
