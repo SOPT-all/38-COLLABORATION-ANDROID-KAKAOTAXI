@@ -15,8 +15,4 @@ interface HomeContract {
     sealed class SideEffect {
         data object NavigateToSearch : SideEffect()
     }
-
-    sealed interface Event {
-        data object OnItemClicked : Event
-    }
 }
