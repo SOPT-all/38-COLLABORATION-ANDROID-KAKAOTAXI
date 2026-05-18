@@ -49,6 +49,7 @@ fun ArrivalRoute(
         carType = uiState.carType,
         carColor = uiState.carColor,
         driverName = uiState.driverName,
+        onShareClick = {},
         modifier = modifier
     )
 }
@@ -61,6 +62,7 @@ private fun ArrivalScreen(
     carType: String,
     carColor: String,
     driverName: String,
+    onShareClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Box(
@@ -136,7 +138,8 @@ private fun ArrivalScreen(
                     color = KakaotaxiTheme.colors.backgroundGray
                 )
 
-                Row {
+                Row(verticalAlignment = Alignment.CenterVertically)
+                {
                     Image(
                         painter = painterResource(R.drawable.img_arrival_driverprofile),
                         contentDescription = null,
@@ -147,40 +150,43 @@ private fun ArrivalScreen(
 
                     Spacer(modifier = Modifier.width(7.dp))
 
-                    Column(modifier = Modifier.padding(vertical = 20.dp))
+                    Row(modifier = Modifier.padding(vertical = 20.dp))
                     {
-                        Row {
+                        Column {
+                            Row(verticalAlignment = Alignment.CenterVertically)
+                            {
+                                Text(
+                                    text = carNumber,
+                                    style = KakaotaxiTheme.typography.body.kakaoB16,
+                                    color = KakaotaxiTheme.colors.textPrimary
+                                )
+
+                                Spacer(modifier = Modifier.width(7.dp))
+
+                                VerticalDivider(
+                                    modifier = Modifier
+                                        .height(13.dp),
+                                    thickness = 1.dp,
+                                    color = KakaotaxiTheme.colors.backgroundGray
+                                )
+
+                                Spacer(modifier = Modifier.width(7.dp))
+
+                                Text(
+                                    text = "$carType $carColor",
+                                    style = KakaotaxiTheme.typography.body.kakaoR14,
+                                    color = KakaotaxiTheme.colors.textSecondary
+                                )
+                            }
+
+                            Spacer(modifier = Modifier.height(3.dp))
+
                             Text(
-                                text = carNumber,
-                                style = KakaotaxiTheme.typography.body.kakaoB16,
-                                color = KakaotaxiTheme.colors.textPrimary
-                            )
-
-                            Spacer(modifier = Modifier.width(7.dp))
-
-                            VerticalDivider(
-                                modifier = Modifier
-                                    .height(13.dp),
-                                thickness = 1.dp,
-                                color = KakaotaxiTheme.colors.backgroundGray
-                            )
-
-                            Spacer(modifier = Modifier.width(7.dp))
-
-                            Text(
-                                text = "$carType $carColor",
+                                text = "${driverName} 기사님",
                                 style = KakaotaxiTheme.typography.body.kakaoR14,
                                 color = KakaotaxiTheme.colors.textSecondary
                             )
                         }
-
-                        Spacer(modifier = Modifier.height(3.dp))
-
-                        Text(
-                            text = "${driverName} 기사님",
-                            style = KakaotaxiTheme.typography.body.kakaoR14,
-                            color = KakaotaxiTheme.colors.textSecondary
-                        )
                     }
                 }
 
@@ -191,7 +197,7 @@ private fun ArrivalScreen(
                 ButtonItem(
                     text = "보호자에게 공유",
                     style = ButtonStyle.SHARE,
-                    onClick = {},
+                    onClick = onShareClick,
                     modifier = modifier.fillMaxWidth()
                 )
 
@@ -211,7 +217,8 @@ private fun ArrivalScreenPreview() {
             carNumber = "서울 38 아 2864",
             carType = "현대 쏘나타",
             carColor = "화이트",
-            driverName = "김민수"
+            driverName = "김민수",
+            onShareClick = {}
         )
     }
 }
