@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -31,10 +32,10 @@ fun FavoriteSection(
     Column(
         modifier = modifier
     ) {
-        Spacer(modifier = Modifier.height(24.dp))
-
         Row(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 15.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -73,13 +74,12 @@ fun FavoriteSection(
         Text(
             text = "전체 서비스 보기",
             modifier = Modifier
-                .fillMaxWidth(),
+                .fillMaxWidth()
+                .padding(end = 24.dp),
             color = KakaotaxiTheme.colors.textSecondary,
             textAlign = TextAlign.Center,
             style = KakaotaxiTheme.typography.body.kakaoB16
         )
-
-        Spacer(modifier = Modifier.height(15.dp))
     }
 }
 

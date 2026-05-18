@@ -23,8 +23,8 @@ fun NavGraphBuilder.homeNavGraph(
 ) {
     composable<Home> {
         HomeRoute(
-            modifier = Modifier.padding(innerPadding),
-            navigateToSearch = navController::navigateToSearch
+            navigateToSearch = navController::navigateToSearch,
+            modifier = Modifier.padding(innerPadding)
         )
     }
 }

@@ -52,7 +52,7 @@ fun FavoriteServiceItem(
                 color = KakaotaxiTheme.colors.backgroundGray,
                 shape = RoundedCornerShape(10.dp)
             )
-            .clickable(onClick = onServiceClick)
+            .noRippleClickable(onClick = onServiceClick)
     ) {
         Column (
             modifier = Modifier

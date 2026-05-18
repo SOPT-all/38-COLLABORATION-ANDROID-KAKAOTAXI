@@ -61,13 +61,14 @@ private fun HomeScreen(
             Column(
                 modifier = Modifier
                     .padding(horizontal = 24.dp)
+                    .padding(top = 25.dp)
             ){
                 KakaoTaxiSearchBar(
                     type = SearchBarType.HOME,
                     onSearchBarClick = onSearchBarClick
                 )
 
-                Spacer(modifier = Modifier.height(15.dp))
+                Spacer(modifier = Modifier.height(22.dp))
 
                 QuickPlaceList(places = quickPlaces)
 
