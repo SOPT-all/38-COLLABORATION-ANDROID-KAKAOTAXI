@@ -24,7 +24,7 @@ import com.jm.kakaotaxi.data.model.call.TaxiInfoModel
 
 @Composable
 fun DestinationConfirmContent(
-    selectedTaxi: TaxiInfoModel?,
+    selectedTaxi: TaxiInfoModel,
     onNoClick: () -> Unit,
     onYesClick: () -> Unit,
     modifier: Modifier = Modifier
@@ -66,7 +66,13 @@ fun DestinationConfirmContent(
 private fun DestinationConfirmContentPreview() {
     KakaotaxiTheme() {
         DestinationConfirmContent(
-            selectedTaxi = null,
+            selectedTaxi = TaxiInfoModel(
+                id = 1,
+                taxiImage = R.drawable.img_calltaxi_safetaxi,
+                taxiType = "안심 택시",
+                taxiDescription = "친절한 기사님\n바로 배차 보장",
+                taxiPrice = "7,800"
+            ),
             onNoClick = {},
             onYesClick = {}
         )

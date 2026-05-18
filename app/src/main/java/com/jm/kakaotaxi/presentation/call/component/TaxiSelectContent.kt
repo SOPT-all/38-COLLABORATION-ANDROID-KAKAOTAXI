@@ -37,7 +37,7 @@ import kotlinx.collections.immutable.persistentListOf
 @Composable
 fun TaxiSelectContent(
     taxiInfo: ImmutableList<TaxiInfoModel>,
-    selectedTaxi: TaxiInfoModel?,
+    selectedTaxi: TaxiInfoModel,
     onServiceChange: (TaxiInfoModel) -> Unit,
     onCallClick: () -> Unit,
     modifier: Modifier = Modifier
@@ -58,7 +58,7 @@ fun TaxiSelectContent(
 
         TaxiItemGrid(
             taxiItems = taxiInfo,
-            taxiItem = selectedTaxi ?: taxiInfo.first(),
+            taxiItem = selectedTaxi,
             onTaxiItemChange = onServiceChange
         )
 
@@ -87,7 +87,7 @@ fun TaxiSelectContent(
             Text(
                 text = buildAnnotatedString {
                     withStyle(SpanStyle(color = colors.black)) {
-                        append("예상 ${selectedTaxi?.taxiPrice}")
+                        append("예상 ${selectedTaxi.taxiPrice}")
                     }
                     withStyle(SpanStyle(color = colors.textSecondary)) {
                         append("원")

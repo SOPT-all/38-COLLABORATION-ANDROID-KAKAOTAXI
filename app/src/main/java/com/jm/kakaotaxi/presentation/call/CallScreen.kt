@@ -49,7 +49,7 @@ fun CallRoute(
 @Composable
 private fun CallScreen(
     taxiInfo: ImmutableList<TaxiInfoModel>,
-    selectedTaxi: TaxiInfoModel?,
+    selectedTaxi: TaxiInfoModel,
     onServiceChange: (TaxiInfoModel) -> Unit,
     modifier: Modifier = Modifier
 ) {
