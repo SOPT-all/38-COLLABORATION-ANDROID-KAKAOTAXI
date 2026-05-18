@@ -7,6 +7,7 @@ import kotlinx.collections.immutable.persistentListOf
 interface CallContract {
     data class State(
         val taxiInfo: ImmutableList<TaxiInfoModel> = persistentListOf(),
-        val selectedTaxi: TaxiInfoModel
+        val selectedTaxi: TaxiInfoModel,
+        val bottomSheetStep: Int = 0
     )
 }

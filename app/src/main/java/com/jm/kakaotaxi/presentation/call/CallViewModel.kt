@@ -51,4 +51,16 @@ class CallViewModel : ViewModel() {
     fun onTaxiSelected(taxi: TaxiInfoModel) {
         _uiState.update { it.copy(selectedTaxi = taxi) }
     }
+
+    fun onNextStep() {
+        _uiState.update {
+            it.copy(bottomSheetStep = it.bottomSheetStep + 1)
+        }
+    }
+
+    fun onPreviousStep() {
+        _uiState.update {
+            it.copy(bottomSheetStep = it.bottomSheetStep - 1)
+        }
+    }
 }

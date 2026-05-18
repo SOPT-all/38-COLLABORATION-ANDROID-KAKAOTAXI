@@ -39,7 +39,10 @@ fun CallRoute(
     CallScreen(
         taxiInfo = uiState.taxiInfo,
         selectedTaxi = uiState.selectedTaxi,
+        bottomSheetStep = uiState.bottomSheetStep,
         onServiceChange = viewModel::onTaxiSelected,
+        onNextStep = viewModel::onNextStep,
+        onPreviousStep = viewModel::onPreviousStep,
         modifier = modifier
     )
 }
@@ -49,11 +52,12 @@ fun CallRoute(
 private fun CallScreen(
     taxiInfo: ImmutableList<TaxiInfoModel>,
     selectedTaxi: TaxiInfoModel,
+    bottomSheetStep: Int,
     onServiceChange: (TaxiInfoModel) -> Unit,
+    onNextStep: () -> Unit,
+    onPreviousStep: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    var bottomSheetStep by remember { mutableStateOf(0) }
-
     Box(
         modifier = modifier.fillMaxSize()
     ) {
@@ -79,12 +83,11 @@ private fun CallScreen(
                     taxiInfo = taxiInfo,
                     selectedTaxi = selectedTaxi,
                     onServiceChange = onServiceChange,
-                    onCallClick = { bottomSheetStep++ }
+                    onCallClick = onNextStep
                 )
                 1 -> DestinationConfirmContent(
-                    selectedTaxi = selectedTaxi,
-                    onNoClick = { bottomSheetStep-- },
-                    onYesClick = { bottomSheetStep++ }
+                    onNoClick = onPreviousStep,
+                    onYesClick = onNextStep
                 )
             }
         }
@@ -131,7 +134,10 @@ private fun CallScreenPreview() {
         CallScreen(
             taxiInfo = taxiServices,
             selectedTaxi = selectedTaxi,
+            bottomSheetStep = 0,
             onServiceChange = { selectedTaxi = it },
+            onNextStep = {},
+            onPreviousStep = {}
         )
     }
 }
