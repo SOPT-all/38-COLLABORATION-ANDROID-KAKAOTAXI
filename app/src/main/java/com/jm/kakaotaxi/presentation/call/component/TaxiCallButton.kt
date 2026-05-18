@@ -16,7 +16,7 @@ fun TaxiCallButton(
     ButtonItem(
         text = "택시 부르기",
         style = ButtonStyle.CALL,
-        onClick = {},
+        onClick = onClick,
         modifier = modifier.fillMaxWidth()
     )
 }
@@ -26,7 +26,7 @@ fun TaxiCallButton(
 private fun TaxiCallButtonPreview() {
     KakaotaxiTheme {
         TaxiCallButton(
-            onClick = {}
+            onClick = { }
         )
     }
 }

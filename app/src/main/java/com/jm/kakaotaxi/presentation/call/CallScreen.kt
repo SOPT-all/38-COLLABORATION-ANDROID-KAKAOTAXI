@@ -31,6 +31,7 @@ import kotlinx.collections.immutable.persistentListOf
 
 @Composable
 fun CallRoute(
+    onTaxiCallConfirmed: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: CallViewModel = viewModel()
 ) {
@@ -43,7 +44,8 @@ fun CallRoute(
         onServiceChange = viewModel::onTaxiSelected,
         onNextStep = viewModel::onNextStep,
         onPreviousStep = viewModel::onPreviousStep,
-        modifier = modifier
+        onTaxiCallConfirmed = onTaxiCallConfirmed,
+        modifier = modifier,
     )
 }
 
@@ -56,6 +58,7 @@ private fun CallScreen(
     onServiceChange: (TaxiInfoModel) -> Unit,
     onNextStep: () -> Unit,
     onPreviousStep: () -> Unit,
+    onTaxiCallConfirmed: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Box(
@@ -87,7 +90,7 @@ private fun CallScreen(
                 )
                 1 -> DestinationConfirmContent(
                     onNoClick = onPreviousStep,
-                    onYesClick = onNextStep
+                    onYesClick = onTaxiCallConfirmed
                 )
             }
         }
@@ -129,15 +132,17 @@ private fun CallScreenPreview() {
     )
 
     var selectedTaxi by remember { mutableStateOf(taxiServices.first()) }
+    var bottomSheetStep by remember { mutableStateOf(0) }
 
     KakaotaxiTheme {
         CallScreen(
             taxiInfo = taxiServices,
             selectedTaxi = selectedTaxi,
-            bottomSheetStep = 0,
+            bottomSheetStep = bottomSheetStep,
             onServiceChange = { selectedTaxi = it },
-            onNextStep = {},
-            onPreviousStep = {}
+            onNextStep = { bottomSheetStep++ },
+            onPreviousStep = { bottomSheetStep-- },
+            onTaxiCallConfirmed = {}
         )
     }
 }
