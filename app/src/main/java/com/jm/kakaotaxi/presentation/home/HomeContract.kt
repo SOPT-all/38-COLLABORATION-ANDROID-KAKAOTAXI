@@ -11,8 +11,4 @@ interface HomeContract {
         val myPlaces: ImmutableList<QuickPlaceModel> = persistentListOf(),
         val favoritePlaces: ImmutableList<FavoriteServiceModel> = persistentListOf()
     )
-
-    sealed class SideEffect {
-        data object NavigateToSearch : SideEffect()
-    }
 }
