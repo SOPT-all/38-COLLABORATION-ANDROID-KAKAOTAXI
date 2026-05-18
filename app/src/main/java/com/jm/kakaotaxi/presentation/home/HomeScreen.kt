@@ -28,6 +28,7 @@ import kotlinx.collections.immutable.ImmutableList
 
 @Composable
 fun HomeRoute(
+    navigateToSearch: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: HomeViewModel = viewModel(),
 ) {
@@ -38,6 +39,7 @@ fun HomeRoute(
         favoriteServices = uiState.favoritePlaces,
         onSearchBarClick = viewModel::onSearchBarClick,
         onStarClick = viewModel::onStarClick,
+        onServiceClick = navigateToSearch,
         modifier = modifier
     )
 }
@@ -48,6 +50,7 @@ private fun HomeScreen(
     favoriteServices: ImmutableList<FavoriteServiceModel>,
     onSearchBarClick: () -> Unit,
     onStarClick: (Int) -> Unit,
+    onServiceClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     LazyColumn(
@@ -70,7 +73,8 @@ private fun HomeScreen(
 
                 FavoriteSection(
                     services = favoriteServices,
-                    onStarClick = onStarClick
+                    onStarClick = onStarClick,
+                    onServiceClick = onServiceClick
                 )
             }
         }

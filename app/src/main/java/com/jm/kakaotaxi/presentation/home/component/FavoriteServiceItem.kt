@@ -4,6 +4,7 @@ import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -38,6 +39,7 @@ fun FavoriteServiceItem(
     @DrawableRes starIcon: Int,
     @DrawableRes carImage: Int,
     onStarClick: () -> Unit,
+    onServiceClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Box(
@@ -50,7 +52,7 @@ fun FavoriteServiceItem(
                 color = KakaotaxiTheme.colors.backgroundGray,
                 shape = RoundedCornerShape(10.dp)
             )
-
+            .clickable(onClick = onServiceClick)
     ) {
         Column (
             modifier = Modifier
@@ -98,6 +100,7 @@ private fun FavoriteServiceItemPreview() {
         subtitle = "바로 이동해볼까요?",
         starIcon = R.drawable.ic_home_star_gray,
         carImage = R.drawable.img_home_taxi,
-        onStarClick = {}
+        onStarClick = {},
+        onServiceClick = {},
     )
 }

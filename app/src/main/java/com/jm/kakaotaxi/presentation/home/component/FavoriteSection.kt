@@ -25,6 +25,7 @@ import kotlinx.collections.immutable.persistentListOf
 fun FavoriteSection(
     services: ImmutableList<FavoriteServiceModel>,
     onStarClick: (Int) -> Unit,
+    onServiceClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -63,7 +64,8 @@ fun FavoriteSection(
 
         FavoriteServiceGrid(
             services = services,
-            onStarClick = onStarClick
+            onStarClick = onStarClick,
+            onServiceClick = onServiceClick
         )
 
         Spacer(modifier = Modifier.height(24.dp))
