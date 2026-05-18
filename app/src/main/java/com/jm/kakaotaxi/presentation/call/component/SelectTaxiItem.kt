@@ -73,7 +73,7 @@ fun SelectTaxiItem(
 }
 
 @Composable
-private fun TaxiInfo(
+fun TaxiInfo(
     @DrawableRes taxiImage: Int,
     taxiType: String,
     taxiDescription: String,
@@ -129,7 +129,7 @@ private fun TaxiInfo(
 @Composable
 private fun KakaoTaxiSelectTaxiItemPreview() {
     val previewItem = TaxiInfoModel(
-        id = "1",
+        id = 1,
         taxiImage = R.drawable.img_calltaxi_bigtaxi,
         taxiType = "대형 택시",
         taxiDescription = "넓은 좌석\n짐이 많을 때",
