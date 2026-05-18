@@ -40,7 +40,8 @@ fun CallRoute(
     CallScreen(
         taxiInfo = uiState.taxiInfo,
         selectedTaxi = uiState.selectedTaxi,
-        onServiceChange = viewModel::onTaxiSelected
+        onServiceChange = viewModel::onTaxiSelected,
+        modifier = modifier
     )
 }
 

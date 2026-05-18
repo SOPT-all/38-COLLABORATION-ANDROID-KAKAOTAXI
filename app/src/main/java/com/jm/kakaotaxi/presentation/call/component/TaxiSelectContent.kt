@@ -57,9 +57,9 @@ fun TaxiSelectContent(
         Spacer(modifier = Modifier.height(9.dp))
 
         TaxiItemGrid(
-            services = taxiInfo,
-            service = selectedTaxi ?: taxiInfo.first(),
-            onServiceChange = onServiceChange
+            taxiItems = taxiInfo,
+            taxiItem = selectedTaxi ?: taxiInfo.first(),
+            onTaxiItemChange = onServiceChange
         )
 
         Spacer(modifier = Modifier.height(13.dp))

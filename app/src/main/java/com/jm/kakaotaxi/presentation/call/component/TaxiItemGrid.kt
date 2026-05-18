@@ -14,24 +14,24 @@ import kotlinx.collections.immutable.persistentListOf
 
 @Composable
 fun TaxiItemGrid(
-    services: ImmutableList<TaxiInfoModel>,
-    service: TaxiInfoModel,
-    onServiceChange: (TaxiInfoModel) -> Unit,
+    taxiItems: ImmutableList<TaxiInfoModel>,
+    taxiItem: TaxiInfoModel,
+    onTaxiItemChange: (TaxiInfoModel) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column(
         modifier = modifier,
         verticalArrangement = spacedBy(15.dp)
     ) {
-        services.chunked(2).forEach { items ->
+        taxiItems.chunked(2).forEach { items ->
             Row(
                 horizontalArrangement = spacedBy(12.dp)
             ) {
                 items.forEach { item ->
                     SelectTaxiItem(
                         item = item,
-                        onItemClick = {onServiceChange(item)},
-                        isSelected = service == item,
+                        onItemClick = {onTaxiItemChange(item)},
+                        isSelected = taxiItem == item,
                         modifier = Modifier.weight(1f)
                     )
                 }
@@ -75,8 +75,8 @@ private fun TaxiItemGridPreview() {
     )
 
     TaxiItemGrid(
-        services = taxiServices,
-        service = taxiServices.first(),
-        onServiceChange = {}
+        taxiItems = taxiServices,
+        taxiItem = taxiServices.first(),
+        onTaxiItemChange = {}
     )
 }
