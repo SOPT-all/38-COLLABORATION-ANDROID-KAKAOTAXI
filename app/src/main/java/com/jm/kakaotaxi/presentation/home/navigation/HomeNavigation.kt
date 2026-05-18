@@ -9,6 +9,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import com.jm.kakaotaxi.core.navigation.MainTabRoute.Home
 import com.jm.kakaotaxi.presentation.home.HomeRoute
+import com.jm.kakaotaxi.presentation.search.navigation.navigateToSearch
 
 fun NavController.navigateToHome(
     navOptions: NavOptions? = null,
@@ -22,7 +23,8 @@ fun NavGraphBuilder.homeNavGraph(
 ) {
     composable<Home> {
         HomeRoute(
-            modifier = Modifier.padding(innerPadding),
+            navigateToSearch = navController::navigateToSearch,
+            modifier = Modifier.padding(innerPadding)
         )
     }
 }
