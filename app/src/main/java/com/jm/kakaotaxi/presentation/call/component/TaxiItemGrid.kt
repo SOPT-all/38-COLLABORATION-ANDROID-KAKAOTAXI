@@ -21,7 +21,7 @@ fun TaxiItemGrid(
 ) {
     Column(
         modifier = modifier,
-        verticalArrangement = spacedBy(15.dp)
+        verticalArrangement = spacedBy(12.dp)
     ) {
         taxiItems.chunked(2).forEach { items ->
             Row(

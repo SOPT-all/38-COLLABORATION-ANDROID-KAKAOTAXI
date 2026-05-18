@@ -31,7 +31,8 @@ fun DestinationConfirmContent(
 ) {
     Column(
         modifier = modifier
-            .padding(top = 25.dp, bottom = 30.dp, start = 21.dp, end = 21.dp),
+            .padding(horizontal = 21.dp)
+            .padding(top = 25.dp, bottom = 30.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Icon(

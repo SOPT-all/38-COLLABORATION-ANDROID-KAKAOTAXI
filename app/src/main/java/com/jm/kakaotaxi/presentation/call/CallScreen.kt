@@ -71,17 +71,8 @@ private fun CallScreen(
                 .padding(start = 20.dp, top = 44.dp, end = 20.dp)
         )
 
-        if (bottomSheetStep == 1) {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(Color(0x66000000))
-            )
-        }
-
         KakaoTaxiBottomSheet(
-            onDismissRequest = {},
-            showScrim = false
+            showScrim = bottomSheetStep != 0
         ) {
             when (bottomSheetStep) {
                 0 -> TaxiSelectContent(
