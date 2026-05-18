@@ -35,7 +35,6 @@ fun SearchRecentItem(
 ) {
     Column(
         modifier = modifier
-            .aspectRatio(152f / 102f)
             .clip(RoundedCornerShape(10.dp))
             .background(color = KakaotaxiTheme.colors.white)
             .border(

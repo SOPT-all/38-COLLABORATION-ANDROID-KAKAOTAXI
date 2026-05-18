@@ -4,12 +4,13 @@ import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -35,14 +36,15 @@ import com.jm.kakaotaxi.core.extensions.noRippleClickable
 fun FavoriteServiceItem(
     title: String,
     subtitle: String,
-    isStarClicked: Boolean,
+    @DrawableRes starIcon: Int,
     @DrawableRes carImage: Int,
     onStarClick: () -> Unit,
+    onServiceClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Box(
         modifier = modifier
-            .size(150.dp)
+            .aspectRatio(1f)
             .clip(RoundedCornerShape(10.dp))
             .background(KakaotaxiTheme.colors.white)
             .border(
@@ -50,7 +52,7 @@ fun FavoriteServiceItem(
                 color = KakaotaxiTheme.colors.backgroundGray,
                 shape = RoundedCornerShape(10.dp)
             )
-
+            .noRippleClickable(onClick = onServiceClick)
     ) {
         Column (
             modifier = Modifier
@@ -72,12 +74,7 @@ fun FavoriteServiceItem(
         }
 
         Icon(
-            imageVector = ImageVector.vectorResource(
-                if (isStarClicked) {
-                    R.drawable.ic_home_star_yellow
-                } else {
-                    R.drawable.ic_home_star_gray
-                }),
+            imageVector = ImageVector.vectorResource(starIcon),
             contentDescription = null,
             modifier = Modifier
                 .align (Alignment.TopEnd)
@@ -98,13 +95,12 @@ fun FavoriteServiceItem(
 @Preview
 @Composable
 private fun FavoriteServiceItemPreview() {
-    var isStarClicked by remember { mutableStateOf(false) }
-
     FavoriteServiceItem(
         title = "택시",
         subtitle = "바로 이동해볼까요?",
-        isStarClicked = isStarClicked,
+        starIcon = R.drawable.ic_home_star_gray,
         carImage = R.drawable.img_home_taxi,
-        onStarClick = { isStarClicked = !isStarClicked }
+        onStarClick = {},
+        onServiceClick = {},
     )
 }

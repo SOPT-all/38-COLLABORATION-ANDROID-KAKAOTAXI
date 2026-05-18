@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.dp
 import com.jm.kakaotaxi.R
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme.colors
+import com.jm.kakaotaxi.core.extensions.customShadow
 
 @Composable
 fun DestinationItem(
@@ -32,11 +33,12 @@ fun DestinationItem(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .shadow(
-                elevation   = 10.dp,
-                shape       = RoundedCornerShape(50.dp),
-                ambientColor = Color(0x142A2A2A),
-                spotColor    = Color(0x142A2A2A),
+            .customShadow(
+                shape = RoundedCornerShape(50.dp),
+                color = Color(0x142A2A2A),
+                blur = 10.dp,
+                offsetX = 4.dp,
+                offsetY = 6.dp,
             )
             .background(colors.white, shape = RoundedCornerShape(50.dp))
             .padding(top = 6.dp, bottom = 7.dp, start = 21.dp, end = 35.dp),

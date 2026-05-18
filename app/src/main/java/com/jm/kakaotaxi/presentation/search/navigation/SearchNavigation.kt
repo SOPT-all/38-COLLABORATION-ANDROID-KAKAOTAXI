@@ -7,6 +7,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
+import com.jm.kakaotaxi.presentation.call.navigation.navigateToCall
 import com.jm.kakaotaxi.presentation.search.SearchRoute
 import kotlinx.serialization.Serializable
 
@@ -22,6 +23,7 @@ fun NavGraphBuilder.searchNavGraph(
 ) {
     composable<Search> {
         SearchRoute(
+            navigateToCall = navController::navigateToCall,
             modifier = Modifier.padding(innerPadding),
         )
     }
