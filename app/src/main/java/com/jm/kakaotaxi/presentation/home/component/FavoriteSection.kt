@@ -116,7 +116,8 @@ private fun FavoriteSectionPreview() {
     KakaotaxiTheme {
         FavoriteSection(
             services = fakeFavoriteServices,
-            onStarClick = {}
+            onStarClick = {},
+            onServiceClick = {},
         )
     }
 }
