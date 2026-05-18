@@ -31,14 +31,13 @@ fun DestinationConfirmContent(
 ) {
     Column(
         modifier = modifier
-            .heightIn(max = 276.dp)
             .padding(top = 25.dp, bottom = 30.dp, start = 21.dp, end = 21.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Icon(
             imageVector = ImageVector.vectorResource(R.drawable.ic_calltaxi_taxi),
             contentDescription = null,
-            tint = Color.Unspecified,
+            tint = KakaotaxiTheme.colors.subGray,
             modifier = Modifier
                 .size(36.dp)
         )

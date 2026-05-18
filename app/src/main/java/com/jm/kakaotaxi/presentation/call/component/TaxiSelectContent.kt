@@ -16,6 +16,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -39,11 +40,12 @@ fun TaxiSelectContent(
     selectedTaxi: TaxiInfoModel?,
     onServiceChange: (TaxiInfoModel) -> Unit,
     onCallClick: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
     Column(
-        modifier = Modifier
+        modifier = modifier
             .heightIn(max = 450.dp)
-            .padding(top = 10.dp, bottom = 20.dp, start = 20.dp, end = 20.dp)
+            .padding(top = 10.dp, bottom = 22.dp, start = 20.dp, end = 20.dp)
             .verticalScroll(rememberScrollState())
     ) {
         Text(
@@ -71,7 +73,9 @@ fun TaxiSelectContent(
 
         Spacer(modifier = Modifier.height(15.dp))
 
-        Row {
+        Row(
+            verticalAlignment = Alignment.CenterVertically
+        ) {
             Text(
                 text = "예상 요금",
                 style = KakaotaxiTheme.typography.body.kakaoR14,
