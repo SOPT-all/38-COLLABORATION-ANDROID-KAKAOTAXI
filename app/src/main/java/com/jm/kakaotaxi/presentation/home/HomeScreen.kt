@@ -37,7 +37,6 @@ fun HomeRoute(
     HomeScreen(
         quickPlaces = uiState.myPlaces,
         favoriteServices = uiState.favoritePlaces,
-        onSearchBarClick = viewModel::onSearchBarClick,
         onStarClick = viewModel::onStarClick,
         onServiceClick = navigateToSearch,
         modifier = modifier
@@ -48,7 +47,6 @@ fun HomeRoute(
 private fun HomeScreen(
     quickPlaces: ImmutableList<QuickPlaceModel>,
     favoriteServices: ImmutableList<FavoriteServiceModel>,
-    onSearchBarClick: () -> Unit,
     onStarClick: (Int) -> Unit,
     onServiceClick: () -> Unit,
     modifier: Modifier = Modifier
@@ -65,7 +63,7 @@ private fun HomeScreen(
             ){
                 KakaoTaxiSearchBar(
                     type = SearchBarType.HOME,
-                    onSearchBarClick = onSearchBarClick
+                    onSearchBarClick = {}
                 )
 
                 Spacer(modifier = Modifier.height(22.dp))

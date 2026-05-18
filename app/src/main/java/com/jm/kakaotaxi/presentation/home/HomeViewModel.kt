@@ -78,10 +78,6 @@ class HomeViewModel : ViewModel() {
         }
     }
 
-    fun onSearchBarClick(){
-        // 검색바 누르면 어케 될까~
-    }
-
     fun onStarClick(id: Int){
         val updateList = _uiState.value.favoritePlaces.map { service ->
             if (service.id == id)
