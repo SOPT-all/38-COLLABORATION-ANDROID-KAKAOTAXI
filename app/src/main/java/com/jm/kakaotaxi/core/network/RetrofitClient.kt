@@ -2,6 +2,8 @@ package com.jm.kakaotaxi.core.network
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.jm.kakaotaxi.BuildConfig
+import com.jm.kakaotaxi.data.remote.service.PlaceService
+import com.jm.kakaotaxi.data.remote.service.TaxiCallService
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
@@ -21,16 +23,18 @@ object RetrofitClient {
         }
     }
 
-    private fun okHttpClient(interceptor: TokenInterceptor): OkHttpClient
-            = OkHttpClient.Builder().run {
-        addInterceptor(interceptor)
-        addInterceptor(loggingInterceptor)
-        build()
-    }
+    private fun okHttpClient(): OkHttpClient =
+        OkHttpClient.Builder()
+            .addInterceptor(TokenInterceptor())
+            .addInterceptor(loggingInterceptor)
+            .build()
 
     private val retrofit: Retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
-        .client(okHttpClient(TokenInterceptor()))
+        .client(okHttpClient())
         .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
         .build()
+
+    val taxiCallService: TaxiCallService = retrofit.create(TaxiCallService::class.java)
+    val placeService: PlaceService = retrofit.create(PlaceService::class.java)
 }
