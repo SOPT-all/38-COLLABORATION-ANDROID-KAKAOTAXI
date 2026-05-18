@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.VerticalDivider
@@ -34,7 +35,7 @@ fun NoticeSection(
             color = KakaotaxiTheme.colors.black
         )
 
-        Spacer(modifier = Modifier.weight(1f))
+        Spacer(modifier = Modifier.width(10.dp))
 
         VerticalDivider(
             modifier = Modifier
@@ -43,7 +44,7 @@ fun NoticeSection(
             color = KakaotaxiTheme.colors.backgroundGray
         )
 
-        Spacer(modifier = Modifier.weight(1f))
+        Spacer(modifier = Modifier.width(10.dp))
 
         Text(
             text = "[이벤트] 카카오 T 멤버스 5월 쿠폰 이벤트!",

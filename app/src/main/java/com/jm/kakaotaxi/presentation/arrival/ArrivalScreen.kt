@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
@@ -78,7 +79,9 @@ private fun ArrivalScreen(
         Icon(
             imageVector = ImageVector.vectorResource(R.drawable.ic_arrivescreen_gps),
             contentDescription = null,
-            modifier = Modifier.padding(top = 191.dp),
+            modifier = Modifier
+                .align(Alignment.TopEnd)
+                .padding(top = 191.dp, end = 16.dp),
             tint = Color.Unspecified
         )
 

@@ -75,7 +75,7 @@ fun FavoriteSection(
             text = "전체 서비스 보기",
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(end = 24.dp),
+                .padding(bottom = 24.dp),
             color = KakaotaxiTheme.colors.textSecondary,
             textAlign = TextAlign.Center,
             style = KakaotaxiTheme.typography.body.kakaoB16
