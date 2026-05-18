@@ -1,5 +1,6 @@
 package com.jm.kakaotaxi.presentation.arrival
 
+import android.R.attr.top
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -11,6 +12,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -34,6 +37,7 @@ import com.jm.kakaotaxi.core.designsystem.component.ButtonItem
 import com.jm.kakaotaxi.core.designsystem.component.ButtonStyle
 import com.jm.kakaotaxi.core.designsystem.component.KakaoTaxiBottomSheet
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
+import com.jm.kakaotaxi.core.extensions.customShadow
 import com.jm.kakaotaxi.presentation.arrival.component.ArriveItem
 
 @Composable
@@ -78,7 +82,15 @@ private fun ArrivalScreen(
         Icon(
             imageVector = ImageVector.vectorResource(R.drawable.ic_arrivescreen_gps),
             contentDescription = null,
-            modifier = Modifier.padding(top = 191.dp),
+            modifier = Modifier
+                .align(Alignment.TopEnd)
+                .customShadow(
+                    shape = CircleShape,
+                    color = Color(0x0D000000),
+                    blur = 4.dp,
+                    offsetX = 4.dp,
+                )
+                .padding(top = 191.dp, end = 16.dp),
             tint = Color.Unspecified
         )
 
@@ -101,6 +113,12 @@ private fun ArrivalScreen(
                         tint = Color.Unspecified,
                         modifier = Modifier
                             .align(Alignment.BottomEnd)
+                            .customShadow(
+                                shape = CircleShape,
+                                color = Color(0x0D000000),
+                                blur = 4.dp,
+                                offsetX = 4.dp,
+                            )
                             .padding(end = 15.dp, bottom = 13.dp)
                     )
                 }
