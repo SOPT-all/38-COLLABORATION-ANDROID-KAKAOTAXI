@@ -6,6 +6,12 @@ import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 
 interface CallContract {
+    data class State(
+        val taxiInfo: ImmutableList<TaxiInfoModel> = TaxiInfoList,
+        val selectedTaxi: TaxiInfoModel = TaxiInfoList.first(),
+        val bottomSheetStep: Int = 0
+    )
+
     companion object {
         val TaxiInfoList = persistentListOf(
             TaxiInfoModel(
@@ -38,10 +44,4 @@ interface CallContract {
             ),
         )
     }
-
-    data class State(
-        val taxiInfo: ImmutableList<TaxiInfoModel> = TaxiInfoList,
-        val selectedTaxi: TaxiInfoModel = TaxiInfoList.first(),
-        val bottomSheetStep: Int = 0
-    )
 }
