@@ -96,7 +96,7 @@ fun SearchAdBannerSection(
             Spacer(modifier = Modifier.width(7.dp))
 
             Icon(
-                imageVector = ImageVector.vectorResource(R.drawable.ic_info),
+                imageVector = ImageVector.vectorResource(R.drawable.ic_search_info),
                 contentDescription = null,
                 modifier = Modifier.size(16.dp),
                 tint = Color.Unspecified,
