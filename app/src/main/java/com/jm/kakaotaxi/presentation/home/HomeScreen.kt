@@ -101,6 +101,8 @@ private fun HomeScreen(
 @Composable
 private fun HomeScreenPreview() {
     KakaotaxiTheme {
-        HomeRoute()
+        HomeRoute(
+            navigateToSearch = {}
+        )
     }
 }
