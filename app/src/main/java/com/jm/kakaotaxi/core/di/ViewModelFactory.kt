@@ -2,6 +2,9 @@ package com.jm.kakaotaxi.core.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.jm.kakaotaxi.core.network.RetrofitClient
+import com.jm.kakaotaxi.data.remote.datasource.impl.QuickPlaceRemoteDatasourceImpl
+import com.jm.kakaotaxi.data.repository.impl.QuickPlaceRepositoryImpl
 import com.jm.kakaotaxi.presentation.arrival.ArrivalViewModel
 import com.jm.kakaotaxi.presentation.call.CallViewModel
 import com.jm.kakaotaxi.presentation.home.HomeViewModel
@@ -12,7 +15,11 @@ import kotlin.jvm.java
 class ViewModelFactory : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(HomeViewModel::class.java)) {
-            return HomeViewModel() as T
+            return HomeViewModel(
+                QuickPlaceRepositoryImpl(
+                    QuickPlaceRemoteDatasourceImpl(RetrofitClient.placeService)
+                )
+            ) as T
         } else if (modelClass.isAssignableFrom(SearchViewModel::class.java)) {
             return SearchViewModel() as T
         } else if (modelClass.isAssignableFrom(CallViewModel::class.java)) {
