@@ -2,7 +2,6 @@ package com.jm.kakaotaxi.presentation.home
 
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -20,8 +19,9 @@ import com.jm.kakaotaxi.core.designsystem.component.KakaoTaxiSearchBar
 import com.jm.kakaotaxi.core.designsystem.component.quickplace.QuickPlaceList
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 import com.jm.kakaotaxi.core.designsystem.type.SearchBarType
-import com.jm.kakaotaxi.data.model.home.FavoriteServiceModel
+import com.jm.kakaotaxi.core.di.ViewModelFactory
 import com.jm.kakaotaxi.data.model.QuickPlaceModel
+import com.jm.kakaotaxi.data.model.home.FavoriteServiceModel
 import com.jm.kakaotaxi.presentation.home.component.EventNoticeSection
 import com.jm.kakaotaxi.presentation.home.component.FavoriteSection
 import kotlinx.collections.immutable.ImmutableList
@@ -30,12 +30,12 @@ import kotlinx.collections.immutable.ImmutableList
 fun HomeRoute(
     navigateToSearch: () -> Unit,
     modifier: Modifier = Modifier,
-    viewModel: HomeViewModel = viewModel(),
+    viewModel: HomeViewModel = viewModel(factory = ViewModelFactory()),
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     HomeScreen(
-        quickPlaces = uiState.myPlaces,
+        quickPlaces = uiState.quickPlaces,
         favoriteServices = uiState.favoritePlaces,
         onStarClick = viewModel::onStarClick,
         onServiceClick = navigateToSearch,
@@ -52,42 +52,44 @@ private fun HomeScreen(
     modifier: Modifier = Modifier
 ) {
     LazyColumn(
-        modifier = modifier
-            .background(KakaotaxiTheme.colors.white)
-    ){
+        modifier = modifier.background(KakaotaxiTheme.colors.white)
+    ) {
         item {
-            Column(
+            KakaoTaxiSearchBar(
+                type = SearchBarType.HOME,
+                onSearchBarClick = {},
                 modifier = Modifier
                     .padding(horizontal = 24.dp)
                     .padding(top = 25.dp)
-            ){
-                KakaoTaxiSearchBar(
-                    type = SearchBarType.HOME,
-                    onSearchBarClick = {}
-                )
-
-                Spacer(modifier = Modifier.height(22.dp))
-
-                QuickPlaceList(places = quickPlaces)
-
-                FavoriteSection(
-                    services = favoriteServices,
-                    onStarClick = onStarClick,
-                    onServiceClick = onServiceClick
-                )
-            }
+            )
         }
 
         item{
+            Spacer(modifier = Modifier.height(22.dp))
+        }
+
+        item{
+            QuickPlaceList(places = quickPlaces)
+        }
+
+        item {
+            FavoriteSection(
+                services = favoriteServices,
+                onStarClick = onStarClick,
+                onServiceClick = onServiceClick,
+                modifier = Modifier.padding(horizontal = 24.dp)
+            )
+        }
+
+        item {
             HorizontalDivider(
-                modifier = Modifier
-                    .fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth(),
                 thickness = 10.dp,
                 color = KakaotaxiTheme.colors.backgroundGray2
             )
         }
 
-        item{
+        item {
             EventNoticeSection(
                 modifier = Modifier.fillMaxWidth()
             )
@@ -101,7 +103,6 @@ private fun HomeScreen(
 private fun HomeScreenPreview() {
     KakaotaxiTheme {
         HomeRoute(
-            navigateToSearch = {}
-        )
+            navigateToSearch = {})
     }
 }
