@@ -88,7 +88,6 @@ private fun SearchScreen(
 
         QuickPlaceList(
             places = myPlaces,
-            modifier = Modifier.padding(horizontal = 24.dp),
         )
 
         Spacer(modifier = Modifier.height(18.dp))
