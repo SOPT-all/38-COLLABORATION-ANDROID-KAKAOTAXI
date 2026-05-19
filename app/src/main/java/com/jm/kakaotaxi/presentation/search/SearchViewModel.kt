@@ -1,18 +1,25 @@
 package com.jm.kakaotaxi.presentation.search
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.jm.kakaotaxi.R
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 import com.jm.kakaotaxi.data.model.QuickPlaceModel
 import com.jm.kakaotaxi.data.model.search.SearchHistoryModel
 import com.jm.kakaotaxi.data.model.search.SearchRecentModel
+import com.jm.kakaotaxi.data.repository.api.PlaceRepository
 import com.jm.kakaotaxi.presentation.search.type.SearchHistoryType
 import kotlinx.collections.immutable.persistentListOf
+import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
+import timber.log.Timber
 
-class SearchViewModel : ViewModel() {
+class SearchViewModel(
+    private val placeRepository: PlaceRepository,
+) : ViewModel() {
 
     private val _uiState = MutableStateFlow(SearchContract.State())
     val uiState = _uiState.asStateFlow()
@@ -48,38 +55,18 @@ class SearchViewModel : ViewModel() {
         }
     }
 
-    private fun getRecentPlaces() {
-        _uiState.update {
-            // api 연동
-            it.copy(
-                recentPlaces = persistentListOf(
-                    SearchRecentModel(
-                        id = 1,
-                        place = "한사랑병원",
-                        time = "오늘 오전",
-                        location = "송파구"
-                    ),
-                    SearchRecentModel(
-                        id = 2,
-                        place = "강남구 보건소",
-                        time = "오늘 오후",
-                        location = "강남구"
-                    ),
-                    SearchRecentModel(
-                        id = 3,
-                        place = "성동복지관",
-                        time = "어제",
-                        location = "성동구"
-                    ),
-                    SearchRecentModel(
-                        id = 4,
-                        place = "탑마트 성수점",
-                        time = "어제",
-                        location = "성동구"
-                    ),
-                )
-            )
-        }
+    private fun getRecentPlaces() = viewModelScope.launch {
+        placeRepository.getRecentPlaces()
+            .onSuccess { recentPlaces ->
+                _uiState.update {
+                    it.copy(
+                        recentPlaces = recentPlaces.toImmutableList()
+                    )
+                }
+            }
+            .onFailure { error ->
+                Timber.tag("Search").e("$error")
+            }
     }
 
     private fun getHistoryItems() {
