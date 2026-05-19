@@ -3,10 +3,8 @@ package com.jm.kakaotaxi.presentation.search
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jm.kakaotaxi.R
-import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 import com.jm.kakaotaxi.data.model.QuickPlaceModel
 import com.jm.kakaotaxi.data.model.search.SearchHistoryModel
-import com.jm.kakaotaxi.data.model.search.SearchRecentModel
 import com.jm.kakaotaxi.data.repository.api.PlaceRepository
 import com.jm.kakaotaxi.presentation.search.type.SearchHistoryType
 import kotlinx.collections.immutable.persistentListOf
@@ -15,7 +13,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import timber.log.Timber
 
 class SearchViewModel(
     private val placeRepository: PlaceRepository,
@@ -56,16 +53,23 @@ class SearchViewModel(
     }
 
     private fun getRecentPlaces() = viewModelScope.launch {
+        _uiState.update { it.copy(recentPlacesUiState = RecentPlacesUiState.Loading) }
+
         placeRepository.getRecentPlaces()
             .onSuccess { recentPlaces ->
                 _uiState.update {
                     it.copy(
-                        recentPlaces = recentPlaces.toImmutableList()
+                        recentPlaces = recentPlaces.toImmutableList(),
+                        recentPlacesUiState = RecentPlacesUiState.Success
                     )
                 }
             }
             .onFailure { error ->
-                Timber.tag("Search").e("$error")
+                _uiState.update {
+                    it.copy(
+                        recentPlacesUiState = RecentPlacesUiState.Failure(error.message ?: "Unknown Error"),
+                    )
+                }
             }
     }
 
