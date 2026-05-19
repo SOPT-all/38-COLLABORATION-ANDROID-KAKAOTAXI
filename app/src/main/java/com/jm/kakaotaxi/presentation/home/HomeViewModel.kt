@@ -1,48 +1,44 @@
 package com.jm.kakaotaxi.presentation.home
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.jm.kakaotaxi.R
 import com.jm.kakaotaxi.data.model.home.FavoriteServiceModel
 import com.jm.kakaotaxi.data.model.QuickPlaceModel
+import com.jm.kakaotaxi.data.repository.api.QuickPlaceRepository
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
+import timber.log.Timber
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel (
+    private val quickPlaceRepository: QuickPlaceRepository,
+    ): ViewModel() {
 
     private val _uiState = MutableStateFlow(HomeContract.State())
     val uiState = _uiState.asStateFlow()
 
     init {
-        getMyPlaces()
+        fetchQuickPlaces()
         getFavoritePlaces()
     }
 
-    private fun getMyPlaces() {
-        _uiState.update {
-            // api 연동
-            it.copy(
-                myPlaces = persistentListOf(
-                    QuickPlaceModel(
-                        id = 1,
-                        title = "집",
-                        icon = R.drawable.ic_home,
-                    ),
-                    QuickPlaceModel(
-                        id = 2,
-                        title = "한사랑병원",
-                        icon = R.drawable.ic_hospital,
-                    ),
-                    QuickPlaceModel(
-                        id = 3,
-                        title = "노인정",
-                        icon = R.drawable.ic_senior_home,
+    fun fetchQuickPlaces() = viewModelScope.launch {
+        quickPlaceRepository.getQuickPlace()
+            .onSuccess { quickPlaces ->
+                _uiState.update {
+                    it.copy(
+                        quickPlaces = quickPlaces.quickPlaceModel.toImmutableList()
                     )
-                )
-            )
-        }
+                }
+            }
+            .onFailure { error ->
+                Timber.d("즐겨찾는 장소 목록을 불러올 수 없습니다.")
+            }
     }
 
     private fun getFavoritePlaces() {
