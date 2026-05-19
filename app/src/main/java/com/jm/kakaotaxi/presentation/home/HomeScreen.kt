@@ -21,8 +21,8 @@ import com.jm.kakaotaxi.core.designsystem.component.quickplace.QuickPlaceList
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 import com.jm.kakaotaxi.core.designsystem.type.SearchBarType
 import com.jm.kakaotaxi.core.di.ViewModelFactory
-import com.jm.kakaotaxi.data.model.home.FavoriteServiceModel
 import com.jm.kakaotaxi.data.model.QuickPlaceModel
+import com.jm.kakaotaxi.data.model.home.FavoriteServiceModel
 import com.jm.kakaotaxi.presentation.home.component.EventNoticeSection
 import com.jm.kakaotaxi.presentation.home.component.FavoriteSection
 import kotlinx.collections.immutable.ImmutableList
@@ -31,7 +31,7 @@ import kotlinx.collections.immutable.ImmutableList
 fun HomeRoute(
     navigateToSearch: () -> Unit,
     modifier: Modifier = Modifier,
-    viewModel: HomeViewModel = viewModel(factory = ViewModelFactory())
+    viewModel: HomeViewModel = viewModel(factory = ViewModelFactory()),
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
@@ -53,19 +53,16 @@ private fun HomeScreen(
     modifier: Modifier = Modifier
 ) {
     LazyColumn(
-        modifier = modifier
-            .background(KakaotaxiTheme.colors.white)
-    ){
+        modifier = modifier.background(KakaotaxiTheme.colors.white)
+    ) {
         item {
             Column(
                 modifier = Modifier
                     .padding(horizontal = 24.dp)
                     .padding(top = 25.dp)
-            ){
+            ) {
                 KakaoTaxiSearchBar(
-                    type = SearchBarType.HOME,
-                    onSearchBarClick = {}
-                )
+                    type = SearchBarType.HOME, onSearchBarClick = {})
 
                 Spacer(modifier = Modifier.height(22.dp))
 
@@ -79,16 +76,15 @@ private fun HomeScreen(
             }
         }
 
-        item{
+        item {
             HorizontalDivider(
-                modifier = Modifier
-                    .fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth(),
                 thickness = 10.dp,
                 color = KakaotaxiTheme.colors.backgroundGray2
             )
         }
 
-        item{
+        item {
             EventNoticeSection(
                 modifier = Modifier.fillMaxWidth()
             )
@@ -102,7 +98,6 @@ private fun HomeScreen(
 private fun HomeScreenPreview() {
     KakaotaxiTheme {
         HomeRoute(
-            navigateToSearch = {}
-        )
+            navigateToSearch = {})
     }
 }

@@ -6,7 +6,7 @@ import com.jm.kakaotaxi.data.model.QuickPlaceListModel
 import com.jm.kakaotaxi.data.remote.datasource.api.QuickPlaceRemoteDatasource
 import com.jm.kakaotaxi.data.repository.api.QuickPlaceRepository
 
-class QuickPlaceRepositoryImpl (
+class QuickPlaceRepositoryImpl(
     private val quickPlaceRemoteDatasource: QuickPlaceRemoteDatasource
 ) : QuickPlaceRepository {
 

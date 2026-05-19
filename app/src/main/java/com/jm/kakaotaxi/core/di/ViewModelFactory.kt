@@ -9,7 +9,6 @@ import com.jm.kakaotaxi.presentation.arrival.ArrivalViewModel
 import com.jm.kakaotaxi.presentation.call.CallViewModel
 import com.jm.kakaotaxi.presentation.home.HomeViewModel
 import com.jm.kakaotaxi.presentation.search.SearchViewModel
-import kotlin.jvm.java
 
 @Suppress("UNCHECKED_CAST")
 class ViewModelFactory : ViewModelProvider.Factory {

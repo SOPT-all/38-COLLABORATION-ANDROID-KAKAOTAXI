@@ -13,9 +13,9 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
-class HomeViewModel (
+class HomeViewModel(
     private val quickPlaceRepository: QuickPlaceRepository,
-    ): ViewModel() {
+) : ViewModel() {
 
     private val _uiState = MutableStateFlow(HomeContract.State())
     val uiState = _uiState.asStateFlow()
@@ -34,7 +34,7 @@ class HomeViewModel (
                     )
                 }
             }
-            .onFailure { error ->
+            .onFailure {
                 Timber.d("즐겨찾는 장소 목록을 불러올 수 없습니다.")
             }
     }
@@ -72,13 +72,14 @@ class HomeViewModel (
         }
     }
 
-    fun onStarClick(id: Int){
+    fun onStarClick(id: Int) {
         val updateList = _uiState.value.favoritePlaces.map { service ->
             if (service.id == id)
                 service.copy(isStarClicked = !service.isStarClicked)
             else service
         }.toImmutableList()
         _uiState.update {
-            it.copy(favoritePlaces = updateList) }
+            it.copy(favoritePlaces = updateList)
+        }
     }
 }
