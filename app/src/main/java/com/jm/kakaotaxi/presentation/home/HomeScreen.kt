@@ -2,7 +2,6 @@ package com.jm.kakaotaxi.presentation.home
 
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -56,24 +55,30 @@ private fun HomeScreen(
         modifier = modifier.background(KakaotaxiTheme.colors.white)
     ) {
         item {
-            Column(
+            KakaoTaxiSearchBar(
+                type = SearchBarType.HOME,
+                onSearchBarClick = {},
                 modifier = Modifier
                     .padding(horizontal = 24.dp)
                     .padding(top = 25.dp)
-            ) {
-                KakaoTaxiSearchBar(
-                    type = SearchBarType.HOME, onSearchBarClick = {})
+            )
+        }
 
-                Spacer(modifier = Modifier.height(22.dp))
+        item{
+            Spacer(modifier = Modifier.height(22.dp))
+        }
 
-                QuickPlaceList(places = quickPlaces)
+        item{
+            QuickPlaceList(places = quickPlaces)
+        }
 
-                FavoriteSection(
-                    services = favoriteServices,
-                    onStarClick = onStarClick,
-                    onServiceClick = onServiceClick
-                )
-            }
+        item {
+            FavoriteSection(
+                services = favoriteServices,
+                onStarClick = onStarClick,
+                onServiceClick = onServiceClick,
+                modifier = Modifier.padding(horizontal = 24.dp)
+            )
         }
 
         item {

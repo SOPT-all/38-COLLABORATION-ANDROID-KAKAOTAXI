@@ -41,7 +41,7 @@ fun QuickPlaceList(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 10.dp, bottom = 6.dp),
-            contentPadding = PaddingValues(horizontal = 10.dp),
+            contentPadding = PaddingValues(horizontal = 34.dp),
             horizontalArrangement = Arrangement.spacedBy(22.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
