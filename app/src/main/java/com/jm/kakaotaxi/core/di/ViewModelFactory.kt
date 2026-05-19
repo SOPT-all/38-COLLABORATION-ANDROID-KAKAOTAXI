@@ -20,7 +20,7 @@ class ViewModelFactory : ViewModelProvider.Factory {
                 )
             ) as T
         } else if (modelClass.isAssignableFrom(SearchViewModel::class.java)) {
-            return SearchViewModel() as T
+            return SearchViewModel(PlaceRepositoryImpl(PlaceDataSourceImpl(RetrofitClient.placeService))) as T
         } else if (modelClass.isAssignableFrom(CallViewModel::class.java)) {
             return CallViewModel() as T
         } else if (modelClass.isAssignableFrom(ArrivalViewModel::class.java)) {

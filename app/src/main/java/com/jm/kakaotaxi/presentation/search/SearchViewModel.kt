@@ -1,18 +1,23 @@
 package com.jm.kakaotaxi.presentation.search
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.jm.kakaotaxi.R
-import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 import com.jm.kakaotaxi.data.model.QuickPlaceModel
 import com.jm.kakaotaxi.data.model.search.SearchHistoryModel
-import com.jm.kakaotaxi.data.model.search.SearchRecentModel
+import com.jm.kakaotaxi.data.repository.api.PlaceRepository
 import com.jm.kakaotaxi.presentation.search.type.SearchHistoryType
 import kotlinx.collections.immutable.persistentListOf
+import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
+import timber.log.Timber
 
-class SearchViewModel : ViewModel() {
+class SearchViewModel(
+    private val placeRepository: PlaceRepository,
+) : ViewModel() {
 
     private val _uiState = MutableStateFlow(SearchContract.State())
     val uiState = _uiState.asStateFlow()
@@ -23,63 +28,39 @@ class SearchViewModel : ViewModel() {
         getHistoryItems()
     }
 
-    private fun getMyPlaces() {
-        _uiState.update {
-            // api 연동
-            it.copy(
-                myPlaces = persistentListOf(
-                    QuickPlaceModel(
-                        id = 1,
-                        title = "집",
-                        icon = R.drawable.ic_home,
-                    ),
-                    QuickPlaceModel(
-                        id = 2,
-                        title = "한사랑병원",
-                        icon = R.drawable.ic_hospital,
-                    ),
-                    QuickPlaceModel(
-                        id = 3,
-                        title = "노인정",
-                        icon = R.drawable.ic_senior_home,
+    private fun getMyPlaces() = viewModelScope.launch {
+        placeRepository.getQuickPlaces()
+            .onSuccess { quickPlaces ->
+                _uiState.update {
+                    it.copy(
+                        myPlaces = quickPlaces.quickPlaceModel.toImmutableList()
                     )
-                )
-            )
-        }
+                }
+            }
+            .onFailure {
+                Timber.d("즐겨찾는 장소 목록을 불러올 수 없습니다.")
+            }
     }
 
-    private fun getRecentPlaces() {
-        _uiState.update {
-            // api 연동
-            it.copy(
-                recentPlaces = persistentListOf(
-                    SearchRecentModel(
-                        id = 1,
-                        place = "한사랑병원",
-                        time = "오늘 오전",
-                        location = "송파구"
-                    ),
-                    SearchRecentModel(
-                        id = 2,
-                        place = "강남구 보건소",
-                        time = "오늘 오후",
-                        location = "강남구"
-                    ),
-                    SearchRecentModel(
-                        id = 3,
-                        place = "성동복지관",
-                        time = "어제",
-                        location = "성동구"
-                    ),
-                    SearchRecentModel(
-                        id = 4,
-                        place = "탑마트 성수점",
-                        time = "어제",
-                        location = "성동구"
-                    ),
-                )
-            )
-        }
+    private fun getRecentPlaces() = viewModelScope.launch {
+        _uiState.update { it.copy(recentPlacesUiState = RecentPlacesUiState.Loading) }
+
+        placeRepository.getRecentPlaces()
+            .onSuccess { recentPlaces ->
+                _uiState.update {
+                    it.copy(
+                        recentPlaces = recentPlaces.toImmutableList(),
+                        recentPlacesUiState = RecentPlacesUiState.Success
+                    )
+                }
+            }
+            .onFailure { error ->
+                _uiState.update {
+                    it.copy(
+                        recentPlacesUiState = RecentPlacesUiState.Failure(error.message ?: "Unknown Error"),
+                    )
+                }
+            }
     }
 
     private fun getHistoryItems() {

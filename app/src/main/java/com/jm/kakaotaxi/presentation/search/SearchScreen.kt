@@ -3,12 +3,14 @@ package com.jm.kakaotaxi.presentation.search
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.HorizontalDivider
@@ -20,10 +22,12 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.jm.kakaotaxi.R
+import com.jm.kakaotaxi.core.designsystem.component.KakaoTaxiCircularProgressIndicator
 import com.jm.kakaotaxi.core.designsystem.component.KakaoTaxiSearchBar
 import com.jm.kakaotaxi.core.designsystem.component.quickplace.QuickPlaceList
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 import com.jm.kakaotaxi.core.designsystem.type.SearchBarType
+import com.jm.kakaotaxi.core.di.ViewModelFactory
 import com.jm.kakaotaxi.data.model.QuickPlaceModel
 import com.jm.kakaotaxi.data.model.search.SearchHistoryModel
 import com.jm.kakaotaxi.data.model.search.SearchRecentModel
@@ -39,11 +43,12 @@ import kotlinx.collections.immutable.persistentListOf
 fun SearchRoute(
     navigateToCall: () -> Unit,
     modifier: Modifier = Modifier,
-    viewModel: SearchViewModel = viewModel(),
+    viewModel: SearchViewModel = viewModel(factory = ViewModelFactory()),
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     SearchScreen(
+        recentPlacesUiState = uiState.recentPlacesUiState,
         myPlaces = uiState.myPlaces,
         recentPlaces = uiState.recentPlaces,
         historyItems = uiState.historyItems,
@@ -54,6 +59,7 @@ fun SearchRoute(
 
 @Composable
 private fun SearchScreen(
+    recentPlacesUiState: RecentPlacesUiState,
     myPlaces: ImmutableList<QuickPlaceModel>,
     recentPlaces: ImmutableList<SearchRecentModel>,
     historyItems: ImmutableList<SearchHistoryModel>,
@@ -82,7 +88,6 @@ private fun SearchScreen(
 
         QuickPlaceList(
             places = myPlaces,
-            modifier = Modifier.padding(horizontal = 24.dp),
         )
 
         Spacer(modifier = Modifier.height(18.dp))
@@ -95,26 +100,42 @@ private fun SearchScreen(
 
         Spacer(modifier = Modifier.height(18.dp))
 
-        Column(
-            verticalArrangement = Arrangement.spacedBy(8.dp),
-        ) {
-            recentPlaces.chunked(2).forEach { places ->
-                Row(
-                    modifier = Modifier.padding(horizontal = 24.dp),
-                    horizontalArrangement = Arrangement.spacedBy(9.dp),
+        when (recentPlacesUiState) {
+
+            RecentPlacesUiState.Loading -> {
+                KakaoTaxiCircularProgressIndicator(
+                    modifier = Modifier.fillMaxWidth()
+                )
+            }
+
+            RecentPlacesUiState.Success -> {
+                Column(
+                    verticalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
-                    places.forEach { place ->
-                        SearchRecentItem(
-                            place = place.place,
-                            time = place.time,
-                            location = place.location,
-                            onRecentItemClick = onRecentItemClick,
-                            modifier = Modifier.weight(1f)
-                        )
+                    recentPlaces.chunked(2).forEach { places ->
+                        Row(
+                            modifier = Modifier
+                                .padding(horizontal = 24.dp)
+                                .height(IntrinsicSize.Min),
+                            horizontalArrangement = Arrangement.spacedBy(9.dp),
+                        ) {
+                            places.forEach { place ->
+                                SearchRecentItem(
+                                    place = place.place,
+                                    time = place.time,
+                                    location = place.location,
+                                    onRecentItemClick = onRecentItemClick,
+                                    modifier = Modifier
+                                        .weight(1f)
+                                        .fillMaxHeight(),
+                                )
+                            }
+                        }
                     }
                 }
-
             }
+
+            else -> Unit
         }
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -168,6 +189,7 @@ private fun SearchScreen(
 private fun SearchScreenPreview() {
     KakaotaxiTheme {
         SearchScreen(
+            recentPlacesUiState = RecentPlacesUiState.Success,
             myPlaces = persistentListOf(
                 QuickPlaceModel(
                     id = 1,
@@ -200,7 +222,7 @@ private fun SearchScreenPreview() {
                 ),
                 SearchRecentModel(
                     id = 3,
-                    place = "성동복지관",
+                    place = "서울숲쌍용아파트 노인정",
                     time = "어제",
                     location = "성동구"
                 ),
