@@ -2,4 +2,21 @@
 <resources>
 
     <style name="Theme.Kakaotaxi" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <style name="Theme.Kakaotaxi.Splash" parent="Theme.SplashScreen">
+
+        <item name="windowSplashScreenBackground">
+            @color/background
+        </item>
+
+        <item name="windowSplashScreenAnimatedIcon">
+            @drawable/ic_kakao_taxi
+        </item>
+
+        <item name="postSplashScreenTheme">
+            @style/Theme.Kakaotaxi
+        </item>
+
+    </style>
+
 </resources>

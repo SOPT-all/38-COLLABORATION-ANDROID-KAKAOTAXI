@@ -17,7 +17,7 @@
             android:name=".presentation.main.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Kakaotaxi">
+            android:theme="@style/Theme.Kakaotaxi.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

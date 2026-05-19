@@ -5,6 +5,7 @@ agp = "9.0.1"
 # AndroidX
 coreKtx = "1.18.0"
 lifecycleRuntimeKtx = "2.10.0"
+splashScreen = "1.0.1"
 
 # Compose
 activityCompose = "1.13.0"
@@ -39,6 +40,7 @@ timber = "5.0.1"
 # AndroidX
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashScreen" }
 
 # Compose
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
@@ -83,6 +85,7 @@ androidx-core = [
     "androidx-core-ktx",
     "androidx-lifecycle-runtime-ktx",
     "androidx-compose-material3",
+    "androidx-core-splashscreen",
 ]
 
 compose = [
