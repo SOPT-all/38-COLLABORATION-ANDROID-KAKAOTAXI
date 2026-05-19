@@ -13,6 +13,6 @@ class PlaceRepositoryImpl(
     override suspend fun getQuickPlaces(): Result<QuickPlaceListModel> =
         suspendRunCatching {
             placeDataSource.getQuickPlaces().data
-                ?.toQuickPlaceListModel() ?: QuickPlaceListModel(emptyList())
+                ?.toQuickPlaceListModel() ?: throw IllegalArgumentException("response data is null")
         }
 }
