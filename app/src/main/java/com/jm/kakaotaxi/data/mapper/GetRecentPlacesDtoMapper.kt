@@ -7,5 +7,5 @@ fun GetRecentPlacesDto.toSearchRecentModel() = SearchRecentModel(
     id = this.id,
     place = this.name,
     time = this.lastVisitedAt,
-    location = this.address,
+    location = this.address.split(" ")[1],
 )
