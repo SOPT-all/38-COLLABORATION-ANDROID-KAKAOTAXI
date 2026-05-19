@@ -13,6 +13,6 @@ class PlaceRepositoryImpl(
     override suspend fun getRecentPlaces(): Result<List<SearchRecentModel>> =
         suspendRunCatching {
             placeDataSource.getRecentPlaces().data?.map { it.toSearchRecentModel() }
-                ?: throw IllegalArgumentException("response data is null")
+                ?: throw IllegalStateException("response data is null")
         }
 }
