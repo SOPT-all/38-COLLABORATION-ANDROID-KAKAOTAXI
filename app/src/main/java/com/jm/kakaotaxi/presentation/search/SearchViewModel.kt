@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 class SearchViewModel(
     private val placeRepository: PlaceRepository,
@@ -27,29 +28,18 @@ class SearchViewModel(
         getHistoryItems()
     }
 
-    private fun getMyPlaces() {
-        _uiState.update {
-            // api 연동
-            it.copy(
-                myPlaces = persistentListOf(
-                    QuickPlaceModel(
-                        id = 1,
-                        title = "집",
-                        icon = R.drawable.ic_home,
-                    ),
-                    QuickPlaceModel(
-                        id = 2,
-                        title = "한사랑병원",
-                        icon = R.drawable.ic_hospital,
-                    ),
-                    QuickPlaceModel(
-                        id = 3,
-                        title = "노인정",
-                        icon = R.drawable.ic_senior_home,
+    private fun getMyPlaces() = viewModelScope.launch {
+        placeRepository.getQuickPlaces()
+            .onSuccess { quickPlaces ->
+                _uiState.update {
+                    it.copy(
+                        myPlaces = quickPlaces.quickPlaceModel.toImmutableList()
                     )
-                )
-            )
-        }
+                }
+            }
+            .onFailure {
+                Timber.d("즐겨찾는 장소 목록을 불러올 수 없습니다.")
+            }
     }
 
     private fun getRecentPlaces() = viewModelScope.launch {
