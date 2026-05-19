@@ -1,11 +1,9 @@
 package com.jm.kakaotaxi.presentation.home
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jm.kakaotaxi.R
 import com.jm.kakaotaxi.data.model.home.FavoriteServiceModel
-import com.jm.kakaotaxi.data.model.QuickPlaceModel
 import com.jm.kakaotaxi.data.repository.api.QuickPlaceRepository
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.toImmutableList

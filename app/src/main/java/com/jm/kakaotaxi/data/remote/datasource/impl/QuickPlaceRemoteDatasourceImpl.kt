@@ -6,8 +6,10 @@ import com.jm.kakaotaxi.data.remote.service.PlaceService
 
 class QuickPlaceRemoteDatasourceImpl (
     private val placeService: PlaceService,
-) : QuickPlaceRemoteDatasource {
+    ) : QuickPlaceRemoteDatasource {
+
     override suspend fun getQuickPlace(): BaseResponse<List<String>> {
         return placeService.getQuickPlace()
     }
+
 }
