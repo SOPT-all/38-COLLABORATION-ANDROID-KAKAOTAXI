@@ -1,7 +1,7 @@
 # 38-COLLABORATION-ANDROID-KAKAOTAXI
 38기 LET'S SPOT 합동 세미나 안드로이드 4조 카카오택시 🚕
 
----
+<br/>
 
 ## **✨ Contributors**
 
@@ -36,8 +36,6 @@
 <br/>
 
 ## **📜 Convention**
-
-### 📌 컨벤션 문서 보러가기
 
 - [**Github Convention**](https://www.notion.so/35783e5519b380679edae7891f2e0d1a?source=copy_link)
 - [**Naming Convention**](https://www.notion.so/35783e5519b380328ab2de33a2245c33?source=copy_link)
