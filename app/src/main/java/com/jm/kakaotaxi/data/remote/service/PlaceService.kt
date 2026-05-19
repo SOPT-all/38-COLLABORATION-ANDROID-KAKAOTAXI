@@ -1,5 +1,10 @@
 package com.jm.kakaotaxi.data.remote.service
 
-interface PlaceService {
+import com.jm.kakaotaxi.data.remote.dto.BaseResponse
+import com.jm.kakaotaxi.data.remote.dto.response.GetRecentPlacesDto
+import retrofit2.http.GET
 
+interface PlaceService {
+    @GET("/v1/places/recent")
+    suspend fun getRecentPlaces(): BaseResponse<List<GetRecentPlacesDto>>
 }
