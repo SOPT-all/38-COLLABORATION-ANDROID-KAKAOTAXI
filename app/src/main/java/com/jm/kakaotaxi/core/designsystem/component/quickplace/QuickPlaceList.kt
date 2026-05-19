@@ -69,7 +69,7 @@ fun QuickPlaceList(
 
         HorizontalDivider(
             modifier = Modifier
-                .fillMaxWidth(),
+                .padding(horizontal = 24.dp),
             thickness = 1.dp,
             color = KakaotaxiTheme.colors.backgroundGray
         )
