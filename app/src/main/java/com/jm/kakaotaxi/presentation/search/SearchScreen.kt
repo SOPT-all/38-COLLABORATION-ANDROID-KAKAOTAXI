@@ -24,6 +24,7 @@ import com.jm.kakaotaxi.core.designsystem.component.KakaoTaxiSearchBar
 import com.jm.kakaotaxi.core.designsystem.component.quickplace.QuickPlaceList
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 import com.jm.kakaotaxi.core.designsystem.type.SearchBarType
+import com.jm.kakaotaxi.core.di.ViewModelFactory
 import com.jm.kakaotaxi.data.model.QuickPlaceModel
 import com.jm.kakaotaxi.data.model.search.SearchHistoryModel
 import com.jm.kakaotaxi.data.model.search.SearchRecentModel
@@ -39,7 +40,7 @@ import kotlinx.collections.immutable.persistentListOf
 fun SearchRoute(
     navigateToCall: () -> Unit,
     modifier: Modifier = Modifier,
-    viewModel: SearchViewModel = viewModel(),
+    viewModel: SearchViewModel = viewModel(factory = ViewModelFactory()),
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
