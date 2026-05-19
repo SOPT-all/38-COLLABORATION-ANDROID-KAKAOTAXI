@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jm.kakaotaxi.R
 import com.jm.kakaotaxi.data.model.home.FavoriteServiceModel
-import com.jm.kakaotaxi.data.repository.api.QuickPlaceRepository
+import com.jm.kakaotaxi.data.repository.api.PlaceRepository
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 import timber.log.Timber
 
 class HomeViewModel(
-    private val quickPlaceRepository: QuickPlaceRepository,
+    private val placeRepository: PlaceRepository,
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(HomeContract.State())
@@ -26,7 +26,7 @@ class HomeViewModel(
     }
 
     fun fetchQuickPlaces() = viewModelScope.launch {
-        quickPlaceRepository.getQuickPlace()
+        placeRepository.getQuickPlaces()
             .onSuccess { quickPlaces ->
                 _uiState.update {
                     it.copy(

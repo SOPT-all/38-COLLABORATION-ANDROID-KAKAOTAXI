@@ -5,5 +5,5 @@ import retrofit2.http.GET
 
 interface PlaceService {
     @GET("/v1/places/favorite")
-    suspend fun getQuickPlace(): BaseResponse<List<String>>
+    suspend fun getQuickPlaces(): BaseResponse<List<String>>
 }
