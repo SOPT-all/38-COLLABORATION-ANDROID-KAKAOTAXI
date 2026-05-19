@@ -18,12 +18,12 @@ import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 @Composable
 fun EventNoticeSection(
     modifier: Modifier = Modifier
-){
+) {
     Column(
         modifier = modifier
             .padding(top = 34.dp, bottom = 14.dp)
             .padding(horizontal = 24.dp)
-    ){
+    ) {
         Text(
             text = "이벤트/새소식",
             color = KakaotaxiTheme.colors.textPrimary,
@@ -52,6 +52,6 @@ fun EventNoticeSection(
 
 @Preview(showBackground = true)
 @Composable
-private fun EventNoticeSectionPreview(){
+private fun EventNoticeSectionPreview() {
     EventNoticeSection()
 }

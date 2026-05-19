@@ -9,8 +9,13 @@ class PlaceDataSourceImpl (
     private val placeService: PlaceService,
 ) : PlaceDataSource {
 
+    override suspend fun getQuickPlaces(): BaseResponse<List<String>> {
+        return placeService.getQuickPlaces()
+    }
+
     override suspend fun getRecentPlaces(): BaseResponse<List<GetRecentPlacesResponseDto>> {
         return placeService.getRecentPlaces()
     }
 
 }
+

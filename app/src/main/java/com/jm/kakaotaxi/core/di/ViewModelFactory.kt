@@ -14,7 +14,11 @@ import com.jm.kakaotaxi.presentation.search.SearchViewModel
 class ViewModelFactory : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(HomeViewModel::class.java)) {
-            return HomeViewModel() as T
+            return HomeViewModel(
+                PlaceRepositoryImpl(
+                    PlaceDataSourceImpl(RetrofitClient.placeService)
+                )
+            ) as T
         } else if (modelClass.isAssignableFrom(SearchViewModel::class.java)) {
             return SearchViewModel(PlaceRepositoryImpl(PlaceDataSourceImpl(RetrofitClient.placeService))) as T
         } else if (modelClass.isAssignableFrom(CallViewModel::class.java)) {
