@@ -2,9 +2,9 @@ package com.jm.kakaotaxi.data.mapper
 
 import com.jm.kakaotaxi.core.util.DateFormatter
 import com.jm.kakaotaxi.data.model.search.SearchRecentModel
-import com.jm.kakaotaxi.data.remote.dto.response.GetRecentPlacesDto
+import com.jm.kakaotaxi.data.remote.dto.response.GetRecentPlacesResponseDto
 
-fun GetRecentPlacesDto.toSearchRecentModel() = SearchRecentModel(
+fun GetRecentPlacesResponseDto.toSearchRecentModel() = SearchRecentModel(
     id = this.id,
     place = this.name,
     time = DateFormatter.formatDate(this.lastVisitedAt),

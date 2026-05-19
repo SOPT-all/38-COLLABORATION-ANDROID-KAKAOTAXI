@@ -1,8 +1,8 @@
 package com.jm.kakaotaxi.data.remote.datasource.api
 
 import com.jm.kakaotaxi.data.remote.dto.BaseResponse
-import com.jm.kakaotaxi.data.remote.dto.response.GetRecentPlacesDto
+import com.jm.kakaotaxi.data.remote.dto.response.GetRecentPlacesResponseDto
 
 interface PlaceDataSource {
-    suspend fun getRecentPlaces(): BaseResponse<List<GetRecentPlacesDto>>
+    suspend fun getRecentPlaces(): BaseResponse<List<GetRecentPlacesResponseDto>>
 }
