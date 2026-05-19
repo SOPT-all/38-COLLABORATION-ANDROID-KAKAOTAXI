@@ -52,7 +52,7 @@ fun SearchRecentItem(
             color = KakaotaxiTheme.colors.textPrimary,
             style = KakaotaxiTheme.typography.body.kakaoB16,
             overflow = TextOverflow.Ellipsis,
-            maxLines = 1,
+            maxLines = 2,
         )
 
         Spacer(modifier = Modifier.height(3.dp))

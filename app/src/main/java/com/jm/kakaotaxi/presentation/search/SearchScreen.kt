@@ -3,8 +3,10 @@ package com.jm.kakaotaxi.presentation.search
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -113,7 +115,9 @@ private fun SearchScreen(
                 ) {
                     recentPlaces.chunked(2).forEach { places ->
                         Row(
-                            modifier = Modifier.padding(horizontal = 24.dp),
+                            modifier = Modifier
+                                .padding(horizontal = 24.dp)
+                                .height(IntrinsicSize.Min),
                             horizontalArrangement = Arrangement.spacedBy(9.dp),
                         ) {
                             places.forEach { place ->
@@ -122,7 +126,9 @@ private fun SearchScreen(
                                     time = place.time,
                                     location = place.location,
                                     onRecentItemClick = onRecentItemClick,
-                                    modifier = Modifier.weight(1f)
+                                    modifier = Modifier
+                                        .weight(1f)
+                                        .fillMaxHeight(),
                                 )
                             }
                         }
@@ -217,7 +223,7 @@ private fun SearchScreenPreview() {
                 ),
                 SearchRecentModel(
                     id = 3,
-                    place = "성동복지관",
+                    place = "서울숲쌍용아파트 노인정",
                     time = "어제",
                     location = "성동구"
                 ),
