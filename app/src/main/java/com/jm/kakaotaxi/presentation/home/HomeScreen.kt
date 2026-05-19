@@ -20,6 +20,7 @@ import com.jm.kakaotaxi.core.designsystem.component.KakaoTaxiSearchBar
 import com.jm.kakaotaxi.core.designsystem.component.quickplace.QuickPlaceList
 import com.jm.kakaotaxi.core.designsystem.theme.KakaotaxiTheme
 import com.jm.kakaotaxi.core.designsystem.type.SearchBarType
+import com.jm.kakaotaxi.core.di.ViewModelFactory
 import com.jm.kakaotaxi.data.model.home.FavoriteServiceModel
 import com.jm.kakaotaxi.data.model.QuickPlaceModel
 import com.jm.kakaotaxi.presentation.home.component.EventNoticeSection
@@ -30,12 +31,12 @@ import kotlinx.collections.immutable.ImmutableList
 fun HomeRoute(
     navigateToSearch: () -> Unit,
     modifier: Modifier = Modifier,
-    viewModel: HomeViewModel = viewModel(),
+    viewModel: HomeViewModel = viewModel(factory = ViewModelFactory())
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     HomeScreen(
-        quickPlaces = uiState.myPlaces,
+        quickPlaces = uiState.quickPlaces,
         favoriteServices = uiState.favoritePlaces,
         onStarClick = viewModel::onStarClick,
         onServiceClick = navigateToSearch,
